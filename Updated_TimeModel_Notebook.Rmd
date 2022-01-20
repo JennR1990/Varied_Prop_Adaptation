@@ -1,0 +1,15 @@
+---
+title: "Updated_Time_Model"
+output: html_notebook
+---
+
+I want to take our old two-rate model code and change it so that it takes into account a few different things.
+
+We think there is an attenuation parameter, so a value that reduces the amount of learning
+     Reach directions <- (learning algorithm) * AP
+
+
+
+```{r}
+
+```

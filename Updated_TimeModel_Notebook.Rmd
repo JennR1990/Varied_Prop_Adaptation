@@ -11,5 +11,10 @@ We think there is an attenuation parameter, so a value that reduces the amount o
 
 
 ```{r}
-
+#combine all reaches and localizations into 1 dataframe
+getallparticipants(3)
+getPassiveTaps(3)
+#get angles they tapped and reached to
+GetTapAngles(3)
+GetReachAngles(3)
 ```

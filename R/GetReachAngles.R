@@ -1,4 +1,4 @@
-GetTapAngles<- function(experiment) {
+GetReachAngles<- function(experiment) {
   setwd("E:/Jenn/Documents/PhD Experiment/Time Model Good Data") 
   if (experiment == 1){
     participants<- c(1:32)
@@ -28,27 +28,27 @@ GetTapAngles<- function(experiment) {
   
   for (participant in participants){
     
-    partiangles<-GetTapData(participant = participant, experiment = experiment)
+    partiangles<-GetReachData(participant = participant, experiment = experiment)
     print(participant)
     expangles[,sprintf('p%d',participant)] <- partiangles$reachdeviations
-
+    
   }
-  outputfilename<- sprintf('../../Varied_Prop_Adaptation/data/time_model%d_Tap_Angles.csv', experiment)
+  outputfilename<- sprintf('../../Varied_Prop_Adaptation/data/time_model%d_Reach_Angles.csv', experiment)
   
   write.csv(expangles, file = outputfilename,  row.names = F, quote = F)
 }
 
 
 
-GetTapData<- function(participant, experiment) {
+GetReachData<- function(participant, experiment) {
   
-  filenames <- GetTapFilenames(participant, experiment)
+  filenames <- GetReachFilenames(participant, experiment)
   
   ppangles <- data.frame()
   
   for (filename in filenames) {
     
-    reachNangles <- CalculateTapAngles(filename, experiment)
+    reachNangles <- CalculateReachAngles(filename, experiment)
     
     if (prod(dim(ppangles)) == 0) {
       ppangles <- reachNangles
@@ -61,7 +61,7 @@ GetTapData<- function(participant, experiment) {
   
 }
 
-GetTapFilenames<- function (ppn, expn) {
+GetReachFilenames<- function (ppn, expn) {
   
   if (expn == 1) {
     tasknumbers <- c(1:4)
@@ -146,10 +146,10 @@ GetTapFilenames<- function (ppn, expn) {
 
 
 
-LoadTapFile <- function(filename) {
+LoadReachFile <- function(filename) {
   df<-read.table(filename, header = TRUE)
-  colnames(df)<-c('task', 'block','tria', 'targetangle_deg', 'time','handx_cm', 'handy_cm', 'tapx_cm', 'tapy_cm', 'selected')
-  #colnames(df)<-c('participant','block','trial','targetangle_deg','rotation_deg', 'time_ms', 'cursorx_cm','cursory_cm',	'handx_cm',	'handy_cm',	'homex_cm', 'homey_cm',	'targetx_cm','targety_cm','step','trialselected', 'sampleselected', 'sampleinterpolated', "maxvelocity")
+  #colnames(df)<-c('task', 'block','tria', 'targetangle_deg', 'time','handx_cm', 'handy_cm', 'tapx_cm', 'tapy_cm', 'selected')
+  colnames(df)<-c('participant','block','trial','targetangle_deg','rotation_deg', 'time_ms', 'cursorx_cm','cursory_cm',	'handx_cm',	'handy_cm',	'homex_cm', 'homey_cm',	'targetx_cm','targety_cm','step','trialselected', 'sampleselected', 'sampleinterpolated', "maxvelocity")
   #colnames(df)<-c('participant','block','trial','targetangle_deg','rotation_deg', 'time_ms', 'cursorx_cm','cursory_cm',	'handx_cm',	'handy_cm',	'homex_cm', 'homey_cm',	'targetx_cm','targety_cm','step')
   # print(str(df))
   # df$cursory_cm <- df$cursory_cm +8.5
@@ -161,9 +161,9 @@ LoadTapFile <- function(filename) {
 }
 
 
-CalculateTapAngles<- function (filename, experiment) {
-
-  df<-LoadTapFile(filename = filename)
+CalculateReachAngles<- function (filename, experiment) {
+  
+  df<-LoadReachFile(filename = filename)
   blocknos <- unique(df$block)
   
   
@@ -171,16 +171,16 @@ CalculateTapAngles<- function (filename, experiment) {
     reachdeviations<- rep(NA, times= 48)
     for (i in 1:length(blocknos))
       reachdeviations[i]<- unique(df$targetangle_deg[df$block == blocknos[i]])
-  targetangles <- blocknos
-} else {
-  reachdeviations <- df$targetangle_deg
-  targetangles <- blocknos
-}  
-
+    targetangles <- blocknos
+  } else {
+    reachdeviations <- df$targetangle_deg
+    targetangles <- blocknos
+  }  
+  
   
   return(data.frame(reachdeviations,targetangles))
   
-
+  
 }
 
 

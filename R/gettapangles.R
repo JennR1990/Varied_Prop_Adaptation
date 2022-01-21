@@ -33,7 +33,7 @@ GetTapAngles<- function(experiment) {
     expangles[,sprintf('p%d',participant)] <- partiangles$reachdeviations
 
   }
-  outputfilename<- sprintf('../../Varied_Prop_Adaptation/data/time_model%d_Tap_Angles.csv', experiment)
+  outputfilename<- ('../../Varied_Prop_Adaptation/data/Tap_Angles.csv')
   
   write.csv(expangles, file = outputfilename,  row.names = F, quote = F)
 }

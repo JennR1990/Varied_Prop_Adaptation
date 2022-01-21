@@ -49,7 +49,7 @@ getallparticipants<- function(experiment) {
       expangles[,sprintf('p%d',participant)] <- baselinedangles$reaches[1:320]
     }
   }
-  outputfilename<- sprintf('../../Varied_Prop_Adaptation/data/time_model%d_Reaches.csv', experiment)
+  outputfilename<- ('../../Varied_Prop_Adaptation/data/Reaches.csv')
   
   write.csv(expangles, file = outputfilename,  row.names = F, quote = F)
 }

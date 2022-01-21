@@ -26,7 +26,7 @@ getPassiveTaps<- function(experiment) {
     baselinedangles <- baselineTapbyaligned(df = partiangles, experiment = experiment, dist = distortion)
     expangles[,sprintf('p%d',participant)] <- baselinedangles$Taps
   }
-  outputfilename<- sprintf('../../Varied_Prop_Adaptation/data/time_model%d_Localizations.csv', experiment)
+  outputfilename<- ('../../Varied_Prop_Adaptation/data/Localizations.csv')
   
   write.csv(expangles, file = outputfilename,  row.names = F, quote = F)
 }

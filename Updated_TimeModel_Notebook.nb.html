@@ -1753,7 +1753,7 @@ summary {
 <p>We think there is an attenuation parameter, so a value that reduces the amount of learning Reach directions &lt;- (learning algorithm) * AP</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvbWJpbmUgYWxsIHJlYWNoZXMgYW5kIGxvY2FsaXphdGlvbnMgaW50byAxIGRhdGFmcmFtZVxuZ2V0YWxscGFydGljaXBhbnRzKDMpXG5nZXRQYXNzaXZlVGFwcygzKVxuI2dldCBhbmdsZXMgdGhleSB0YXBwZWQgYW5kIHJlYWNoZWQgdG9cbkdldFRhcEFuZ2xlcygzKVxuR2V0UmVhY2hBbmdsZXMoMylcbiMgdGhlc2UgY29kZXMgd2lsbCBiYXNlbGluZSB0aGUgZGF0YSBieSB0YXJnZXQvcGVyIHBhcnRpY2lwYW50XG5cbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvbWJpbmUgYWxsIHJlYWNoZXMgYW5kIGxvY2FsaXphdGlvbnMgaW50byAxIGRhdGFmcmFtZVxuZ2V0YWxscGFydGljaXBhbnRzKDMpXG5nZXRQYXNzaXZlVGFwcygzKVxuI2dldCBhbmdsZXMgdGhleSB0YXBwZWQgYW5kIHJlYWNoZWQgdG9cbkdldFRhcEFuZ2xlcygzKVxuR2V0UmVhY2hBbmdsZXMoMylcbiMgdGhlc2UgY29kZXMgd2lsbCBiYXNlbGluZSB0aGUgZGF0YSBieSB0YXJnZXQvcGVyIHBhcnRpY2lwYW50XG5CYXNlbGluZVJlYWNoZXMoKVxuQmFzZWxpbmVUYXBzKClcbmBgYCJ9 -->
 <pre class="r"><code>#combine all reaches and localizations into 1 dataframe
 getallparticipants(3)
 getPassiveTaps(3)
@@ -1761,11 +1761,23 @@ getPassiveTaps(3)
 GetTapAngles(3)
 GetReachAngles(3)
 # these codes will baseline the data by target/per participant
-</code></pre>
+BaselineReaches()
+BaselineTaps()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We noticed that people don’t fully learn the rotation, and when we varied the rotation size and direction every 12 trials, we noticed a slight decrease in the amount of compensation over time.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUGxvdGxlYXJuaW5nb3ZlcnRpbWVieWJsb2NrKClcbmBgYCJ9 -->
+<pre class="r"><code>Plotlearningovertimebyblock()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>It would appear that prolonged exposure to changing rotations is decreasing the shift in estimates of hand location and reach deviations. It would make sense then, to add a parameter to a model that changes based on certain characteristics of the training. It could be that prolonged training, when the rotation is changing constatnly, makes adaptation become more explicit, so the CNS becomes resistant to adapting. The two important things to me are: 1. Direction of rotation 2. Size of Rotation</p>
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlVwZGF0ZWRfVGltZV9Nb2RlbCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCkkgd2FudCB0byB0YWtlIG91ciBvbGQgdHdvLXJhdGUgbW9kZWwgY29kZSBhbmQgY2hhbmdlIGl0IHNvIHRoYXQgaXQgdGFrZXMgaW50byBhY2NvdW50IGEgZmV3IGRpZmZlcmVudCB0aGluZ3MuDQoNCldlIHRoaW5rIHRoZXJlIGlzIGFuIGF0dGVudWF0aW9uIHBhcmFtZXRlciwgc28gYSB2YWx1ZSB0aGF0IHJlZHVjZXMgdGhlIGFtb3VudCBvZiBsZWFybmluZw0KICAgICBSZWFjaCBkaXJlY3Rpb25zIDwtIChsZWFybmluZyBhbGdvcml0aG0pICogQVANCg0KDQoNCmBgYHtyfQ0KI2NvbWJpbmUgYWxsIHJlYWNoZXMgYW5kIGxvY2FsaXphdGlvbnMgaW50byAxIGRhdGFmcmFtZQ0KZ2V0YWxscGFydGljaXBhbnRzKDMpDQpnZXRQYXNzaXZlVGFwcygzKQ0KI2dldCBhbmdsZXMgdGhleSB0YXBwZWQgYW5kIHJlYWNoZWQgdG8NCkdldFRhcEFuZ2xlcygzKQ0KR2V0UmVhY2hBbmdsZXMoMykNCiMgdGhlc2UgY29kZXMgd2lsbCBiYXNlbGluZSB0aGUgZGF0YSBieSB0YXJnZXQvcGVyIHBhcnRpY2lwYW50DQoNCmBgYA0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlVwZGF0ZWRfVGltZV9Nb2RlbCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCkkgd2FudCB0byB0YWtlIG91ciBvbGQgdHdvLXJhdGUgbW9kZWwgY29kZSBhbmQgY2hhbmdlIGl0IHNvIHRoYXQgaXQgdGFrZXMgaW50byBhY2NvdW50IGEgZmV3IGRpZmZlcmVudCB0aGluZ3MuDQoNCldlIHRoaW5rIHRoZXJlIGlzIGFuIGF0dGVudWF0aW9uIHBhcmFtZXRlciwgc28gYSB2YWx1ZSB0aGF0IHJlZHVjZXMgdGhlIGFtb3VudCBvZiBsZWFybmluZw0KICAgICBSZWFjaCBkaXJlY3Rpb25zIDwtIChsZWFybmluZyBhbGdvcml0aG0pICogQVANCg0KDQoNCmBgYHtyfQ0KI2NvbWJpbmUgYWxsIHJlYWNoZXMgYW5kIGxvY2FsaXphdGlvbnMgaW50byAxIGRhdGFmcmFtZQ0KZ2V0YWxscGFydGljaXBhbnRzKDMpDQpnZXRQYXNzaXZlVGFwcygzKQ0KI2dldCBhbmdsZXMgdGhleSB0YXBwZWQgYW5kIHJlYWNoZWQgdG8NCkdldFRhcEFuZ2xlcygzKQ0KR2V0UmVhY2hBbmdsZXMoMykNCiMgdGhlc2UgY29kZXMgd2lsbCBiYXNlbGluZSB0aGUgZGF0YSBieSB0YXJnZXQvcGVyIHBhcnRpY2lwYW50DQpCYXNlbGluZVJlYWNoZXMoKQ0KQmFzZWxpbmVUYXBzKCkNCmBgYA0KDQoNCldlIG5vdGljZWQgdGhhdCBwZW9wbGUgZG9uJ3QgZnVsbHkgbGVhcm4gdGhlIHJvdGF0aW9uLCBhbmQgd2hlbiB3ZSB2YXJpZWQgdGhlIHJvdGF0aW9uIHNpemUgYW5kIGRpcmVjdGlvbiBldmVyeSAxMiB0cmlhbHMsIHdlIG5vdGljZWQgYSBzbGlnaHQgZGVjcmVhc2UgaW4gdGhlIGFtb3VudCBvZiBjb21wZW5zYXRpb24gb3ZlciB0aW1lLiANCg0KYGBge3J9DQpQbG90bGVhcm5pbmdvdmVydGltZWJ5YmxvY2soKQ0KYGBgDQoNCkl0IHdvdWxkIGFwcGVhciB0aGF0IHByb2xvbmdlZCBleHBvc3VyZSB0byBjaGFuZ2luZyByb3RhdGlvbnMgaXMgZGVjcmVhc2luZyB0aGUgc2hpZnQgaW4gZXN0aW1hdGVzIG9mIGhhbmQgbG9jYXRpb24gYW5kIHJlYWNoIGRldmlhdGlvbnMuICBJdCB3b3VsZCBtYWtlIHNlbnNlIHRoZW4sIHRvIGFkZCBhIHBhcmFtZXRlciB0byBhIG1vZGVsIHRoYXQgY2hhbmdlcyBiYXNlZCBvbiBjZXJ0YWluIGNoYXJhY3RlcmlzdGljcyBvZiB0aGUgdHJhaW5pbmcuIEl0IGNvdWxkIGJlIHRoYXQgcHJvbG9uZ2VkIHRyYWluaW5nLCB3aGVuIHRoZSByb3RhdGlvbiBpcyBjaGFuZ2luZyBjb25zdGF0bmx5LCBtYWtlcyBhZGFwdGF0aW9uIGJlY29tZSBtb3JlIGV4cGxpY2l0LCBzbyB0aGUgQ05TIGJlY29tZXMgcmVzaXN0YW50IHRvIGFkYXB0aW5nLiBUaGUgdHdvIGltcG9ydGFudCB0aGluZ3MgdG8gbWUgYXJlOg0KMS4gRGlyZWN0aW9uIG9mIHJvdGF0aW9uDQoyLiBTaXplIG9mIFJvdGF0aW9uDQoNCg0K</div>
 
 
 

@@ -18,5 +18,19 @@ getPassiveTaps(3)
 GetTapAngles(3)
 GetReachAngles(3)
 # these codes will baseline the data by target/per participant
-
+BaselineReaches()
+BaselineTaps()
 ```
+
+
+We noticed that people don't fully learn the rotation, and when we varied the rotation size and direction every 12 trials, we noticed a slight decrease in the amount of compensation over time. 
+
+```{r}
+Plotlearningovertimebyblock()
+```
+
+It would appear that prolonged exposure to changing rotations is decreasing the shift in estimates of hand location and reach deviations.  It would make sense then, to add a parameter to a model that changes based on certain characteristics of the training. It could be that prolonged training, when the rotation is changing constatnly, makes adaptation become more explicit, so the CNS becomes resistant to adapting. The two important things to me are:
+1. Direction of rotation
+2. Size of Rotation
+
+

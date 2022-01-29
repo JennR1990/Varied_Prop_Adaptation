@@ -21,16 +21,64 @@ GetReachAngles(3)
 BaselineReaches()
 BaselineTaps()
 ```
+Lets first look at the reach and localization data averaged across participants across all trials
+
+```{r}
+plotvariation()
+```
 
 
 We noticed that people don't fully learn the rotation, and when we varied the rotation size and direction every 12 trials, we noticed a slight decrease in the amount of compensation over time. 
 
 ```{r}
 Plotlearningovertimebyblock()
+
 ```
 
-It would appear that prolonged exposure to changing rotations is decreasing the shift in estimates of hand location and reach deviations.  It would make sense then, to add a parameter to a model that changes based on certain characteristics of the training. It could be that prolonged training, when the rotation is changing constatnly, makes adaptation become more explicit, so the CNS becomes resistant to adapting. The two important things to me are:
-1. Direction of rotation
+It would appear that prolonged exposure to changing rotations is decreasing the shift in estimates of hand location and reach deviations.  It would make sense then, to add a parameter to a model that changes based on certain characteristics of the training. It could be that prolonged training, when the rotation is changing constantly, makes adaptation become more explicit, so the CNS becomes resistant to adapting. The two important things to me are:
+1. Number of changes
 2. Size of Rotation
+3. Propriocepitve shift on any given trial
+
+Another question to ask is: what is more important?
+1. Reaching the highest asymptote 
+2. Reaching a local minimum as fast as possible
 
 
+how does the proprioceptive shift/variance on a given trial play into it. 
+
+Run decay model on each block of the rotation. see if asymptote and learning rate decrease over time. 
+
+Do a proportion, so the total number of changes/change.  
+
+Mathematically define number 1 and 2. 
+
+look at 1-rate models like Jonathan
+
+
+```{r}
+reaches<- getreachesformodel(variation_reaches)
+reach_par <-
+    fitTwoRateReachModel(
+      reaches = reaches$meanreaches,
+      schedule = reaches$distortion,
+      oneTwoRates = 2,
+      grid = "restricted",
+      checkStability = TRUE
+    )
+ reach_model <-
+    twoRateReachModel(par = reach_par, schedule = reaches$distortion)
+ write.csv(reach_model$slow,file = "data/slowprocess.csv", quote = FALSE, row.names = FALSE)
+```
+ 
+ Now that we have the reaches, localization and slow process for the data.  We want to look at each rotation chunk as it's own learning period.  We somehow need to run those three lines of code below for each of the chunks. 
+ 
+ 
+ 
+ 
+ 
+```{r}
+bootstrapSemiAsymptoticDecayModels()
+getAsymptoticDecayParameterCIs()
+getSaturationTrials()
+```

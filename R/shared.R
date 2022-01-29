@@ -274,4 +274,34 @@ removeReachOutliers <- function(data) {
 }
 
 
+trialCI <- function(data) {
+  AllCIs <- data.frame()
+  for (trial in 1:nrow(data)) {
+    y <- unlist(data[trial, 2:length(data)])
+    CItrial <- t.interval(unlist(y))
+    if (prod(dim(AllCIs)) == 0) {
+      AllCIs <- CItrial
+    } else {
+      AllCIs <- rbind(AllCIs, CItrial)
+    }
+  }
+  return(AllCIs)
+}
+
+
+t.interval = function(data,
+                      variance = var(data, na.rm = TRUE),
+                      conf.level = 0.95) {
+  z = qt((1 - conf.level) / 2,
+         df = length(data) - 1,
+         lower.tail = FALSE)
+  
+  xbar = mean(data, na.rm = TRUE)
+  sdx = sqrt(variance / length(data))
+  
+  return(c(xbar - z * sdx, xbar + z * sdx))
+  
+}
+
+
 

@@ -1766,18 +1766,54 @@ BaselineTaps()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>We noticed that people don’t fully learn the rotation, and when we varied the rotation size and direction every 12 trials, we noticed a slight decrease in the amount of compensation over time.</p>
+<p>Lets first look at the reach and localization data averaged across participants across all trials</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUGxvdGxlYXJuaW5nb3ZlcnRpbWVieWJsb2NrKClcbmBgYCJ9 -->
-<pre class="r"><code>Plotlearningovertimebyblock()</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdHZhcmlhdGlvbigpXG5gYGAifQ== -->
+<pre class="r"><code>plotvariation()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>It would appear that prolonged exposure to changing rotations is decreasing the shift in estimates of hand location and reach deviations. It would make sense then, to add a parameter to a model that changes based on certain characteristics of the training. It could be that prolonged training, when the rotation is changing constatnly, makes adaptation become more explicit, so the CNS becomes resistant to adapting. The two important things to me are: 1. Direction of rotation 2. Size of Rotation</p>
+<p>We noticed that people don’t fully learn the rotation, and when we varied the rotation size and direction every 12 trials, we noticed a slight decrease in the amount of compensation over time.</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUGxvdGxlYXJuaW5nb3ZlcnRpbWVieWJsb2NrKClcblxuYGBgIn0= -->
+<pre class="r"><code>Plotlearningovertimebyblock()
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>It would appear that prolonged exposure to changing rotations is decreasing the shift in estimates of hand location and reach deviations. It would make sense then, to add a parameter to a model that changes based on certain characteristics of the training. It could be that prolonged training, when the rotation is changing constantly, makes adaptation become more explicit, so the CNS becomes resistant to adapting. The two important things to me are: 1. Number of changes 2. Size of Rotation 3. Propriocepitve shift on any given trial</p>
+<p>Another question to ask is: what is more important? 1. Reaching the highest asymptote 2. Reaching a local minimum as fast as possible</p>
+<p>how does the proprioceptive shift/variance on a given trial play into it.</p>
+<p>Run decay model on each block of the rotation. see if asymptote and learning rate decrease over time.</p>
+<p>Do a proportion, so the total number of changes/change.</p>
+<p>Mathematically define number 1 and 2.</p>
+<p>look at 1-rate models like Jonathan</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVhY2hlczwtIGdldHJlYWNoZXNmb3Jtb2RlbCh2YXJpYXRpb25fcmVhY2hlcylcbnJlYWNoX3BhciA8LVxuICAgIGZpdFR3b1JhdGVSZWFjaE1vZGVsKFxuICAgICAgcmVhY2hlcyA9IHJlYWNoZXMkbWVhbnJlYWNoZXMsXG4gICAgICBzY2hlZHVsZSA9IHJlYWNoZXMkZGlzdG9ydGlvbixcbiAgICAgIG9uZVR3b1JhdGVzID0gMixcbiAgICAgIGdyaWQgPSBcInJlc3RyaWN0ZWRcIixcbiAgICAgIGNoZWNrU3RhYmlsaXR5ID0gVFJVRVxuICAgIClcbiByZWFjaF9tb2RlbCA8LVxuICAgIHR3b1JhdGVSZWFjaE1vZGVsKHBhciA9IHJlYWNoX3Bhciwgc2NoZWR1bGUgPSByZWFjaGVzJGRpc3RvcnRpb24pXG4gd3JpdGUuY3N2KHJlYWNoX21vZGVsJHNsb3csZmlsZSA9IFwiZGF0YS9zbG93cHJvY2Vzcy5jc3ZcIiwgcXVvdGUgPSBGQUxTRSwgcm93Lm5hbWVzID0gRkFMU0UpXG5gYGAifQ== -->
+<pre class="r"><code>reaches&lt;- getreachesformodel(variation_reaches)
+reach_par &lt;-
+    fitTwoRateReachModel(
+      reaches = reaches$meanreaches,
+      schedule = reaches$distortion,
+      oneTwoRates = 2,
+      grid = &quot;restricted&quot;,
+      checkStability = TRUE
+    )
+ reach_model &lt;-
+    twoRateReachModel(par = reach_par, schedule = reaches$distortion)
+ write.csv(reach_model$slow,file = &quot;data/slowprocess.csv&quot;, quote = FALSE, row.names = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Now that we have the reaches, localization and slow process for the data. We want to look at each rotation chunk as it’s own learning period. We somehow need to run those three lines of code below for each of the chunks.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlVwZGF0ZWRfVGltZV9Nb2RlbCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCkkgd2FudCB0byB0YWtlIG91ciBvbGQgdHdvLXJhdGUgbW9kZWwgY29kZSBhbmQgY2hhbmdlIGl0IHNvIHRoYXQgaXQgdGFrZXMgaW50byBhY2NvdW50IGEgZmV3IGRpZmZlcmVudCB0aGluZ3MuDQoNCldlIHRoaW5rIHRoZXJlIGlzIGFuIGF0dGVudWF0aW9uIHBhcmFtZXRlciwgc28gYSB2YWx1ZSB0aGF0IHJlZHVjZXMgdGhlIGFtb3VudCBvZiBsZWFybmluZw0KICAgICBSZWFjaCBkaXJlY3Rpb25zIDwtIChsZWFybmluZyBhbGdvcml0aG0pICogQVANCg0KDQoNCmBgYHtyfQ0KI2NvbWJpbmUgYWxsIHJlYWNoZXMgYW5kIGxvY2FsaXphdGlvbnMgaW50byAxIGRhdGFmcmFtZQ0KZ2V0YWxscGFydGljaXBhbnRzKDMpDQpnZXRQYXNzaXZlVGFwcygzKQ0KI2dldCBhbmdsZXMgdGhleSB0YXBwZWQgYW5kIHJlYWNoZWQgdG8NCkdldFRhcEFuZ2xlcygzKQ0KR2V0UmVhY2hBbmdsZXMoMykNCiMgdGhlc2UgY29kZXMgd2lsbCBiYXNlbGluZSB0aGUgZGF0YSBieSB0YXJnZXQvcGVyIHBhcnRpY2lwYW50DQpCYXNlbGluZVJlYWNoZXMoKQ0KQmFzZWxpbmVUYXBzKCkNCmBgYA0KDQoNCldlIG5vdGljZWQgdGhhdCBwZW9wbGUgZG9uJ3QgZnVsbHkgbGVhcm4gdGhlIHJvdGF0aW9uLCBhbmQgd2hlbiB3ZSB2YXJpZWQgdGhlIHJvdGF0aW9uIHNpemUgYW5kIGRpcmVjdGlvbiBldmVyeSAxMiB0cmlhbHMsIHdlIG5vdGljZWQgYSBzbGlnaHQgZGVjcmVhc2UgaW4gdGhlIGFtb3VudCBvZiBjb21wZW5zYXRpb24gb3ZlciB0aW1lLiANCg0KYGBge3J9DQpQbG90bGVhcm5pbmdvdmVydGltZWJ5YmxvY2soKQ0KYGBgDQoNCkl0IHdvdWxkIGFwcGVhciB0aGF0IHByb2xvbmdlZCBleHBvc3VyZSB0byBjaGFuZ2luZyByb3RhdGlvbnMgaXMgZGVjcmVhc2luZyB0aGUgc2hpZnQgaW4gZXN0aW1hdGVzIG9mIGhhbmQgbG9jYXRpb24gYW5kIHJlYWNoIGRldmlhdGlvbnMuICBJdCB3b3VsZCBtYWtlIHNlbnNlIHRoZW4sIHRvIGFkZCBhIHBhcmFtZXRlciB0byBhIG1vZGVsIHRoYXQgY2hhbmdlcyBiYXNlZCBvbiBjZXJ0YWluIGNoYXJhY3RlcmlzdGljcyBvZiB0aGUgdHJhaW5pbmcuIEl0IGNvdWxkIGJlIHRoYXQgcHJvbG9uZ2VkIHRyYWluaW5nLCB3aGVuIHRoZSByb3RhdGlvbiBpcyBjaGFuZ2luZyBjb25zdGF0bmx5LCBtYWtlcyBhZGFwdGF0aW9uIGJlY29tZSBtb3JlIGV4cGxpY2l0LCBzbyB0aGUgQ05TIGJlY29tZXMgcmVzaXN0YW50IHRvIGFkYXB0aW5nLiBUaGUgdHdvIGltcG9ydGFudCB0aGluZ3MgdG8gbWUgYXJlOg0KMS4gRGlyZWN0aW9uIG9mIHJvdGF0aW9uDQoyLiBTaXplIG9mIFJvdGF0aW9uDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlVwZGF0ZWRfVGltZV9Nb2RlbCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCkkgd2FudCB0byB0YWtlIG91ciBvbGQgdHdvLXJhdGUgbW9kZWwgY29kZSBhbmQgY2hhbmdlIGl0IHNvIHRoYXQgaXQgdGFrZXMgaW50byBhY2NvdW50IGEgZmV3IGRpZmZlcmVudCB0aGluZ3MuDQoNCldlIHRoaW5rIHRoZXJlIGlzIGFuIGF0dGVudWF0aW9uIHBhcmFtZXRlciwgc28gYSB2YWx1ZSB0aGF0IHJlZHVjZXMgdGhlIGFtb3VudCBvZiBsZWFybmluZw0KICAgICBSZWFjaCBkaXJlY3Rpb25zIDwtIChsZWFybmluZyBhbGdvcml0aG0pICogQVANCg0KDQoNCmBgYHtyfQ0KI2NvbWJpbmUgYWxsIHJlYWNoZXMgYW5kIGxvY2FsaXphdGlvbnMgaW50byAxIGRhdGFmcmFtZQ0KZ2V0YWxscGFydGljaXBhbnRzKDMpDQpnZXRQYXNzaXZlVGFwcygzKQ0KI2dldCBhbmdsZXMgdGhleSB0YXBwZWQgYW5kIHJlYWNoZWQgdG8NCkdldFRhcEFuZ2xlcygzKQ0KR2V0UmVhY2hBbmdsZXMoMykNCiMgdGhlc2UgY29kZXMgd2lsbCBiYXNlbGluZSB0aGUgZGF0YSBieSB0YXJnZXQvcGVyIHBhcnRpY2lwYW50DQpCYXNlbGluZVJlYWNoZXMoKQ0KQmFzZWxpbmVUYXBzKCkNCmBgYA0KTGV0cyBmaXJzdCBsb29rIGF0IHRoZSByZWFjaCBhbmQgbG9jYWxpemF0aW9uIGRhdGEgYXZlcmFnZWQgYWNyb3NzIHBhcnRpY2lwYW50cyBhY3Jvc3MgYWxsIHRyaWFscw0KDQpgYGB7cn0NCnBsb3R2YXJpYXRpb24oKQ0KYGBgDQoNCg0KV2Ugbm90aWNlZCB0aGF0IHBlb3BsZSBkb24ndCBmdWxseSBsZWFybiB0aGUgcm90YXRpb24sIGFuZCB3aGVuIHdlIHZhcmllZCB0aGUgcm90YXRpb24gc2l6ZSBhbmQgZGlyZWN0aW9uIGV2ZXJ5IDEyIHRyaWFscywgd2Ugbm90aWNlZCBhIHNsaWdodCBkZWNyZWFzZSBpbiB0aGUgYW1vdW50IG9mIGNvbXBlbnNhdGlvbiBvdmVyIHRpbWUuIA0KDQpgYGB7cn0NClBsb3RsZWFybmluZ292ZXJ0aW1lYnlibG9jaygpDQoNCmBgYA0KDQpJdCB3b3VsZCBhcHBlYXIgdGhhdCBwcm9sb25nZWQgZXhwb3N1cmUgdG8gY2hhbmdpbmcgcm90YXRpb25zIGlzIGRlY3JlYXNpbmcgdGhlIHNoaWZ0IGluIGVzdGltYXRlcyBvZiBoYW5kIGxvY2F0aW9uIGFuZCByZWFjaCBkZXZpYXRpb25zLiAgSXQgd291bGQgbWFrZSBzZW5zZSB0aGVuLCB0byBhZGQgYSBwYXJhbWV0ZXIgdG8gYSBtb2RlbCB0aGF0IGNoYW5nZXMgYmFzZWQgb24gY2VydGFpbiBjaGFyYWN0ZXJpc3RpY3Mgb2YgdGhlIHRyYWluaW5nLiBJdCBjb3VsZCBiZSB0aGF0IHByb2xvbmdlZCB0cmFpbmluZywgd2hlbiB0aGUgcm90YXRpb24gaXMgY2hhbmdpbmcgY29uc3RhbnRseSwgbWFrZXMgYWRhcHRhdGlvbiBiZWNvbWUgbW9yZSBleHBsaWNpdCwgc28gdGhlIENOUyBiZWNvbWVzIHJlc2lzdGFudCB0byBhZGFwdGluZy4gVGhlIHR3byBpbXBvcnRhbnQgdGhpbmdzIHRvIG1lIGFyZToNCjEuIE51bWJlciBvZiBjaGFuZ2VzDQoyLiBTaXplIG9mIFJvdGF0aW9uDQozLiBQcm9wcmlvY2VwaXR2ZSBzaGlmdCBvbiBhbnkgZ2l2ZW4gdHJpYWwNCg0KQW5vdGhlciBxdWVzdGlvbiB0byBhc2sgaXM6IHdoYXQgaXMgbW9yZSBpbXBvcnRhbnQ/DQoxLiBSZWFjaGluZyB0aGUgaGlnaGVzdCBhc3ltcHRvdGUgDQoyLiBSZWFjaGluZyBhIGxvY2FsIG1pbmltdW0gYXMgZmFzdCBhcyBwb3NzaWJsZQ0KDQoNCmhvdyBkb2VzIHRoZSBwcm9wcmlvY2VwdGl2ZSBzaGlmdC92YXJpYW5jZSBvbiBhIGdpdmVuIHRyaWFsIHBsYXkgaW50byBpdC4gDQoNClJ1biBkZWNheSBtb2RlbCBvbiBlYWNoIGJsb2NrIG9mIHRoZSByb3RhdGlvbi4gc2VlIGlmIGFzeW1wdG90ZSBhbmQgbGVhcm5pbmcgcmF0ZSBkZWNyZWFzZSBvdmVyIHRpbWUuIA0KDQpEbyBhIHByb3BvcnRpb24sIHNvIHRoZSB0b3RhbCBudW1iZXIgb2YgY2hhbmdlcy9jaGFuZ2UuICANCg0KTWF0aGVtYXRpY2FsbHkgZGVmaW5lIG51bWJlciAxIGFuZCAyLiANCg0KbG9vayBhdCAxLXJhdGUgbW9kZWxzIGxpa2UgSm9uYXRoYW4NCg0KDQpgYGB7cn0NCnJlYWNoZXM8LSBnZXRyZWFjaGVzZm9ybW9kZWwodmFyaWF0aW9uX3JlYWNoZXMpDQpyZWFjaF9wYXIgPC0NCiAgICBmaXRUd29SYXRlUmVhY2hNb2RlbCgNCiAgICAgIHJlYWNoZXMgPSByZWFjaGVzJG1lYW5yZWFjaGVzLA0KICAgICAgc2NoZWR1bGUgPSByZWFjaGVzJGRpc3RvcnRpb24sDQogICAgICBvbmVUd29SYXRlcyA9IDIsDQogICAgICBncmlkID0gInJlc3RyaWN0ZWQiLA0KICAgICAgY2hlY2tTdGFiaWxpdHkgPSBUUlVFDQogICAgKQ0KIHJlYWNoX21vZGVsIDwtDQogICAgdHdvUmF0ZVJlYWNoTW9kZWwocGFyID0gcmVhY2hfcGFyLCBzY2hlZHVsZSA9IHJlYWNoZXMkZGlzdG9ydGlvbikNCiB3cml0ZS5jc3YocmVhY2hfbW9kZWwkc2xvdyxmaWxlID0gImRhdGEvc2xvd3Byb2Nlc3MuY3N2IiwgcXVvdGUgPSBGQUxTRSwgcm93Lm5hbWVzID0gRkFMU0UpDQpgYGANCiANCiBOb3cgdGhhdCB3ZSBoYXZlIHRoZSByZWFjaGVzLCBsb2NhbGl6YXRpb24gYW5kIHNsb3cgcHJvY2VzcyBmb3IgdGhlIGRhdGEuICBXZSB3YW50IHRvIGxvb2sgYXQgZWFjaCByb3RhdGlvbiBjaHVuayBhcyBpdCdzIG93biBsZWFybmluZyBwZXJpb2QuICBXZSBzb21laG93IG5lZWQgdG8gcnVuIHRob3NlIHRocmVlIGxpbmVzIG9mIGNvZGUgYmVsb3cgZm9yIGVhY2ggb2YgdGhlIGNodW5rcy4gDQogDQogDQogDQogDQogDQpgYGB7cn0NCmJvb3RzdHJhcFNlbWlBc3ltcHRvdGljRGVjYXlNb2RlbHMoKQ0KZ2V0QXN5bXB0b3RpY0RlY2F5UGFyYW1ldGVyQ0lzKCkNCmdldFNhdHVyYXRpb25UcmlhbHMoKQ0KYGBgDQo=</div>
 
 
 

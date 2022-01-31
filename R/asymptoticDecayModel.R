@@ -48,7 +48,7 @@ asymptoticDecayMSE <- function(par, schedule, signal, N0=FALSE) {
   
 }
 
-asymptoticDecayFit <- function(schedule, signal, gridpoints=11, gridfits=10, setAsymptote=FALSE, useOptimx=FALSE) {
+asymptoticDecayFit <- function(schedule, signal, gridpoints=11, gridfits=10, setAsymptote=FALSE, useOptimx=TRUE) {
   
   # set the search grid:
   parvals <- seq(1/gridpoints/2,1-(1/gridpoints/2),1/gridpoints)
@@ -228,10 +228,7 @@ asymptoticDecaySettings <- function() {
   
   # this list determines which signals get done for each group
   groupsignals <- list(
-     'passive'       = c('localization', 'slowprocess', 'reaches'),
-    'terminal'        = c('localization', 'slowprocess', 'reaches'),
-    'exposure'        = c('localization')
-  )
+     'variation'       = c('localization', 'slowprocess', 'reaches'))
   # this list determines which signals get done for each group
 
   
@@ -241,16 +238,10 @@ asymptoticDecaySettings <- function() {
   trialsets <- list('main'=c(1:160), 'reversal'=c(161:176))
 
   baselines <- list(
-    'passive'       = list( 'localization'=64, 'slowprocess'=64, 'reaches'=64 ),
-    'terminal'        = c('localization'=64,      'slowprocess'=64,    'reaches'=96),
-    'exposure'        = c('localization'=64)
-  )
+    'variation'       = list( 'localization'=48, 'slowprocess'=48, 'reaches'=48 ))
   
   schedules <- list( 
-    'passive'       = list( 'localization'=  1, 'slowprocess'=  1, 'reaches'= -1 ),
-    'terminal'        = c('localization'=1,      'slowprocess'=1,    'reaches'=-1),
-    'exposure'        = c('localization'=1)
-  )
+    'variation'       = list( 'localization'=  1, 'slowprocess'=  1, 'reaches'= -1 ))
   
   optimxInstalled <- require("optimx")
   if (optimxInstalled) {

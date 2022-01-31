@@ -305,6 +305,7 @@ if (abs(rotation[stop]) == 15| abs(rotation[stop]) == 30 ){
 plotblocks<- function (){
   
   data<- getreachesformodel(variation_reaches)
+  data$x<- c(1:49, rep(1:12,times=35), 1:11)
   rotation<- data$distortion
   blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
   transition<- colorRampPalette(c("green", "green4", "dark green"))
@@ -338,6 +339,8 @@ plotblocks<- function (){
   start<- min(which(blocks==1))
   stop<- max(which(blocks==1))
   plot(data[start:stop,1], type = "l", ylim = c(-20,30), xlab = "trials", ylab = "Hand Direction", col = colors[1], lwd = 2, main = rotationsize[2])
+ 
+
   for (i in 2:36){
     start<- min(which(blocks==i))
     stop<- max(which(blocks==i))

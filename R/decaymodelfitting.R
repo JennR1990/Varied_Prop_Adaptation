@@ -26,24 +26,42 @@ decaymodelfitting<-function(){
   }
   
   
-
+  svglite(file='figs/blocks_lasttrial.svg', width=15, height=21, system_fonts=list(sans = "Arial"))
+  layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
   
   start<- min(which(blocks==1))
   stop<- max(which(blocks==1))
-  plot(data[start:stop,1], type = "l", ylim = c(-20,30), xlab = "trials", ylab = "Hand Direction", col = colors[1], lwd = 2, main = rotationsize[2])
+  plot(data[start:stop,1], type = "l", ylim = c(-20,30), xlab = "trials", ylab = "Hand Direction", bty = 'n', col = colors[1], lwd = 2, main = rotationsize[2])
   
   reachsig<-data[start:stop,1]
-  print(asymptoticDecayFit(schedule = schedule, signal = reachsig))
+  pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+  modeloutput<- asymptoticDecayModel(pars,schedule)
+  lines(modeloutput$output, type = "l", col = "Blue")
+  #legend(2,30, legend = c("data", "decay model"),bty = 'n', col = c(colors[1], "blue"))
+  text(6,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+  text(6,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+  text(6,-20, sprintf('last trial = %f', endpoints[1]))
+  print(pars)
+  print(modeloutput$output[12])
+  print(endpoints[2])
   
   
   for (i in 2:36){
     start<- min(which(blocks==i))
     stop<- max(which(blocks==i))
-    plot(data[start:stop,1], type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction", lwd = 2,main = rotationsize[i+1]) 
-    reachsig<-data[start:stop,1]
-    print(asymptoticDecayFit(schedule = schedule, signal = reachsig))
+    plot((data[start:stop,1]-endpoints[i])*-1, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+    #legend(2,30, legend = c("data", "decay model"), col = c(colors[i], "blue"),bty = 'n')
+    reachsig<-(data[start:stop,1]-endpoints[i])*-1
+    pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+    modeloutput<- asymptoticDecayModel(pars,schedule)
+    lines(modeloutput$output, type = "l", col = "Blue")
+    text(6,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+    text(6,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+    text(6,-20, sprintf('last trial = %f', endpoints[i+1]))
+    print(pars)
+    print(modeloutput$output[12])
     print(endpoints[i+1])
   }
-
+  dev.off()
   
 }

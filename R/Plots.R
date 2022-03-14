@@ -297,14 +297,79 @@ if (abs(rotation[stop]) == 15| abs(rotation[stop]) == 30 ){
 }
 
 
-
-
-
-
-
-plotblocks<- function (){
+decaymodelfitting<-function(){
   
   data<- getreachesformodel(variation_reaches)
+  rotation<- data$distortion
+  blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
+  transition<- colorRampPalette(c("green", "green4", "dark green"))
+  colors<- transition(36) 
+  schedule<- rep(-1,12)
+  
+  for (t in 1:480){
+    
+    if (rotation[t] == 15 | rotation[t] == 30){
+      data[t,1]<- data[t,1]*-1
+    } else if (rotation[t] == 360){
+      #data[t,1]<- NA
+    }
+    
+  }
+  
+  endpoints<-c()
+  rotationsize<- c()
+  for (i in 0:36){
+    stop<- max(which(blocks==i))
+    endpoints[i+1]<-as.numeric(unlist(data[stop,1]))
+    rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
+  }
+  
+  
+  svglite(file='figs/blocks_lasttrial.svg', width=15, height=21, system_fonts=list(sans = "Arial"))
+  layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+  
+  start<- min(which(blocks==1))
+  stop<- max(which(blocks==1))
+  plot(data[start:stop,1], type = "l", ylim = c(-20,30), xlab = "trials", ylab = "Hand Direction", bty = 'n', col = colors[1], lwd = 2, main = rotationsize[2])
+  
+  reachsig<-data[start:stop,1]
+  pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+  modeloutput<- asymptoticDecayModel(pars,schedule)
+  lines(modeloutput$output, type = "l", col = "Blue")
+  #legend(2,30, legend = c("data", "decay model"),bty = 'n', col = c(colors[1], "blue"))
+  text(6,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+  text(6,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+  text(6,-20, sprintf('last trial = %f', endpoints[1]))
+  print(pars)
+  print(modeloutput$output[12])
+  print(endpoints[2])
+  
+  
+  for (i in 2:36){
+    start<- min(which(blocks==i))
+    stop<- max(which(blocks==i))
+    plot((data[start:stop,1]-endpoints[i])*-1, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+    #legend(2,30, legend = c("data", "decay model"), col = c(colors[i], "blue"),bty = 'n')
+    reachsig<-(data[start:stop,1]-endpoints[i])*-1
+    pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+    modeloutput<- asymptoticDecayModel(pars,schedule)
+    lines(modeloutput$output, type = "l", col = "Blue")
+    text(6,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+    text(6,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+    text(6,-20, sprintf('last trial = %f', endpoints[i+1]))
+    print(pars)
+    print(modeloutput$output[12])
+    print(endpoints[i+1])
+  }
+  dev.off()
+  
+}
+
+
+
+plotblocks<- function (alldata){
+  
+  data<- getreachesformodel(alldata)
   data$x<- c(1:49, rep(1:12,times=35), 1:11)
   rotation<- data$distortion
   blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
@@ -351,3 +416,588 @@ dev.off()
   
   
 }
+
+
+
+prepdataforplotting<- function(data){
+
+start<- seq(from = 50, to = 470, by=12)
+stop<- c(seq(from = 62, to = 480, by=12), 480)
+
+t_1<- c()
+t0<- c()
+tdif<- c()
+
+t_1<- 0
+t0<- data$distortion[50]
+trials<- NA
+
+
+for (i in 1:length(start) ) {
+t_1<- c(t_1, data$distortion[start[i]])
+t0<- c(t0,data$distortion[stop[i]])
+
+trials<-c(trials, sprintf("%d to %d", start[i], stop[i]-1))
+}
+
+
+tdif<- t_1 - t0
+trials<- c(trials[-1])
+rotdif<- data.frame(t_1[-37],t0[-37],tdif[-37], trials)
+
+for (i in 1:nrow(rotdif)) {
+if (rotdif$t0..37.[i] == 360)
+  rotdif[i, ]<- NA
+}
+
+idx<-which(is.na(rotdif$trials))
+rotdif<- rotdif[-idx,]
+difs<-unique(rotdif$tdif..37.)
+
+diftrials<- data.frame(matrix(NA, nrow = 4, ncol = length(difs)))
+colnames(diftrials)<- difs
+
+diftrials[,1]<- c(rotdif$trials[rotdif$tdif..37. == difs[1]], NA)
+
+for (i in 2:3){
+diftrials[,i]<-rotdif$trials[rotdif$tdif..37. == difs[i]]
+}
+
+diftrials[,4]<- c(rotdif$trials[rotdif$tdif..37. == difs[4]], NA)
+
+zerodiftrials<<- c(rotdif$trials[rotdif$tdif..37. == difs[5]], NA)
+
+for (i in 6:length(difs)){
+  diftrials[,i]<-rotdif$trials[rotdif$tdif..37. == difs[i]]
+}
+return(diftrials)
+}
+plotreachesperchange<-function(task = "reaches"){
+  
+  
+  variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
+  variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
+  
+  if (task == "prop"){
+    
+    alldata<- variation_localization
+    scale = 1
+    scale2 = -1
+    
+  } else {
+    
+    alldata<- variation_reaches
+    scale = -1
+    scale2 = 1
+  }
+  
+  diftrials<- prepdataforplotting(variation_reaches)
+  title<- sprintf("%s based on rotation size change", task)
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  plot(rowMeans(data, na.rm = TRUE)*scale2, type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,20), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "30",col = "chartreuse")
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[3,4], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[3,4], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "chartreuse4", lty = 5, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-30",col = "chartreuse4")
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "blue", lty = 5, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-15", col = "blue")
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "cyan", lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "15", col = "cyan")
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,6], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,6], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,6], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,6], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "darkorchid1", lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "45", col = "darkorchid1")
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,9], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,9], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,9], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,9], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "darkorchid4", lty = 5, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-45", col = "darkorchid4")
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,13], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,13], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "deeppink4", lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "60", col = "deeppink4")
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,11], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,11], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "deeppink", lty = 5, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-60", col = "deeppink")
+  
+  
+  #legend(x = 8, y = 0, legend = c("30", "-30", "15","-15","45", "-45","60", "-60"), col = c("chartreuse", "chartreuse4", "cyan", "blue", "darkorchid1", "darkorchid4", "deeppink", "deeppink4"), lty = c(1,5,1,5,1,5,1,5), lwd = (1), bty = 'n', ncol = 2)
+  
+}
+
+
+prepdataforabsplotting<- function(data){
+  
+  start<- seq(from = 50, to = 470, by=12)
+  stop<- c(seq(from = 62, to = 480, by=12), 480)
+  
+  t_1<- c()
+  t0<- c()
+  tdif<- c()
+  
+  t_1<- 0
+  t0<- data$distortion[50]
+  trials<- NA
+  
+  
+  for (i in 1:length(start) ) {
+    t_1<- c(t_1, data$distortion[start[i]])
+    t0<- c(t0,data$distortion[stop[i]])
+    
+    trials<-c(trials, sprintf("%d to %d", start[i], stop[i]-1))
+  }
+  
+  
+  tdif<- t_1 - t0
+  trials<- c(trials[-1])
+  rotdif<- data.frame(t_1[-37],t0[-37],tdif[-37], trials)
+  
+  for (i in 1:nrow(rotdif)) {
+    if (rotdif$t0..37.[i] == 360)
+      rotdif[i, ]<- NA
+  }
+  
+  idx<-which(is.na(rotdif$trials))
+  rotdif<- rotdif[-idx,]
+  
+  rotdif$Abstdif<- abs(rotdif$tdif..37.)
+  
+  difs<-unique(rotdif$Abstdif)
+  
+  diftrials<- data.frame(matrix(NA, nrow = 8, ncol = 4))
+  colnames(diftrials)<- c("15","30","45","60")
+  
+  diftrials[,1]<- rotdif$trials[rotdif$Abstdif == 15]
+  
+  
+  diftrials[,2]<-c(rotdif$trials[rotdif$Abstdif == 30], NA,NA)
+  
+  
+  diftrials[,3]<- c(rotdif$trials[rotdif$Abstdif == 45], NA,NA, NA,NA)
+  
+  zerodiftrials<<-rotdif$trials[rotdif$Abstdif == 0]
+  
+    diftrials[,4]<-c(rotdif$trials[rotdif$Abstdif == 60], NA,NA, NA,NA,NA,NA)
+  
+  return(diftrials)
+}
+
+plotdataperABSchange<-function(){
+  
+  
+  variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
+  variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
+  diftrials<- prepdataforabsplotting(variation_reaches)
+  
+  
+  task = "prop"
+  title<- sprintf("%s based on rotation size change", task)
+  alldata<- variation_localization
+  
+  
+  for (i in 1:nrow(alldata)){
+    if (alldata$distortion[i] < 0)
+      alldata[i,2:ncol(alldata)]<- alldata[i,2:ncol(alldata)]*-1
+  } 
+  
+  linetype<- 5
+  linetype2<- 3
+  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials,linetype2)
+  
+  
+  
+  
+  
+  task = "reaches"
+  
+  alldata<- variation_reaches
+  
+  for (i in 1:nrow(alldata)){
+    if (alldata$distortion[i] > 0) 
+      alldata[i,2:ncol(alldata)]<- alldata[i,2:ncol(alldata)]*-1
+    
+    
+  } 
+  
+  
+  linetype <- 1
+  linetype2<- 3
+  title<- sprintf("%s based on rotation size change", task)
+  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials, linetype2)
+  
+
+  
+}
+plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, linetype2){
+  
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[4,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[4,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[5,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[5,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[6,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[6,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[7,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[7,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[8,1], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[8,1], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  
+  plot(rowMeans(data, na.rm = TRUE), type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,20), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2, lty = linetype)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15",col = "chartreuse")
+  
+  
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[5,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[5,2], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[6,2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[6,2], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lwd = 2, lty = linetype)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "30", col = "cyan")
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "darkorchid4", lty = linetype, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "45", col = "darkorchid4")
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  
+  
+  startloc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[2]
+  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "deeppink", lty = linetype, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "60", col = "deeppink")
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[2], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "-30", col = "cyan")
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[3], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15", col = "cyan")
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "30", col = "cyan")
+
+  
+  
+  
+  
+  
+  
+  
+  
+}
+
+
+#legend(x = 8, y = 0, legend = c("30", "-30", "15","-15","45", "-45","60", "-60"), col = c("chartreuse", "chartreuse4", "cyan", "blue", "darkorchid1", "darkorchid4", "deeppink", "deeppink4"), lty = c(1,5,1,5,1,5,1,5), lwd = (1), bty = 'n', ncol = 2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# plotreachesperchange<-function(task = "reaches"){
+#   
+#   
+#   variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
+#   variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
+#   
+#   if (task == "prop"){
+#     
+#     alldata<- variation_localization
+#     scale = 1
+#     scale2 = -1
+#     
+#   } else {
+#     
+#     alldata<- variation_reaches
+#     scale = -1
+#     scale = 1
+#   }
+#   
+#   diftrials<- prepdataforplotting(variation_reaches)
+#   title<- sprintf("%s based on rotation size change", task)
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   plot(rowMeans(data, na.rm = TRUE)*scale2, type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,20), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2)
+#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "30",col = "chartreuse")
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   lines(x = 1:12,y = ((rowMeans(data, na.rm = TRUE))*scale2),col = "chartreuse2")
+#   #text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "30",col = "chartreuse2")
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   lines(x = 1:12, y = ((rowMeans(data, na.rm = TRUE))*scale2),col = "chartreuse4")
+#   #text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "30",col = "chartreuse4")
+#   
+#  
+#   startloc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[3,4], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[3,4], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "chartreuse4", lty = 5, lwd = 2)
+#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-30",col = "chartreuse4")
+#   
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "blue", lty = 5, lwd = 2)
+#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-15", col = "blue")
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "cyan", lwd = 2)
+#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "15", col = "cyan")
+#   
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[1,6], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,6], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[2,6], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,6], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "darkorchid1", lwd = 2)
+#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "45", col = "darkorchid1")
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[1,9], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,9], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[2,9], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,9], " to ")))[2]
+#   data<- cbind(data,alldata[startloc:stoploc,2:33])
+#   
+#   lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "darkorchid4", lty = 5, lwd = 2)
+#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-45", col = "darkorchid4")
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[1,13], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,13], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "deeppink4", lwd = 2)
+#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "60", col = "deeppink4")
+#   
+#   startloc<-as.numeric(unlist(strsplit(diftrials[1,11], " to ")))[1]
+#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,11], " to ")))[2]
+#   data<- alldata[startloc:stoploc,2:33]
+#   lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "deeppink", lty = 5, lwd = 2)
+#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-60", col = "deeppink")
+#   
+#   
+#   #legend(x = 8, y = 0, legend = c("30", "-30", "15","-15","45", "-45","60", "-60"), col = c("chartreuse", "chartreuse4", "cyan", "blue", "darkorchid1", "darkorchid4", "deeppink", "deeppink4"), lty = c(1,5,1,5,1,5,1,5), lwd = (1), bty = 'n', ncol = 2)
+#   
+# }
+
+

@@ -25,7 +25,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDM4Ljk3fDE0MC41Mw==)'>
-<polyline points='44.78,98.56 58.01,94.33 71.23,90.61 84.45,75.41 97.67,71.25 110.89,74.89 124.11,66.99 137.34,71.19 150.56,68.25 163.78,62.52 177.00,62.51 190.22,57.78 ' style='stroke-width: 1.50; stroke: #00FF00;' />
+<polyline points='44.78,104.84 58.01,111.79 71.23,113.65 84.45,111.89 97.67,114.38 110.89,111.58 124.11,119.96 137.34,117.90 150.56,117.93 163.78,120.42 177.00,115.63 190.22,118.58 ' style='stroke-width: 1.50; stroke: #00FF00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='58.01' y1='140.53' x2='190.22' y2='140.53' style='stroke-width: 0.75;' />
@@ -66,10 +66,10 @@
 <text transform='translate(8.55,89.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDM4Ljk3fDE0MC41Mw==)'>
-<polyline points='44.78,99.15 58.01,91.79 71.23,85.64 84.45,80.49 97.67,76.19 110.89,72.60 124.11,69.60 137.34,67.09 150.56,64.99 163.78,63.23 177.00,61.77 190.22,60.54 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='110.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 23.843258</text>
-<text x='110.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 20.527451</text>
-<text x='110.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -2.709243</text>
+<polyline points='44.78,99.15 58.01,99.15 71.23,99.15 84.45,99.15 97.67,99.15 110.89,99.15 124.11,99.15 137.34,99.15 150.56,99.15 163.78,99.15 177.00,99.15 190.22,99.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='110.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='110.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='110.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -5.503251</text>
 </g>
 <defs>
   <clipPath id='cpMjU0Ljk3fDQxMi4wNHwzOC45N3wxNDAuNTM='>
@@ -77,7 +77,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHwzOC45N3wxNDAuNTM=)'>
-<polyline points='260.78,103.59 274.01,87.62 287.23,87.68 300.45,87.51 313.67,82.30 326.89,85.03 340.11,87.46 353.34,80.36 366.56,86.80 379.78,82.29 393.00,79.11 406.22,74.72 ' style='stroke-width: 1.50; stroke: #00F800;' />
+<polyline points='260.78,101.58 274.01,99.24 287.23,104.21 300.45,103.01 313.67,102.11 326.89,96.67 340.11,102.43 353.34,104.40 366.56,101.55 379.78,107.84 393.00,102.02 406.22,109.15 ' style='stroke-width: 1.50; stroke: #00F800;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='274.01' y1='140.53' x2='406.22' y2='140.53' style='stroke-width: 0.75;' />
@@ -118,10 +118,10 @@
 <text transform='translate(224.55,89.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHwzOC45N3wxNDAuNTM=)'>
-<polyline points='260.78,99.15 274.01,92.20 287.23,87.98 300.45,85.41 313.67,83.85 326.89,82.90 340.11,82.32 353.34,81.97 366.56,81.76 379.78,81.63 393.00,81.55 406.22,81.51 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='326.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 9.421778</text>
-<text x='326.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 9.382427</text>
-<text x='326.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 9.007727</text>
+<polyline points='260.78,99.15 274.01,99.15 287.23,99.15 300.45,99.15 313.67,99.15 326.89,99.15 340.11,99.15 353.34,99.15 366.56,99.15 379.78,99.15 393.00,99.15 406.22,99.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='326.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='326.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='326.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -5.009995</text>
 </g>
 <defs>
   <clipPath id='cpNDcwLjk3fDYyOC4wNHwzOC45N3wxNDAuNTM='>
@@ -129,7 +129,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHwzOC45N3wxNDAuNTM=)'>
-<polyline points='476.78,106.00 490.01,102.97 503.23,97.89 516.45,97.04 529.67,88.28 542.89,83.15 556.11,84.61 569.34,86.72 582.56,85.54 595.78,86.41 609.00,90.09 622.22,83.72 ' style='stroke-width: 1.50; stroke: #00F100;' />
+<polyline points='476.78,99.76 490.01,85.43 503.23,102.03 516.45,100.20 529.67,104.91 542.89,106.45 556.11,101.46 569.34,102.14 582.56,107.67 595.78,102.00 609.00,105.20 622.22,105.93 ' style='stroke-width: 1.50; stroke: #00F100;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='490.01' y1='140.53' x2='622.22' y2='140.53' style='stroke-width: 0.75;' />
@@ -170,10 +170,10 @@
 <text transform='translate(440.55,89.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHwzOC45N3wxNDAuNTM=)'>
-<polyline points='476.78,99.15 490.01,96.47 503.23,94.20 516.45,92.29 529.67,90.68 542.89,89.31 556.11,88.16 569.34,87.19 582.56,86.36 595.78,85.67 609.00,85.08 622.22,84.59 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='542.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 9.171992</text>
-<text x='542.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 7.742986</text>
-<text x='542.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 0.804900</text>
+<polyline points='476.78,99.15 490.01,99.15 503.23,99.15 516.45,99.15 529.67,99.15 542.89,99.15 556.11,99.15 569.34,99.15 582.56,99.15 595.78,99.15 609.00,99.15 622.22,99.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='542.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='542.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='542.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -1.405327</text>
 </g>
 <defs>
   <clipPath id='cpNjg2Ljk3fDg0NC4wNHwzOC45N3wxNDAuNTM='>
@@ -181,7 +181,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHwzOC45N3wxNDAuNTM=)'>
-<polyline points='692.78,100.44 706.01,104.51 719.23,107.93 732.45,114.55 745.67,118.92 758.89,111.40 772.11,117.56 785.34,123.04 798.56,117.42 811.78,118.81 825.00,121.27 838.22,123.83 ' style='stroke-width: 1.50; stroke: #00EB00;' />
+<polyline points='692.78,99.32 706.01,90.51 719.23,83.50 732.45,88.84 745.67,78.26 758.89,92.14 772.11,86.29 785.34,91.66 798.56,77.18 811.78,87.99 825.00,79.97 838.22,88.03 ' style='stroke-width: 1.50; stroke: #00EB00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='706.01' y1='140.53' x2='838.22' y2='140.53' style='stroke-width: 0.75;' />
@@ -222,10 +222,10 @@
 <text transform='translate(656.55,89.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHwzOC45N3wxNDAuNTM=)'>
-<polyline points='692.78,99.15 706.01,99.15 719.23,99.15 732.45,99.15 745.67,99.15 758.89,99.15 772.11,99.15 785.34,99.15 798.56,99.15 811.78,99.15 825.00,99.15 838.22,99.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='758.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='758.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='758.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 13.925609</text>
+<polyline points='692.78,99.15 706.01,89.22 719.23,86.43 732.45,85.65 745.67,85.43 758.89,85.37 772.11,85.35 785.34,85.35 798.56,85.35 811.78,85.35 825.00,85.35 838.22,85.35 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='758.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 7.340317</text>
+<text x='758.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='93.74px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 7.340311</text>
+<text x='758.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -7.319572</text>
 </g>
 <defs>
   <clipPath id='cpOTAyLjk3fDEwNjAuMDR8MzguOTd8MTQwLjUz'>
@@ -233,7 +233,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8MzguOTd8MTQwLjUz)'>
-<polyline points='908.78,97.68 922.01,58.28 935.23,68.97 948.45,74.89 961.67,80.89 974.89,83.23 988.11,79.94 1001.34,84.88 1014.56,90.23 1027.78,89.61 1041.00,89.63 1054.22,93.61 ' style='stroke-width: 1.50; stroke: #00E400;' />
+<polyline points='908.78,96.31 922.01,122.69 935.23,118.07 948.45,131.31 961.67,114.38 974.89,114.38 988.11,114.48 1001.34,112.29 1014.56,101.37 1027.78,108.71 1041.00,102.96 1054.22,116.46 ' style='stroke-width: 1.50; stroke: #00E400;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='922.01' y1='140.53' x2='1054.22' y2='140.53' style='stroke-width: 0.75;' />
@@ -274,10 +274,10 @@
 <text transform='translate(872.55,89.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8MzguOTd8MTQwLjUz)'>
-<polyline points='908.78,99.15 922.01,81.29 935.23,81.29 948.45,81.29 961.67,81.29 974.89,81.29 988.11,81.29 1001.34,81.29 1014.56,81.29 1027.78,81.29 1041.00,81.29 1054.22,81.29 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='974.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 9.498707</text>
-<text x='974.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 9.498707</text>
-<text x='974.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 10.976834</text>
+<polyline points='908.78,99.15 922.01,99.15 935.23,99.15 948.45,99.15 961.67,99.15 974.89,99.15 988.11,99.15 1001.34,99.15 1014.56,99.15 1027.78,99.15 1041.00,99.15 1054.22,99.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='974.89' y='127.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='974.89' y='133.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='974.89' y='139.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 1.880455</text>
 </g>
 <defs>
   <clipPath id='cpMzguOTd8MTk2LjA0fDIyNy45N3wzMjkuNTM='>
@@ -285,7 +285,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDIyNy45N3wzMjkuNTM=)'>
-<polyline points='44.78,285.41 58.01,256.76 71.23,257.79 84.45,260.43 97.67,264.57 110.89,263.52 124.11,264.87 137.34,270.50 150.56,268.02 163.78,264.89 177.00,265.60 190.22,268.71 ' style='stroke-width: 1.50; stroke: #00DD00;' />
+<polyline points='44.78,281.60 58.01,285.90 71.23,272.86 84.45,273.08 97.67,281.97 110.89,279.71 124.11,278.13 137.34,278.28 150.56,274.11 163.78,272.50 177.00,280.85 190.22,272.81 ' style='stroke-width: 1.50; stroke: #00DD00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='58.01' y1='329.53' x2='190.22' y2='329.53' style='stroke-width: 0.75;' />
@@ -326,10 +326,10 @@
 <text transform='translate(8.55,278.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDIyNy45N3wzMjkuNTM=)'>
-<polyline points='44.78,288.15 58.01,264.15 71.23,264.15 84.45,264.15 97.67,264.15 110.89,264.15 124.11,264.15 137.34,264.15 150.56,264.15 163.78,264.15 177.00,264.15 190.22,264.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='110.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 12.760423</text>
-<text x='110.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 12.760423</text>
-<text x='110.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 0.642317</text>
+<polyline points='44.78,288.15 58.01,281.23 71.23,278.41 84.45,277.27 97.67,276.80 110.89,276.61 124.11,276.54 137.34,276.51 150.56,276.49 163.78,276.49 177.00,276.49 190.22,276.48 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='110.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 6.203827</text>
+<text x='110.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 6.203514</text>
+<text x='110.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -6.276752</text>
 </g>
 <defs>
   <clipPath id='cpMjU0Ljk3fDQxMi4wNHwyMjcuOTd8MzI5LjUz'>
@@ -337,7 +337,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHwyMjcuOTd8MzI5LjUz)'>
-<polyline points='260.78,285.72 274.01,285.45 287.23,287.82 300.45,288.84 313.67,288.66 326.89,281.43 340.11,287.71 353.34,289.02 366.56,288.06 379.78,287.54 393.00,288.41 406.22,287.81 ' style='stroke-width: 1.50; stroke: #00D700;' />
+<polyline points='260.78,290.90 274.01,297.17 287.23,296.44 300.45,296.97 313.67,287.14 326.89,289.68 340.11,297.88 353.34,299.10 366.56,294.08 379.78,295.58 393.00,289.79 406.22,295.32 ' style='stroke-width: 1.50; stroke: #00D700;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='274.01' y1='329.53' x2='406.22' y2='329.53' style='stroke-width: 0.75;' />
@@ -378,10 +378,10 @@
 <text transform='translate(224.55,278.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHwyMjcuOTd8MzI5LjUz)'>
-<polyline points='260.78,288.15 274.01,287.34 287.23,287.34 300.45,287.34 313.67,287.34 326.89,287.34 340.11,287.34 353.34,287.34 366.56,287.34 379.78,287.34 393.00,287.34 406.22,287.34 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='326.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.431852</text>
-<text x='326.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.431852</text>
-<text x='326.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 0.458758</text>
+<polyline points='260.78,288.15 274.01,288.15 287.23,288.15 300.45,288.15 313.67,288.15 326.89,288.15 340.11,288.15 353.34,288.15 366.56,288.15 379.78,288.15 393.00,288.15 406.22,288.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='326.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='326.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='326.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -2.465924</text>
 </g>
 <defs>
   <clipPath id='cpNDcwLjk3fDYyOC4wNHwyMjcuOTd8MzI5LjUz'>
@@ -389,7 +389,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHwyMjcuOTd8MzI5LjUz)'>
-<polyline points='476.78,289.41 490.01,288.03 503.23,294.71 516.45,301.46 529.67,304.58 542.89,311.84 556.11,305.13 569.34,306.63 582.56,308.71 595.78,308.14 609.00,309.42 622.22,305.11 ' style='stroke-width: 1.50; stroke: #00D000;' />
+<polyline points='476.78,290.83 490.01,292.62 503.23,284.68 516.45,299.38 529.67,289.08 542.89,283.68 556.11,296.06 569.34,306.14 582.56,286.02 595.78,289.03 609.00,299.70 622.22,291.16 ' style='stroke-width: 1.50; stroke: #00D000;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='490.01' y1='329.53' x2='622.22' y2='329.53' style='stroke-width: 0.75;' />
@@ -433,7 +433,7 @@
 <polyline points='476.78,288.15 490.01,288.15 503.23,288.15 516.45,288.15 529.67,288.15 542.89,288.15 556.11,288.15 569.34,288.15 582.56,288.15 595.78,288.15 609.00,288.15 622.22,288.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
 <text x='542.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
 <text x='542.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='542.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 9.476244</text>
+<text x='542.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -0.867273</text>
 </g>
 <defs>
   <clipPath id='cpNjg2Ljk3fDg0NC4wNHwyMjcuOTd8MzI5LjUz'>
@@ -441,7 +441,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHwyMjcuOTd8MzI5LjUz)'>
-<polyline points='692.78,290.88 706.01,293.25 719.23,292.13 732.45,292.44 745.67,294.39 758.89,293.05 772.11,296.43 785.34,294.77 798.56,297.56 811.78,292.61 825.00,297.44 838.22,293.33 ' style='stroke-width: 1.50; stroke: #00C900;' />
+<polyline points='692.78,291.10 706.01,282.83 719.23,285.11 732.45,289.47 745.67,288.33 758.89,287.41 772.11,282.38 785.34,287.30 798.56,290.52 811.78,291.30 825.00,281.13 838.22,283.96 ' style='stroke-width: 1.50; stroke: #00C900;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='706.01' y1='329.53' x2='838.22' y2='329.53' style='stroke-width: 0.75;' />
@@ -482,10 +482,10 @@
 <text transform='translate(656.55,278.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHwyMjcuOTd8MzI5LjUz)'>
-<polyline points='692.78,288.15 706.01,288.15 719.23,288.15 732.45,288.15 745.67,288.15 758.89,288.15 772.11,288.15 785.34,288.15 798.56,288.15 811.78,288.15 825.00,288.15 838.22,288.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='758.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='758.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='758.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 12.231576</text>
+<polyline points='692.78,288.15 706.01,286.34 719.23,286.34 732.45,286.34 745.67,286.34 758.89,286.34 772.11,286.34 785.34,286.34 798.56,286.34 811.78,286.34 825.00,286.34 838.22,286.34 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='758.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.964063</text>
+<text x='758.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.964063</text>
+<text x='758.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -3.096323</text>
 </g>
 <defs>
   <clipPath id='cpOTAyLjk3fDEwNjAuMDR8MjI3Ljk3fDMyOS41Mw=='>
@@ -493,7 +493,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8MjI3Ljk3fDMyOS41Mw==)'>
-<polyline points='908.78,293.96 922.01,248.15 935.23,263.31 948.45,278.36 961.67,277.13 974.89,292.36 988.11,282.82 1001.34,295.33 1014.56,291.43 1027.78,293.59 1041.00,292.02 1054.22,296.32 ' style='stroke-width: 1.50; stroke: #00C300;' />
+<polyline points='908.78,295.08 922.01,277.70 935.23,282.42 948.45,278.07 961.67,264.84 974.89,272.49 988.11,276.78 1001.34,275.67 1014.56,278.82 1027.78,280.05 1041.00,270.87 1054.22,272.63 ' style='stroke-width: 1.50; stroke: #00C300;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='922.01' y1='329.53' x2='1054.22' y2='329.53' style='stroke-width: 0.75;' />
@@ -534,10 +534,10 @@
 <text transform='translate(872.55,278.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8MjI3Ljk3fDMyOS41Mw==)'>
-<polyline points='908.78,288.15 922.01,282.80 935.23,282.80 948.45,282.80 961.67,282.80 974.89,282.80 988.11,282.80 1001.34,282.80 1014.56,282.80 1027.78,282.80 1041.00,282.80 1054.22,282.80 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='974.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 2.844475</text>
-<text x='974.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 2.844475</text>
-<text x='974.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 16.571760</text>
+<polyline points='908.78,288.15 922.01,280.38 935.23,277.07 948.45,275.65 961.67,275.05 974.89,274.79 988.11,274.68 1001.34,274.63 1014.56,274.61 1027.78,274.61 1041.00,274.60 1054.22,274.60 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='974.89' y='316.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 7.205943</text>
+<text x='974.89' y='322.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 7.205330</text>
+<text x='974.89' y='328.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='75.69px' lengthAdjust='spacingAndGlyphs'>last trial = -11.348504</text>
 </g>
 <defs>
   <clipPath id='cpMzguOTd8MTk2LjA0fDQxNi45N3w1MTguNTM='>
@@ -545,7 +545,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDQxNi45N3w1MTguNTM=)'>
-<polyline points='44.78,481.08 58.01,479.22 71.23,475.77 84.45,476.28 97.67,482.97 110.89,482.61 124.11,476.40 137.34,473.21 150.56,481.69 163.78,487.90 177.00,479.72 190.22,478.65 ' style='stroke-width: 1.50; stroke: #00BC00;' />
+<polyline points='44.78,480.63 58.01,485.20 71.23,481.36 84.45,480.61 97.67,479.98 110.89,465.82 124.11,481.17 137.34,478.70 150.56,482.31 163.78,481.80 177.00,453.07 190.22,468.44 ' style='stroke-width: 1.50; stroke: #00BC00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='58.01' y1='518.53' x2='190.22' y2='518.53' style='stroke-width: 0.75;' />
@@ -586,10 +586,10 @@
 <text transform='translate(8.55,467.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDQxNi45N3w1MTguNTM=)'>
-<polyline points='44.78,477.15 58.01,477.15 71.23,477.15 84.45,477.15 97.67,477.15 110.89,477.15 124.11,477.15 137.34,477.15 150.56,477.15 163.78,477.15 177.00,477.15 190.22,477.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='110.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='110.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='110.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 17.370562</text>
+<polyline points='44.78,477.15 58.01,476.68 71.23,476.21 84.45,475.75 97.67,475.29 110.89,474.83 124.11,474.38 137.34,473.94 150.56,473.50 163.78,473.06 177.00,472.63 190.22,472.20 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='110.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 25.612412</text>
+<text x='110.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 2.632963</text>
+<text x='110.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='76.28px' lengthAdjust='spacingAndGlyphs'>last trial = -15.982752</text>
 </g>
 <defs>
   <clipPath id='cpMjU0Ljk3fDQxMi4wNHw0MTYuOTd8NTE4LjUz'>
@@ -597,7 +597,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHw0MTYuOTd8NTE4LjUz)'>
-<polyline points='260.78,477.60 274.01,484.11 287.23,478.18 300.45,468.97 313.67,474.65 326.89,468.80 340.11,464.05 353.34,460.79 366.56,463.47 379.78,461.57 393.00,453.27 406.22,464.55 ' style='stroke-width: 1.50; stroke: #00B600;' />
+<polyline points='260.78,487.19 274.01,489.46 287.23,492.98 300.45,495.99 313.67,501.03 326.89,496.92 340.11,498.14 353.34,489.71 366.56,497.97 379.78,491.09 393.00,495.10 406.22,502.01 ' style='stroke-width: 1.50; stroke: #00B600;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='274.01' y1='518.53' x2='406.22' y2='518.53' style='stroke-width: 0.75;' />
@@ -633,15 +633,15 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjE2LjAwfDQzMi4wMHwzNzguMDB8NTY3LjAw)'>
-<text x='333.50' y='400.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='15.85px' lengthAdjust='spacingAndGlyphs'>360</text>
+<text x='333.50' y='400.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='5.28px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text x='333.50' y='554.64' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>trials in rotation</text>
 <text transform='translate(224.55,467.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHw0MTYuOTd8NTE4LjUz)'>
-<polyline points='260.78,477.15 274.01,475.11 287.23,473.15 300.45,471.28 313.67,469.48 326.89,467.77 340.11,466.12 353.34,464.55 366.56,463.05 379.78,461.60 393.00,460.23 406.22,458.90 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='326.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 25.397057</text>
-<text x='326.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 9.701740</text>
-<text x='326.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 10.672428</text>
+<polyline points='260.78,477.15 274.01,477.15 287.23,477.15 300.45,477.15 313.67,477.15 326.89,477.15 340.11,477.15 353.34,477.15 366.56,477.15 379.78,477.15 393.00,477.15 406.22,477.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='326.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='326.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='326.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -2.764020</text>
 </g>
 <defs>
   <clipPath id='cpNDcwLjk3fDYyOC4wNHw0MTYuOTd8NTE4LjUz'>
@@ -649,7 +649,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHw0MTYuOTd8NTE4LjUz)'>
-<polyline points='476.78,472.33 490.01,477.74 503.23,483.38 516.45,486.34 529.67,491.38 542.89,486.72 556.11,498.06 569.34,494.11 582.56,494.19 595.78,491.90 609.00,499.71 622.22,503.48 ' style='stroke-width: 1.50; stroke: #00AF00;' />
+<polyline points='476.78,475.86 490.01,465.45 503.23,463.78 516.45,467.01 529.67,465.59 542.89,458.03 556.11,470.82 569.34,460.04 582.56,455.98 595.78,460.85 609.00,466.38 622.22,463.26 ' style='stroke-width: 1.50; stroke: #00AF00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='490.01' y1='518.53' x2='622.22' y2='518.53' style='stroke-width: 0.75;' />
@@ -690,10 +690,10 @@
 <text transform='translate(440.55,467.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHw0MTYuOTd8NTE4LjUz)'>
-<polyline points='476.78,477.15 490.01,477.15 503.23,477.15 516.45,477.15 529.67,477.15 542.89,477.15 556.11,477.15 569.34,477.15 582.56,477.15 595.78,477.15 609.00,477.15 622.22,477.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='542.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='542.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='542.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 24.670947</text>
+<polyline points='476.78,477.15 490.01,466.09 503.23,463.70 516.45,463.18 529.67,463.07 542.89,463.04 556.11,463.04 569.34,463.04 582.56,463.04 595.78,463.04 609.00,463.04 622.22,463.04 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='542.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 7.505027</text>
+<text x='542.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 7.505026</text>
+<text x='542.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='76.28px' lengthAdjust='spacingAndGlyphs'>last trial = -10.150835</text>
 </g>
 <defs>
   <clipPath id='cpNjg2Ljk3fDg0NC4wNHw0MTYuOTd8NTE4LjUz'>
@@ -701,7 +701,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHw0MTYuOTd8NTE4LjUz)'>
-<polyline points='692.78,471.54 706.01,456.48 719.23,453.18 732.45,444.28 745.67,439.22 758.89,441.07 772.11,438.55 785.34,442.59 798.56,436.50 811.78,433.42 825.00,437.39 838.22,432.72 ' style='stroke-width: 1.50; stroke: #00A800;' />
+<polyline points='692.78,474.20 706.01,483.61 719.23,488.99 732.45,495.43 745.67,493.71 758.89,491.46 772.11,489.28 785.34,489.69 798.56,491.27 811.78,487.74 825.00,489.30 838.22,497.62 ' style='stroke-width: 1.50; stroke: #00A800;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='706.01' y1='518.53' x2='838.22' y2='518.53' style='stroke-width: 0.75;' />
@@ -742,10 +742,10 @@
 <text transform='translate(656.55,467.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHw0MTYuOTd8NTE4LjUz)'>
-<polyline points='692.78,477.15 706.01,460.32 719.23,450.41 732.45,444.57 745.67,441.13 758.89,439.10 772.11,437.91 785.34,437.21 798.56,436.79 811.78,436.55 825.00,436.40 838.22,436.32 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='758.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 21.775091</text>
-<text x='758.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 21.710494</text>
-<text x='758.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 1.045739</text>
+<polyline points='692.78,477.15 706.01,477.15 719.23,477.15 732.45,477.15 745.67,477.15 758.89,477.15 772.11,477.15 785.34,477.15 798.56,477.15 811.78,477.15 825.00,477.15 838.22,477.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='758.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='758.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='758.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 0.729684</text>
 </g>
 <defs>
   <clipPath id='cpOTAyLjk3fDEwNjAuMDR8NDE2Ljk3fDUxOC41Mw=='>
@@ -753,7 +753,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8NDE2Ljk3fDUxOC41Mw==)'>
-<polyline points='908.78,480.06 922.01,476.78 935.23,494.31 948.45,493.19 961.67,506.32 974.89,505.51 988.11,502.33 1001.34,504.45 1014.56,512.96 1027.78,511.49 1041.00,508.85 1054.22,506.55 ' style='stroke-width: 1.50; stroke: #00A200;' />
+<polyline points='908.78,471.70 922.01,470.13 935.23,465.61 948.45,460.49 961.67,464.14 974.89,460.69 988.11,470.98 1001.34,484.91 1014.56,464.36 1027.78,465.93 1041.00,466.48 1054.22,468.04 ' style='stroke-width: 1.50; stroke: #00A200;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='922.01' y1='518.53' x2='1054.22' y2='518.53' style='stroke-width: 0.75;' />
@@ -794,10 +794,10 @@
 <text transform='translate(872.55,467.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8NDE2Ljk3fDUxOC41Mw==)'>
-<polyline points='908.78,477.15 922.01,477.15 935.23,477.15 948.45,477.15 961.67,477.15 974.89,477.15 988.11,477.15 1001.34,477.15 1014.56,477.15 1027.78,477.15 1041.00,477.15 1054.22,477.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='974.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='974.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='974.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 16.677185</text>
+<polyline points='908.78,477.15 922.01,468.88 935.23,467.51 948.45,467.29 961.67,467.25 974.89,467.24 988.11,467.24 1001.34,467.24 1014.56,467.24 1027.78,467.24 1041.00,467.24 1054.22,467.24 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='974.89' y='505.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 5.269028</text>
+<text x='974.89' y='511.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 5.269028</text>
+<text x='974.89' y='517.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.29px' lengthAdjust='spacingAndGlyphs'>last trial = -4.115675</text>
 </g>
 <defs>
   <clipPath id='cpMzguOTd8MTk2LjA0fDYwNS45N3w3MDcuNTM='>
@@ -805,7 +805,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDYwNS45N3w3MDcuNTM=)'>
-<polyline points='44.78,666.87 58.01,600.91 71.23,615.55 84.45,627.98 97.67,633.93 110.89,629.80 124.11,627.89 137.34,630.65 150.56,640.36 163.78,637.00 177.00,631.68 190.22,630.36 ' style='stroke-width: 1.50; stroke: #009B00;' />
+<polyline points='44.78,663.22 58.01,672.32 71.23,669.54 84.45,671.94 97.67,669.69 110.89,674.78 124.11,666.09 137.34,668.27 150.56,669.07 163.78,666.66 177.00,665.10 190.22,656.75 ' style='stroke-width: 1.50; stroke: #009B00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='58.01' y1='707.53' x2='190.22' y2='707.53' style='stroke-width: 0.75;' />
@@ -841,15 +841,15 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMC4wMHwyMTYuMDB8NTY3LjAwfDc1Ni4wMA==)'>
-<text x='117.50' y='589.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='15.85px' lengthAdjust='spacingAndGlyphs'>360</text>
+<text x='117.50' y='589.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='5.28px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text x='117.50' y='743.64' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>trials in rotation</text>
 <text transform='translate(8.55,656.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDYwNS45N3w3MDcuNTM=)'>
-<polyline points='44.78,666.15 58.01,627.83 71.23,627.83 84.45,627.83 97.67,627.83 110.89,627.83 124.11,627.83 137.34,627.83 150.56,627.83 163.78,627.83 177.00,627.83 190.22,627.83 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='110.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 20.375483</text>
-<text x='110.89' y='700.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 20.375483</text>
-<text x='110.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -2.352504</text>
+<polyline points='44.78,666.15 58.01,666.15 71.23,666.15 84.45,666.15 97.67,666.15 110.89,666.15 124.11,666.15 137.34,666.15 150.56,666.15 163.78,666.15 177.00,666.15 190.22,666.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='110.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.289013</text>
+<text x='110.89' y='700.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='110.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.29px' lengthAdjust='spacingAndGlyphs'>last trial = -9.112693</text>
 </g>
 <defs>
   <clipPath id='cpMjU0Ljk3fDQxMi4wNHw2MDUuOTd8NzA3LjUz'>
@@ -857,7 +857,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHw2MDUuOTd8NzA3LjUz)'>
-<polyline points='260.78,671.40 274.01,672.43 287.23,665.95 300.45,670.41 313.67,661.31 326.89,670.70 340.11,678.61 353.34,669.25 366.56,672.65 379.78,673.44 393.00,670.21 406.22,670.63 ' style='stroke-width: 1.50; stroke: #009400;' />
+<polyline points='260.78,675.64 274.01,675.75 287.23,673.35 300.45,680.04 313.67,671.54 326.89,675.53 340.11,670.12 353.34,676.98 366.56,678.23 379.78,682.83 393.00,674.51 406.22,674.80 ' style='stroke-width: 1.50; stroke: #009400;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='274.01' y1='707.53' x2='406.22' y2='707.53' style='stroke-width: 0.75;' />
@@ -893,7 +893,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjE2LjAwfDQzMi4wMHw1NjcuMDB8NzU2LjAw)'>
-<text x='333.50' y='589.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='15.85px' lengthAdjust='spacingAndGlyphs'>360</text>
+<text x='333.50' y='589.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='5.28px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text x='333.50' y='743.64' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>trials in rotation</text>
 <text transform='translate(224.55,656.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
@@ -901,7 +901,7 @@
 <polyline points='260.78,666.15 274.01,666.15 287.23,666.15 300.45,666.15 313.67,666.15 326.89,666.15 340.11,666.15 353.34,666.15 366.56,666.15 379.78,666.15 393.00,666.15 406.22,666.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
 <text x='326.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
 <text x='326.89' y='700.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='326.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 0.028686</text>
+<text x='326.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -4.516899</text>
 </g>
 <defs>
   <clipPath id='cpNDcwLjk3fDYyOC4wNHw2MDUuOTd8NzA3LjUz'>
@@ -909,7 +909,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHw2MDUuOTd8NzA3LjUz)'>
-<polyline points='476.78,665.28 490.01,667.67 503.23,689.63 516.45,696.16 529.67,697.44 542.89,696.82 556.11,700.33 569.34,707.12 582.56,706.52 595.78,701.69 609.00,702.36 622.22,699.57 ' style='stroke-width: 1.50; stroke: #008E00;' />
+<polyline points='476.78,667.78 490.01,673.27 503.23,666.61 516.45,670.37 529.67,665.72 542.89,667.45 556.11,667.66 569.34,664.33 582.56,661.11 595.78,672.70 609.00,666.19 622.22,669.02 ' style='stroke-width: 1.50; stroke: #008E00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='490.01' y1='707.53' x2='622.22' y2='707.53' style='stroke-width: 0.75;' />
@@ -951,9 +951,9 @@
 </g>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHw2MDUuOTd8NzA3LjUz)'>
 <polyline points='476.78,666.15 490.01,666.15 503.23,666.15 516.45,666.15 529.67,666.15 542.89,666.15 556.11,666.15 569.34,666.15 582.56,666.15 595.78,666.15 609.00,666.15 622.22,666.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='542.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='542.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.052175</text>
 <text x='542.89' y='700.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='542.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 17.798309</text>
+<text x='542.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -2.989700</text>
 </g>
 <defs>
   <clipPath id='cpNjg2Ljk3fDg0NC4wNHw2MDUuOTd8NzA3LjUz'>
@@ -961,7 +961,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHw2MDUuOTd8NzA3LjUz)'>
-<polyline points='692.78,674.21 706.01,608.39 719.23,618.86 732.45,632.99 745.67,636.95 758.89,633.80 772.11,639.01 785.34,646.91 798.56,646.48 811.78,640.39 825.00,644.86 838.22,647.08 ' style='stroke-width: 1.50; stroke: #008900;' />
+<polyline points='692.78,675.89 706.01,661.65 719.23,673.18 732.45,662.59 745.67,660.32 758.89,659.45 772.11,663.43 785.34,642.73 798.56,637.04 811.78,664.60 825.00,656.30 838.22,663.08 ' style='stroke-width: 1.50; stroke: #008900;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='706.01' y1='707.53' x2='838.22' y2='707.53' style='stroke-width: 0.75;' />
@@ -1002,10 +1002,10 @@
 <text transform='translate(656.55,656.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHw2MDUuOTd8NzA3LjUz)'>
-<polyline points='692.78,666.15 706.01,635.97 719.23,635.97 732.45,635.97 745.67,635.97 758.89,635.97 772.11,635.97 785.34,635.97 798.56,635.97 811.78,635.97 825.00,635.97 838.22,635.97 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='758.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 16.045079</text>
-<text x='758.89' y='700.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 16.045079</text>
-<text x='758.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 7.658228</text>
+<polyline points='692.78,666.15 706.01,664.02 719.23,662.22 732.45,660.70 745.67,659.42 758.89,658.34 772.11,657.43 785.34,656.67 798.56,656.02 811.78,655.47 825.00,655.01 838.22,654.63 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='758.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 7.237324</text>
+<text x='758.89' y='700.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 6.127829</text>
+<text x='758.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -4.621363</text>
 </g>
 <defs>
   <clipPath id='cpOTAyLjk3fDEwNjAuMDR8NjA1Ljk3fDcwNy41Mw=='>
@@ -1013,7 +1013,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8NjA1Ljk3fDcwNy41Mw==)'>
-<polyline points='908.78,665.36 922.01,669.38 935.23,669.94 948.45,665.64 961.67,664.15 974.89,668.55 988.11,664.79 1001.34,674.07 1014.56,669.84 1027.78,669.93 1041.00,665.61 1054.22,671.37 ' style='stroke-width: 1.50; stroke: #008700;' />
+<polyline points='908.78,660.87 922.01,656.43 935.23,664.05 948.45,657.67 961.67,660.72 974.89,667.35 988.11,661.37 1001.34,652.15 1014.56,662.14 1027.78,662.04 1041.00,657.03 1054.22,655.41 ' style='stroke-width: 1.50; stroke: #008700;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='922.01' y1='707.53' x2='1054.22' y2='707.53' style='stroke-width: 0.75;' />
@@ -1054,10 +1054,10 @@
 <text transform='translate(872.55,656.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8NjA1Ljk3fDcwNy41Mw==)'>
-<polyline points='908.78,666.15 922.01,666.15 935.23,666.15 948.45,666.15 961.67,666.15 974.89,666.15 988.11,666.15 1001.34,666.15 1014.56,666.15 1027.78,666.15 1041.00,666.15 1054.22,666.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='974.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='974.89' y='700.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='974.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 10.434843</text>
+<polyline points='908.78,666.15 922.01,659.67 935.23,659.67 948.45,659.67 961.67,659.67 974.89,659.67 988.11,659.67 1001.34,659.67 1014.56,659.67 1027.78,659.67 1041.00,659.67 1054.22,659.67 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='974.89' y='694.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 3.445935</text>
+<text x='974.89' y='700.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 3.445935</text>
+<text x='974.89' y='706.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='76.28px' lengthAdjust='spacingAndGlyphs'>last trial = -10.330284</text>
 </g>
 <defs>
   <clipPath id='cpMzguOTd8MTk2LjA0fDc5NC45N3w4OTYuNTM='>
@@ -1065,7 +1065,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDc5NC45N3w4OTYuNTM=)'>
-<polyline points='44.78,855.05 58.01,828.99 71.23,839.62 84.45,861.14 97.67,863.69 110.89,865.22 124.11,859.66 137.34,865.05 150.56,868.78 163.78,871.26 177.00,872.06 190.22,868.34 ' style='stroke-width: 1.50; stroke: #008500;' />
+<polyline points='44.78,855.21 58.01,871.88 71.23,874.23 84.45,870.75 97.67,868.53 110.89,870.08 124.11,872.68 137.34,871.41 150.56,860.27 163.78,883.15 177.00,873.05 190.22,872.44 ' style='stroke-width: 1.50; stroke: #008500;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='58.01' y1='896.53' x2='190.22' y2='896.53' style='stroke-width: 0.75;' />
@@ -1109,7 +1109,7 @@
 <polyline points='44.78,855.15 58.01,855.15 71.23,855.15 84.45,855.15 97.67,855.15 110.89,855.15 124.11,855.15 137.34,855.15 150.56,855.15 163.78,855.15 177.00,855.15 190.22,855.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
 <text x='110.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
 <text x='110.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='110.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 17.447275</text>
+<text x='110.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -1.139500</text>
 </g>
 <defs>
   <clipPath id='cpMjU0Ljk3fDQxMi4wNHw3OTQuOTd8ODk2LjUz'>
@@ -1117,7 +1117,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHw3OTQuOTd8ODk2LjUz)'>
-<polyline points='260.78,860.57 274.01,861.70 287.23,861.37 300.45,858.10 313.67,858.40 326.89,864.90 340.11,857.11 353.34,862.69 366.56,865.64 379.78,858.89 393.00,861.95 406.22,859.40 ' style='stroke-width: 1.50; stroke: #008300;' />
+<polyline points='260.78,850.96 274.01,864.69 287.23,851.61 300.45,857.83 313.67,850.73 326.89,852.38 340.11,854.56 353.34,849.25 366.56,854.84 379.78,847.01 393.00,850.57 406.22,855.37 ' style='stroke-width: 1.50; stroke: #008300;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='274.01' y1='896.53' x2='406.22' y2='896.53' style='stroke-width: 0.75;' />
@@ -1158,10 +1158,10 @@
 <text transform='translate(224.55,845.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHw3OTQuOTd8ODk2LjUz)'>
-<polyline points='260.78,855.15 274.01,855.15 287.23,855.15 300.45,855.15 313.67,855.15 326.89,855.15 340.11,855.15 353.34,855.15 366.56,855.15 379.78,855.15 393.00,855.15 406.22,855.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='326.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='326.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='326.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 19.705973</text>
+<polyline points='260.78,855.15 274.01,854.70 287.23,854.28 300.45,853.88 313.67,853.50 326.89,853.14 340.11,852.80 353.34,852.48 366.56,852.18 379.78,851.89 393.00,851.62 406.22,851.36 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='326.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 4.412462</text>
+<text x='326.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 2.014577</text>
+<text x='326.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -1.024018</text>
 </g>
 <defs>
   <clipPath id='cpNDcwLjk3fDYyOC4wNHw3OTQuOTd8ODk2LjUz'>
@@ -1169,7 +1169,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHw3OTQuOTd8ODk2LjUz)'>
-<polyline points='476.78,866.81 490.01,851.27 503.23,854.45 516.45,843.29 529.67,846.89 542.89,843.06 556.11,846.18 569.34,843.63 582.56,843.70 595.78,844.09 609.00,844.07 622.22,845.44 ' style='stroke-width: 1.50; stroke: #008000;' />
+<polyline points='476.78,884.76 490.01,852.41 503.23,849.16 516.45,847.23 529.67,858.19 542.89,852.58 556.11,863.32 569.34,854.54 582.56,856.03 595.78,856.26 609.00,853.17 622.22,858.08 ' style='stroke-width: 1.50; stroke: #008000;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='490.01' y1='896.53' x2='622.22' y2='896.53' style='stroke-width: 0.75;' />
@@ -1210,10 +1210,10 @@
 <text transform='translate(440.55,845.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHw3OTQuOTd8ODk2LjUz)'>
-<polyline points='476.78,855.15 490.01,851.59 503.23,849.13 516.45,847.43 529.67,846.25 542.89,845.44 556.11,844.89 569.34,844.50 582.56,844.23 595.78,844.05 609.00,843.92 622.22,843.83 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='542.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 6.121426</text>
-<text x='542.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 6.017504</text>
-<text x='542.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 14.541246</text>
+<polyline points='476.78,855.15 490.01,854.64 503.23,854.64 516.45,854.64 529.67,854.64 542.89,854.64 556.11,854.64 569.34,854.64 582.56,854.64 595.78,854.64 609.00,854.64 622.22,854.64 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='542.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.274550</text>
+<text x='542.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.274550</text>
+<text x='542.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 0.532882</text>
 </g>
 <defs>
   <clipPath id='cpNjg2Ljk3fDg0NC4wNHw3OTQuOTd8ODk2LjUz'>
@@ -1221,7 +1221,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHw3OTQuOTd8ODk2LjUz)'>
-<polyline points='692.78,848.19 706.01,815.48 719.23,816.73 732.45,830.44 745.67,831.05 758.89,832.79 772.11,831.60 785.34,832.76 798.56,841.31 811.78,834.56 825.00,839.79 838.22,838.42 ' style='stroke-width: 1.50; stroke: #007E00;' />
+<polyline points='692.78,855.51 706.01,848.10 719.23,839.76 732.45,830.01 745.67,845.31 758.89,841.60 772.11,839.44 785.34,842.90 798.56,839.34 811.78,845.27 825.00,833.51 838.22,845.10 ' style='stroke-width: 1.50; stroke: #007E00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='706.01' y1='896.53' x2='838.22' y2='896.53' style='stroke-width: 0.75;' />
@@ -1262,10 +1262,10 @@
 <text transform='translate(656.55,845.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHw3OTQuOTd8ODk2LjUz)'>
-<polyline points='692.78,855.15 706.01,831.36 719.23,831.36 732.45,831.36 745.67,831.36 758.89,831.36 772.11,831.36 785.34,831.36 798.56,831.36 811.78,831.36 825.00,831.36 838.22,831.36 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='758.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 12.652190</text>
-<text x='758.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 12.652190</text>
-<text x='758.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 5.643961</text>
+<polyline points='692.78,855.15 706.01,844.72 719.23,841.62 732.45,840.70 745.67,840.43 758.89,840.35 772.11,840.33 785.34,840.32 798.56,840.32 811.78,840.32 825.00,840.32 838.22,840.32 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='758.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 7.888462</text>
+<text x='758.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 7.888449</text>
+<text x='758.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -4.812455</text>
 </g>
 <defs>
   <clipPath id='cpOTAyLjk3fDEwNjAuMDR8Nzk0Ljk3fDg5Ni41Mw=='>
@@ -1273,7 +1273,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8Nzk0Ljk3fDg5Ni41Mw==)'>
-<polyline points='908.78,857.06 922.01,858.70 935.23,850.94 948.45,855.29 961.67,857.51 974.89,850.09 988.11,848.09 1001.34,854.34 1014.56,864.74 1027.78,844.70 1041.00,845.02 1054.22,844.38 ' style='stroke-width: 1.50; stroke: #007C00;' />
+<polyline points='908.78,847.38 922.01,854.09 935.23,854.11 948.45,852.37 961.67,858.80 974.89,837.11 988.11,855.92 1001.34,848.49 1014.56,857.30 1027.78,852.29 1041.00,852.15 1054.22,852.24 ' style='stroke-width: 1.50; stroke: #007C00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='922.01' y1='896.53' x2='1054.22' y2='896.53' style='stroke-width: 0.75;' />
@@ -1309,15 +1309,15 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpODY0LjAwfDEwODAuMDB8NzU2LjAwfDk0NS4wMA==)'>
-<text x='981.50' y='778.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='15.85px' lengthAdjust='spacingAndGlyphs'>360</text>
+<text x='981.50' y='778.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='5.28px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text x='981.50' y='932.64' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>trials in rotation</text>
 <text transform='translate(872.55,845.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8Nzk0Ljk3fDg5Ni41Mw==)'>
-<polyline points='908.78,855.15 922.01,854.50 935.23,853.87 948.45,853.25 961.67,852.65 974.89,852.08 988.11,851.52 1001.34,850.97 1014.56,850.45 1027.78,849.94 1041.00,849.44 1054.22,848.96 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='974.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.30px' lengthAdjust='spacingAndGlyphs'>asymptote = 11.452222</text>
-<text x='974.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 3.291510</text>
-<text x='974.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -0.082150</text>
+<polyline points='908.78,855.15 922.01,853.76 935.23,852.94 948.45,852.46 961.67,852.18 974.89,852.02 988.11,851.92 1001.34,851.86 1014.56,851.83 1027.78,851.81 1041.00,851.80 1054.22,851.79 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='974.89' y='883.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='77.90px' lengthAdjust='spacingAndGlyphs'>asymptote = 1.791167</text>
+<text x='974.89' y='889.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 1.786199</text>
+<text x='974.89' y='895.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -6.358482</text>
 </g>
 <defs>
   <clipPath id='cpMzguOTd8MTk2LjA0fDk4My45N3wxMDg1LjUz'>
@@ -1325,7 +1325,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDk4My45N3wxMDg1LjUz)'>
-<polyline points='44.78,1050.42 58.01,1050.93 71.23,1050.01 84.45,1053.04 97.67,1059.72 110.89,1063.02 124.11,1054.51 137.34,1059.37 150.56,1062.66 163.78,1062.62 177.00,1055.18 190.22,1061.69 ' style='stroke-width: 1.50; stroke: #007A00;' />
+<polyline points='44.78,1048.37 58.01,1041.04 71.23,1045.28 84.45,1040.06 97.67,1039.40 110.89,1044.17 124.11,1047.09 137.34,1035.57 150.56,1037.59 163.78,1045.27 177.00,1035.92 190.22,1035.02 ' style='stroke-width: 1.50; stroke: #007A00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='58.01' y1='1085.53' x2='190.22' y2='1085.53' style='stroke-width: 0.75;' />
@@ -1366,10 +1366,10 @@
 <text transform='translate(8.55,1034.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDk4My45N3wxMDg1LjUz)'>
-<polyline points='44.78,1044.15 58.01,1044.15 71.23,1044.15 84.45,1044.15 97.67,1044.15 110.89,1044.15 124.11,1044.15 137.34,1044.15 150.56,1044.15 163.78,1044.15 177.00,1044.15 190.22,1044.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='110.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='110.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='110.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 9.241885</text>
+<polyline points='44.78,1044.15 58.01,1043.48 71.23,1042.84 84.45,1042.22 97.67,1041.62 110.89,1041.05 124.11,1040.49 137.34,1039.96 150.56,1039.44 163.78,1038.95 177.00,1038.47 190.22,1038.01 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='110.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 9.705982</text>
+<text x='110.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 3.266002</text>
+<text x='110.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='75.11px' lengthAdjust='spacingAndGlyphs'>last trial = -11.211473</text>
 </g>
 <defs>
   <clipPath id='cpMjU0Ljk3fDQxMi4wNHw5ODMuOTd8MTA4NS41Mw=='>
@@ -1377,7 +1377,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHw5ODMuOTd8MTA4NS41Mw==)'>
-<polyline points='260.78,1049.78 274.01,1040.93 287.23,1052.65 300.45,1051.21 313.67,1055.49 326.89,1061.76 340.11,1055.14 353.34,1061.14 366.56,1060.98 379.78,1059.35 393.00,1069.00 406.22,1060.59 ' style='stroke-width: 1.50; stroke: #007800;' />
+<polyline points='260.78,1047.61 274.01,1052.74 287.23,1046.57 300.45,1044.16 313.67,1042.38 326.89,1046.82 340.11,1043.06 353.34,1049.16 366.56,1045.46 379.78,1044.23 393.00,1047.73 406.22,1045.81 ' style='stroke-width: 1.50; stroke: #007800;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='274.01' y1='1085.53' x2='406.22' y2='1085.53' style='stroke-width: 0.75;' />
@@ -1421,7 +1421,7 @@
 <polyline points='260.78,1044.15 274.01,1044.15 287.23,1044.15 300.45,1044.15 313.67,1044.15 326.89,1044.15 340.11,1044.15 353.34,1044.15 366.56,1044.15 379.78,1044.15 393.00,1044.15 406.22,1044.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
 <text x='326.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
 <text x='326.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='326.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 17.980909</text>
+<text x='326.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='76.28px' lengthAdjust='spacingAndGlyphs'>last trial = -10.330445</text>
 </g>
 <defs>
   <clipPath id='cpNDcwLjk3fDYyOC4wNHw5ODMuOTd8MTA4NS41Mw=='>
@@ -1429,7 +1429,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHw5ODMuOTd8MTA4NS41Mw==)'>
-<polyline points='476.78,1039.38 490.01,996.55 503.23,1005.28 516.45,1024.39 529.67,1033.19 542.89,1034.60 556.11,1038.70 569.34,1037.30 582.56,1038.90 595.78,1039.48 609.00,1039.48 622.22,1043.21 ' style='stroke-width: 1.50; stroke: #007500;' />
+<polyline points='476.78,1027.66 490.01,1064.12 503.23,1059.81 516.45,1063.40 529.67,1063.35 542.89,1078.22 556.11,1064.46 569.34,1053.37 582.56,1064.79 595.78,1063.43 609.00,1054.98 622.22,1052.91 ' style='stroke-width: 1.50; stroke: #007500;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='490.01' y1='1085.53' x2='622.22' y2='1085.53' style='stroke-width: 0.75;' />
@@ -1470,10 +1470,10 @@
 <text transform='translate(440.55,1034.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHw5ODMuOTd8MTA4NS41Mw==)'>
-<polyline points='476.78,1044.15 490.01,1030.10 503.23,1030.10 516.45,1030.10 529.67,1030.10 542.89,1030.10 556.11,1030.10 569.34,1030.10 582.56,1030.10 595.78,1030.10 609.00,1030.10 622.22,1030.10 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='542.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 7.472442</text>
-<text x='542.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 7.472442</text>
-<text x='542.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 17.481457</text>
+<polyline points='476.78,1044.15 490.01,1044.15 503.23,1044.15 516.45,1044.15 529.67,1044.15 542.89,1044.15 556.11,1044.15 569.34,1044.15 582.56,1044.15 595.78,1044.15 609.00,1044.15 622.22,1044.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='542.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='542.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='542.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -5.676092</text>
 </g>
 <defs>
   <clipPath id='cpNjg2Ljk3fDg0NC4wNHw5ODMuOTd8MTA4NS41Mw=='>
@@ -1481,7 +1481,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHw5ODMuOTd8MTA4NS41Mw==)'>
-<polyline points='692.78,1044.53 706.01,991.88 719.23,997.33 732.45,996.01 745.67,1010.35 758.89,1005.45 772.11,1008.11 785.34,1005.45 798.56,1009.16 811.78,1005.49 825.00,1008.69 838.22,1009.71 ' style='stroke-width: 1.50; stroke: #007300;' />
+<polyline points='692.78,1044.60 706.01,1053.65 719.23,1050.56 732.45,1046.08 745.67,1049.26 758.89,1043.84 772.11,1048.12 785.34,1048.58 798.56,1049.82 811.78,1050.73 825.00,1050.12 838.22,1046.59 ' style='stroke-width: 1.50; stroke: #007300;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='706.01' y1='1085.53' x2='838.22' y2='1085.53' style='stroke-width: 0.75;' />
@@ -1522,10 +1522,10 @@
 <text transform='translate(656.55,1034.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHw5ODMuOTd8MTA4NS41Mw==)'>
-<polyline points='692.78,1044.15 706.01,1004.33 719.23,1004.33 732.45,1004.33 745.67,1004.33 758.89,1004.33 772.11,1004.33 785.34,1004.33 798.56,1004.33 811.78,1004.33 825.00,1004.33 838.22,1004.33 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='758.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 21.173104</text>
-<text x='758.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 21.173104</text>
-<text x='758.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -0.832578</text>
+<polyline points='692.78,1044.15 706.01,1044.15 719.23,1044.15 732.45,1044.15 745.67,1044.15 758.89,1044.15 772.11,1044.15 785.34,1044.15 798.56,1044.15 811.78,1044.15 825.00,1044.15 838.22,1044.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='758.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='758.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='758.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -4.380660</text>
 </g>
 <defs>
   <clipPath id='cpOTAyLjk3fDEwNjAuMDR8OTgzLjk3fDEwODUuNTM='>
@@ -1533,7 +1533,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8OTgzLjk3fDEwODUuNTM=)'>
-<polyline points='908.78,1049.75 922.01,1040.25 935.23,1058.86 948.45,1045.85 961.67,1047.01 974.89,1045.84 988.11,1049.84 1001.34,1046.97 1014.56,1044.20 1027.78,1047.58 1041.00,1054.09 1054.22,1053.32 ' style='stroke-width: 1.50; stroke: #007100;' />
+<polyline points='908.78,1046.53 922.01,1044.99 935.23,1044.76 948.45,1034.16 961.67,1043.90 974.89,1046.61 988.11,1038.72 1001.34,1046.43 1014.56,1041.44 1027.78,1039.49 1041.00,1042.51 1054.22,1041.77 ' style='stroke-width: 1.50; stroke: #007100;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='922.01' y1='1085.53' x2='1054.22' y2='1085.53' style='stroke-width: 0.75;' />
@@ -1569,15 +1569,15 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpODY0LjAwfDEwODAuMDB8OTQ1LjAwfDExMzQuMDA=)'>
-<text x='981.50' y='967.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='15.85px' lengthAdjust='spacingAndGlyphs'>360</text>
+<text x='981.50' y='967.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='5.28px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text x='981.50' y='1121.64' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>trials in rotation</text>
 <text transform='translate(872.55,1034.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8OTgzLjk3fDEwODUuNTM=)'>
-<polyline points='908.78,1044.15 922.01,1044.15 935.23,1044.15 948.45,1044.15 961.67,1044.15 974.89,1044.15 988.11,1044.15 1001.34,1044.15 1014.56,1044.15 1027.78,1044.15 1041.00,1044.15 1054.22,1044.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='974.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='974.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='974.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 4.042483</text>
+<polyline points='908.78,1044.15 922.01,1043.10 935.23,1042.55 948.45,1042.27 961.67,1042.13 974.89,1042.06 988.11,1042.02 1001.34,1042.00 1014.56,1041.99 1027.78,1041.98 1041.00,1041.98 1054.22,1041.98 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='974.89' y='1072.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 1.156134</text>
+<text x='974.89' y='1078.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 1.155367</text>
+<text x='974.89' y='1084.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -5.645826</text>
 </g>
 <defs>
   <clipPath id='cpMzguOTd8MTk2LjA0fDExNzIuOTd8MTI3NC41Mw=='>
@@ -1585,7 +1585,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDExNzIuOTd8MTI3NC41Mw==)'>
-<polyline points='44.78,1235.46 58.01,1225.99 71.23,1232.04 84.45,1243.02 97.67,1243.05 110.89,1248.15 124.11,1240.75 137.34,1241.17 150.56,1249.18 163.78,1243.11 177.00,1245.83 190.22,1241.76 ' style='stroke-width: 1.50; stroke: #006F00;' />
+<polyline points='44.78,1242.08 58.01,1243.94 71.23,1242.81 84.45,1252.22 97.67,1241.41 110.89,1240.70 124.11,1242.23 137.34,1247.87 150.56,1239.06 163.78,1240.09 177.00,1241.11 190.22,1244.01 ' style='stroke-width: 1.50; stroke: #006F00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='58.01' y1='1274.53' x2='190.22' y2='1274.53' style='stroke-width: 0.75;' />
@@ -1629,7 +1629,7 @@
 <polyline points='44.78,1233.15 58.01,1233.15 71.23,1233.15 84.45,1233.15 97.67,1233.15 110.89,1233.15 124.11,1233.15 137.34,1233.15 150.56,1233.15 163.78,1233.15 177.00,1233.15 190.22,1233.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
 <text x='110.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
 <text x='110.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='110.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 8.620838</text>
+<text x='110.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 0.124714</text>
 </g>
 <defs>
   <clipPath id='cpMjU0Ljk3fDQxMi4wNHwxMTcyLjk3fDEyNzQuNTM='>
@@ -1637,7 +1637,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHwxMTcyLjk3fDEyNzQuNTM=)'>
-<polyline points='260.78,1241.12 274.01,1239.09 287.23,1252.85 300.45,1252.85 313.67,1257.05 326.89,1255.42 340.11,1259.52 353.34,1259.57 366.56,1255.74 379.78,1261.44 393.00,1252.36 406.22,1261.75 ' style='stroke-width: 1.50; stroke: #006C00;' />
+<polyline points='260.78,1234.00 274.01,1223.02 287.23,1230.09 300.45,1230.05 313.67,1222.51 326.89,1226.30 340.11,1224.77 353.34,1248.43 366.56,1223.13 379.78,1222.50 393.00,1234.26 406.22,1223.46 ' style='stroke-width: 1.50; stroke: #006C00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='274.01' y1='1274.53' x2='406.22' y2='1274.53' style='stroke-width: 0.75;' />
@@ -1678,10 +1678,10 @@
 <text transform='translate(224.55,1223.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMjU0Ljk3fDQxMi4wNHwxMTcyLjk3fDEyNzQuNTM=)'>
-<polyline points='260.78,1233.15 274.01,1233.15 287.23,1233.15 300.45,1233.15 313.67,1233.15 326.89,1233.15 340.11,1233.15 353.34,1233.15 366.56,1233.15 379.78,1233.15 393.00,1233.15 406.22,1233.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='326.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
-<text x='326.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
-<text x='326.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 23.823483</text>
+<polyline points='260.78,1233.15 274.01,1228.05 287.23,1228.05 300.45,1228.05 313.67,1228.05 326.89,1228.05 340.11,1228.05 353.34,1228.05 366.56,1228.05 379.78,1228.05 393.00,1228.05 406.22,1228.05 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='326.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 2.713492</text>
+<text x='326.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 2.713492</text>
+<text x='326.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -5.029195</text>
 </g>
 <defs>
   <clipPath id='cpNDcwLjk3fDYyOC4wNHwxMTcyLjk3fDEyNzQuNTM='>
@@ -1689,7 +1689,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHwxMTcyLjk3fDEyNzQuNTM=)'>
-<polyline points='476.78,1224.35 490.01,1161.64 503.23,1180.23 516.45,1190.60 529.67,1198.48 542.89,1199.58 556.11,1202.18 569.34,1212.33 582.56,1205.08 595.78,1215.36 609.00,1204.27 622.22,1217.22 ' style='stroke-width: 1.50; stroke: #006A00;' />
+<polyline points='476.78,1233.90 490.01,1235.22 503.23,1234.28 516.45,1229.12 529.67,1224.32 542.89,1226.29 556.11,1229.57 569.34,1223.39 582.56,1224.44 595.78,1229.55 609.00,1226.47 622.22,1236.15 ' style='stroke-width: 1.50; stroke: #006A00;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='490.01' y1='1274.53' x2='622.22' y2='1274.53' style='stroke-width: 0.75;' />
@@ -1730,10 +1730,10 @@
 <text transform='translate(440.55,1223.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNDcwLjk3fDYyOC4wNHwxMTcyLjk3fDEyNzQuNTM=)'>
-<polyline points='476.78,1233.15 490.01,1198.82 503.23,1198.82 516.45,1198.82 529.67,1198.82 542.89,1198.82 556.11,1198.82 569.34,1198.82 582.56,1198.82 595.78,1198.82 609.00,1198.82 622.22,1198.82 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='542.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 18.255885</text>
-<text x='542.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 18.255885</text>
-<text x='542.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 15.351872</text>
+<polyline points='476.78,1233.15 490.01,1231.35 503.23,1230.15 516.45,1229.34 529.67,1228.81 542.89,1228.45 556.11,1228.21 569.34,1228.05 582.56,1227.94 595.78,1227.87 609.00,1227.83 622.22,1227.79 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='542.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 2.882350</text>
+<text x='542.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 2.848562</text>
+<text x='542.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -3.437465</text>
 </g>
 <defs>
   <clipPath id='cpNjg2Ljk3fDg0NC4wNHwxMTcyLjk3fDEyNzQuNTM='>
@@ -1741,7 +1741,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHwxMTcyLjk3fDEyNzQuNTM=)'>
-<polyline points='692.78,1226.12 706.01,1208.82 719.23,1202.93 732.45,1210.57 745.67,1219.09 758.89,1216.47 772.11,1224.53 785.34,1221.59 798.56,1216.73 811.78,1220.93 825.00,1223.39 838.22,1223.28 ' style='stroke-width: 1.50; stroke: #006800;' />
+<polyline points='692.78,1220.55 706.01,1247.89 719.23,1238.60 732.45,1238.00 745.67,1236.54 758.89,1235.70 772.11,1243.50 785.34,1237.82 798.56,1233.26 811.78,1236.82 825.00,1244.56 838.22,1242.08 ' style='stroke-width: 1.50; stroke: #006800;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='706.01' y1='1274.53' x2='838.22' y2='1274.53' style='stroke-width: 0.75;' />
@@ -1782,10 +1782,10 @@
 <text transform='translate(656.55,1223.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpNjg2Ljk3fDg0NC4wNHwxMTcyLjk3fDEyNzQuNTM=)'>
-<polyline points='692.78,1233.15 706.01,1217.12 719.23,1217.12 732.45,1217.12 745.67,1217.12 758.89,1217.12 772.11,1217.12 785.34,1217.12 798.56,1217.12 811.78,1217.12 825.00,1217.12 838.22,1217.12 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='758.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 8.523436</text>
-<text x='758.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 8.523436</text>
-<text x='758.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='73.64px' lengthAdjust='spacingAndGlyphs'>last trial = 10.102305</text>
+<polyline points='692.78,1233.15 706.01,1233.15 719.23,1233.15 732.45,1233.15 745.67,1233.15 758.89,1233.15 772.11,1233.15 785.34,1233.15 798.56,1233.15 811.78,1233.15 825.00,1233.15 838.22,1233.15 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='758.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.000000</text>
+<text x='758.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.000000</text>
+<text x='758.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 1.306959</text>
 </g>
 <defs>
   <clipPath id='cpOTAyLjk3fDEwNjAuMDR8MTE3Mi45N3wxMjc0LjUz'>
@@ -1793,7 +1793,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8MTE3Mi45N3wxMjc0LjUz)'>
-<polyline points='908.78,1232.23 922.01,1196.33 935.23,1203.95 948.45,1197.77 961.67,1204.49 974.89,1209.90 988.11,1207.66 1001.34,1201.65 1014.56,1219.25 1027.78,1216.78 1041.00,1203.35 1054.22,1210.98 ' style='stroke-width: 1.50; stroke: #006600;' />
+<polyline points='908.78,1223.47 922.01,1237.41 935.23,1223.89 948.45,1224.23 961.67,1222.91 974.89,1226.88 988.11,1222.37 1001.34,1220.57 1014.56,1224.34 1027.78,1222.14 1041.00,1229.20 1054.22,1229.59 ' style='stroke-width: 1.50; stroke: #006600;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='922.01' y1='1274.53' x2='1054.22' y2='1274.53' style='stroke-width: 0.75;' />
@@ -1829,15 +1829,15 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpODY0LjAwfDEwODAuMDB8MTEzNC4wMHwxMzIzLjAw)'>
-<text x='981.50' y='1156.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='15.85px' lengthAdjust='spacingAndGlyphs'>360</text>
+<text x='981.50' y='1156.88' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: Arial;' textLength='5.28px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text x='981.50' y='1310.64' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='53.63px' lengthAdjust='spacingAndGlyphs'>trials in rotation</text>
 <text transform='translate(872.55,1223.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpOTAyLjk3fDEwNjAuMDR8MTE3Mi45N3wxMjc0LjUz)'>
-<polyline points='908.78,1233.15 922.01,1206.56 935.23,1206.56 948.45,1206.56 961.67,1206.56 974.89,1206.56 988.11,1206.56 1001.34,1206.56 1014.56,1206.56 1027.78,1206.56 1041.00,1206.56 1054.22,1206.56 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='974.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='82.88px' lengthAdjust='spacingAndGlyphs'>asymptote = 14.140161</text>
-<text x='974.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='98.72px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 14.140161</text>
-<text x='974.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -1.686171</text>
+<polyline points='908.78,1233.15 922.01,1229.40 935.23,1227.27 948.45,1226.07 961.67,1225.38 974.89,1225.00 988.11,1224.78 1001.34,1224.65 1014.56,1224.58 1027.78,1224.54 1041.00,1224.52 1054.22,1224.51 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='974.89' y='1261.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 4.605516</text>
+<text x='974.89' y='1267.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 4.596621</text>
+<text x='974.89' y='1273.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -0.589373</text>
 </g>
 <defs>
   <clipPath id='cpMzguOTd8MTk2LjA0fDEzNjEuOTd8MTQ2My41Mw=='>
@@ -1845,7 +1845,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDEzNjEuOTd8MTQ2My41Mw==)'>
-<polyline points='44.78,1426.04 58.01,1422.58 71.23,1417.68 84.45,1421.45 97.67,1422.12 110.89,1422.65 124.11,1419.97 137.34,1426.57 150.56,1426.01 163.78,1417.33 177.00,1417.50 190.22,1425.37 ' style='stroke-width: 1.50; stroke: #006400;' />
+<polyline points='44.78,1418.68 58.01,1420.89 71.23,1416.67 84.45,1411.39 97.67,1420.00 110.89,1413.23 124.11,1426.67 137.34,1418.60 150.56,1424.99 163.78,1410.60 177.00,1414.61 190.22,1412.18 ' style='stroke-width: 1.50; stroke: #006400;' />
 </g>
 <g clip-path='url(#cpMC4wMHwxMDgwLjAwfDAuMDB8MTUxMi4wMA==)'>
 <line x1='58.01' y1='1463.53' x2='190.22' y2='1463.53' style='stroke-width: 0.75;' />
@@ -1886,9 +1886,9 @@
 <text transform='translate(8.55,1412.75) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='52.31px' lengthAdjust='spacingAndGlyphs'>Hand Direction</text>
 </g>
 <g clip-path='url(#cpMzguOTd8MTk2LjA0fDEzNjEuOTd8MTQ2My41Mw==)'>
-<polyline points='44.78,1422.15 58.01,1421.78 71.23,1421.74 84.45,1421.74 97.67,1421.74 110.89,1421.74 124.11,1421.74 137.34,1421.74 150.56,1421.74 163.78,1421.74 177.00,1421.74 190.22,1421.74 ' style='stroke-width: 0.75; stroke: #0000FF;' />
-<text x='110.89' y='1450.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 0.219573</text>
-<text x='110.89' y='1456.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 0.219573</text>
-<text x='110.89' y='1462.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='69.24px' lengthAdjust='spacingAndGlyphs'>last trial = 0.022651</text>
+<polyline points='44.78,1422.15 58.01,1418.75 71.23,1417.58 84.45,1417.18 97.67,1417.04 110.89,1417.00 124.11,1416.98 137.34,1416.97 150.56,1416.97 163.78,1416.97 177.00,1416.97 190.22,1416.97 ' style='stroke-width: 0.75; stroke: #0000FF;' />
+<text x='110.89' y='1450.49' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='78.48px' lengthAdjust='spacingAndGlyphs'>asymptote = 2.754375</text>
+<text x='110.89' y='1456.18' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='94.32px' lengthAdjust='spacingAndGlyphs'>curve-endpoint = 2.754353</text>
+<text x='110.89' y='1462.56' text-anchor='middle' style='font-size: 7.92px; font-family: Arial;' textLength='71.88px' lengthAdjust='spacingAndGlyphs'>last trial = -5.889468</text>
 </g>
 </svg>

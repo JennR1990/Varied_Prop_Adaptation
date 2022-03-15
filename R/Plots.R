@@ -418,7 +418,7 @@ dev.off()
 }
 
 
-
+##  Plotting reaches and localization data separately for all changes in the rotation size (including sign) ##
 prepdataforplotting<- function(data){
 
 start<- seq(from = 50, to = 470, by=12)
@@ -483,12 +483,14 @@ plotreachesperchange<-function(task = "reaches"){
     alldata<- variation_localization
     scale = 1
     scale2 = -1
+    scale3 = 1
     
   } else {
     
     alldata<- variation_reaches
     scale = -1
     scale2 = 1
+    scale3 = -1
   }
   
   diftrials<- prepdataforplotting(variation_reaches)
@@ -506,7 +508,7 @@ plotreachesperchange<-function(task = "reaches"){
   stoploc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[2]
   data<- cbind(data,alldata[startloc:stoploc,2:33])
   
-  plot(rowMeans(data, na.rm = TRUE)*scale2, type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,20), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2)
+  plot(rowMeans(data, na.rm = TRUE)*scale2, type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,25), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2)
   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "30",col = "chartreuse")
   
   
@@ -600,11 +602,46 @@ plotreachesperchange<-function(task = "reaches"){
   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-60", col = "deeppink")
   
   
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[2], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[2], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "cadetblue1", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "15", col = "cadetblue1")
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[3], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[3], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)*scale2), type = "l", col = "chartreuse", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "-30", col = "chartreuse")
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)*scale2), type = "l", col = "cadetblue1", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "-15", col = "cadetblue1")
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[5], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[5], " to ")))[2]
+  data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "chartreuse", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "30", col = "chartreuse")
+  
   #legend(x = 8, y = 0, legend = c("30", "-30", "15","-15","45", "-45","60", "-60"), col = c("chartreuse", "chartreuse4", "cyan", "blue", "darkorchid1", "darkorchid4", "deeppink", "deeppink4"), lty = c(1,5,1,5,1,5,1,5), lwd = (1), bty = 'n', ncol = 2)
   
 }
 
 
+
+##  Plotting reaches and localization data separately for absolute changes in the rotation size (regardless of sign) ##
 prepdataforabsplotting<- function(data){
   
   start<- seq(from = 50, to = 470, by=12)
@@ -660,7 +697,6 @@ prepdataforabsplotting<- function(data){
   
   return(diftrials)
 }
-
 plotdataperABSchange<-function(){
   
   
@@ -670,7 +706,7 @@ plotdataperABSchange<-function(){
   
   
   task = "prop"
-  title<- sprintf("%s based on rotation size change", task)
+  title<- sprintf("%s per ABSOLUTE rotation change_endpoint removed", task)
   alldata<- variation_localization
   
   
@@ -681,7 +717,8 @@ plotdataperABSchange<-function(){
   
   linetype<- 5
   linetype2<- 3
-  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials,linetype2)
+  scale<- 1
+  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials,linetype2, title, scale)
   
   
   
@@ -701,116 +738,200 @@ plotdataperABSchange<-function(){
   
   linetype <- 1
   linetype2<- 3
-  title<- sprintf("%s based on rotation size change", task)
-  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials, linetype2)
+  title<- sprintf("%s per ABSOLUTE rotation change_endpoint removed", task)
+  scale<- -1
+  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials, linetype2, title, scale)
   
 
   
 }
-plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, linetype2){
+plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, linetype2, title,scale){
   
+  if (task == "prop"){
+    model<- read.csv("ana/Decay Parameters localizations Data.csv", header = TRUE)
+    modelendpoints<- model$Endpoint
+  } else {
+    model<- read.csv("ana/Decay Parameters reaches Data.csv", header = TRUE)
+    modelendpoints<- model$Endpoint
+  }
+
   
+  #modelendpoints<- as.numeric(unlist(model[seq(from = 2, to = 143, by = 4),]))
+  trialpoints<- c(seq(from = 61, to = 480, by = 12),480)
+  
+  # 15degree changes
   
   startloc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[2]
-  data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)
+  data<- alldata[startloc:stoploc,2:33] - modelendpoints[startloc-1 ==trialpoints]
+  #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
   
   
   startloc<-as.numeric(unlist(strsplit(diftrials[4,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[4,1], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[5,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[5,1], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[6,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[6,1], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
   
   
   startloc<-as.numeric(unlist(strsplit(diftrials[7,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[7,1], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
   
   
   startloc<-as.numeric(unlist(strsplit(diftrials[8,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[8,1], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  plot((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,25), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2, lty = linetype)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "15",col = "chartreuse")
   
   
-  plot(rowMeans(data, na.rm = TRUE), type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,20), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2, lty = linetype)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15",col = "chartreuse")
-  
-  
-  
+  #30 degree changes
   
   startloc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[2]
-  data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33]
+  data<- alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
   
   
   startloc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[5,2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[5,2], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[6,2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[6,2], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
   
-  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lwd = 2, lty = linetype)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "30", col = "cyan")
+  
+  lines((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "cyan", lwd = 2, lty = linetype)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "30", col = "cyan")
   
   
+  
+  # 45 degree changes
   startloc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[2]
-  data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33]
+  #data<- alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)
+  data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  
   
   startloc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
   
   startloc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "darkorchid4", lty = linetype, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "45", col = "darkorchid4")
   
-  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "darkorchid4", lty = linetype, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "45", col = "darkorchid4")
   
+  
+  #60 degree changes
   startloc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[2]
-  data<- alldata[startloc:stoploc,2:33]
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)
+  data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
   
   
   startloc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[2]
-  data<- cbind(data,alldata[startloc:stoploc,2:33])
-  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "deeppink", lty = linetype, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "60", col = "deeppink")
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "deeppink", lty = linetype, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "60", col = "deeppink")
   
   
   
@@ -823,23 +944,38 @@ plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, line
   
   startloc<-as.numeric(unlist(strsplit(zerodiftrials[2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(zerodiftrials[2], " to ")))[2]
-  data<- alldata[startloc:stoploc,2:33]
-  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lty = linetype2, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "-30", col = "cyan")
+  #data<- alldata[startloc:stoploc,2:33]
+  data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  # lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cadetblue1", lty = linetype2, lwd = 2)
+  # text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15", col = "cadetblue1")
+  # 
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[2]
+  #data<- cbind(data,alldata[startloc:stoploc,2:33])
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cadetblue1", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15", col = "cadetblue1")
   
   startloc<-as.numeric(unlist(strsplit(zerodiftrials[3], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(zerodiftrials[3], " to ")))[2]
-  data<- alldata[startloc:stoploc,2:33]
-  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lty = linetype2, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15", col = "cyan")
+  #data<- alldata[startloc:stoploc,2:33]
+  data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  # lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "chartreuse", lty = linetype2, lwd = 2)
+  # text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "-30", col = "chartreuse")
   
-  startloc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[2]
-  data<- alldata[startloc:stoploc,2:33]
-  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lty = linetype2, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "30", col = "cyan")
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[5], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[5], " to ")))[2]
+  #data<- cbind(data,alldata[startloc:stoploc,2:33])
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "chartreuse", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "30", col = "chartreuse")
 
-  
+  text(x = 5, y = -10, "dotted lines are second 12 trials \n when rotation was repeated")
   
   
   
@@ -850,154 +986,9 @@ plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, line
 }
 
 
-#legend(x = 8, y = 0, legend = c("30", "-30", "15","-15","45", "-45","60", "-60"), col = c("chartreuse", "chartreuse4", "cyan", "blue", "darkorchid1", "darkorchid4", "deeppink", "deeppink4"), lty = c(1,5,1,5,1,5,1,5), lwd = (1), bty = 'n', ncol = 2)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-# plotreachesperchange<-function(task = "reaches"){
-#   
-#   
-#   variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
-#   variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
-#   
-#   if (task == "prop"){
-#     
-#     alldata<- variation_localization
-#     scale = 1
-#     scale2 = -1
-#     
-#   } else {
-#     
-#     alldata<- variation_reaches
-#     scale = -1
-#     scale = 1
-#   }
-#   
-#   diftrials<- prepdataforplotting(variation_reaches)
-#   title<- sprintf("%s based on rotation size change", task)
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   plot(rowMeans(data, na.rm = TRUE)*scale2, type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,20), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2)
-#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "30",col = "chartreuse")
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   lines(x = 1:12,y = ((rowMeans(data, na.rm = TRUE))*scale2),col = "chartreuse2")
-#   #text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "30",col = "chartreuse2")
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   lines(x = 1:12, y = ((rowMeans(data, na.rm = TRUE))*scale2),col = "chartreuse4")
-#   #text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "30",col = "chartreuse4")
-#   
-#  
-#   startloc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[3,4], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[3,4], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "chartreuse4", lty = 5, lwd = 2)
-#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-30",col = "chartreuse4")
-#   
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "blue", lty = 5, lwd = 2)
-#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-15", col = "blue")
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "cyan", lwd = 2)
-#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "15", col = "cyan")
-#   
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[1,6], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,6], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[2,6], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,6], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "darkorchid1", lwd = 2)
-#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "45", col = "darkorchid1")
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[1,9], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,9], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[2,9], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[2,9], " to ")))[2]
-#   data<- cbind(data,alldata[startloc:stoploc,2:33])
-#   
-#   lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "darkorchid4", lty = 5, lwd = 2)
-#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-45", col = "darkorchid4")
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[1,13], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,13], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   lines((rowMeans(data, na.rm = TRUE))*scale2, type = "l", col = "deeppink4", lwd = 2)
-#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale2)[12], "60", col = "deeppink4")
-#   
-#   startloc<-as.numeric(unlist(strsplit(diftrials[1,11], " to ")))[1]
-#   stoploc<-as.numeric(unlist(strsplit(diftrials[1,11], " to ")))[2]
-#   data<- alldata[startloc:stoploc,2:33]
-#   lines((rowMeans(data, na.rm = TRUE))*scale, type = "l", col = "deeppink", lty = 5, lwd = 2)
-#   text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "-60", col = "deeppink")
-#   
-#   
-#   #legend(x = 8, y = 0, legend = c("30", "-30", "15","-15","45", "-45","60", "-60"), col = c("chartreuse", "chartreuse4", "cyan", "blue", "darkorchid1", "darkorchid4", "deeppink", "deeppink4"), lty = c(1,5,1,5,1,5,1,5), lwd = (1), bty = 'n', ncol = 2)
-#   
-# }
 
 

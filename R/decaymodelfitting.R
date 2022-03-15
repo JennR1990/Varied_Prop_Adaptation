@@ -1,6 +1,6 @@
-decaymodelfitting<-function(){
-  
-  data<- getreachesformodel(variation_reaches)
+decaymodelfitting<-function(data, task){
+  library(svglite)
+  data<- getreachesformodel(data)
   rotation<- data$distortion
   blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
   transition<- colorRampPalette(c("green", "green4", "dark green"))
@@ -17,6 +17,9 @@ decaymodelfitting<-function(){
     
   }
   
+  
+  Allpars<- c()
+  modeloutputs<- c()
   endpoints<-c()
   rotationsize<- c()
   for (i in 0:36){
@@ -25,8 +28,8 @@ decaymodelfitting<-function(){
     rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
   }
   
-  
-  svglite(file='figs/blocks_lasttrial.svg', width=15, height=21, system_fonts=list(sans = "Arial"))
+  outputfile<-sprintf('figs/blocks_lasttrial_%s.svg', task)
+  svglite(file=outputfile, width=15, height=21, system_fonts=list(sans = "Arial"))
   layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
   
   start<- min(which(blocks==1))
@@ -42,7 +45,9 @@ decaymodelfitting<-function(){
   text(6,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
   text(6,-20, sprintf('last trial = %f', endpoints[1]))
   print(pars)
+  Allpars<- pars
   print(modeloutput$output[12])
+  modeloutputs<- modeloutput$output[12]
   print(endpoints[2])
   
   
@@ -59,9 +64,16 @@ decaymodelfitting<-function(){
     text(6,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
     text(6,-20, sprintf('last trial = %f', endpoints[i+1]))
     print(pars)
+    Allpars<- rbind(Allpars,pars)
     print(modeloutput$output[12])
+    modeloutputs<- c(modeloutputs, modeloutput$output[12])
     print(endpoints[i+1])
   }
   dev.off()
+  
+  info<-data.frame(Allpars,modeloutputs,endpoints[2:37],rotationsize[2:37])
+  colnames(info)<- c('learning Rate', "Asymptote", "ModelOutput", "Endpoint", "Rotation")
+  outputfile<- sprintf("data/Decay Parameters %s Data.csv", task)
+  write.csv(info, file =outputfile , quote = FALSE, row.names = FALSE)
   
 }

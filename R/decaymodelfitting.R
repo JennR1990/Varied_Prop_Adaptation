@@ -1,5 +1,7 @@
 decaymodelfitting<-function(data, task){
   library(svglite)
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/shared.R')
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/asymptoticDecayModel.R')
   data<- getreachesformodel(data)
   rotation<- data$distortion
   blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))

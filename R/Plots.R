@@ -32,6 +32,133 @@ VariationTcombine<- function(data, give = "RM"){
   
 }
 
+Getshiftsperrotation<- function(data) {
+  g<- seq(from = 50, to = 480, by = 12)
+  h<- seq(from = 61, to = 481, by = 12)
+  h[36]<- h[36]-1
+  rotation<- c()
+  localizations<- c()
+  VP_Data<- getreachesformodel(data)
+  
+  for (i in 1:length(g)) {
+    
+    localizations[i]<- mean(VP_Data$meanreaches[g[i]:h[i]], na.rm = TRUE)
+    rotation[i]<- data$distortion[g[i]]
+  }
+  
+  return(variation_prop<- data.frame(rotation, localizations))
+}
+
+
+
+Getreachesperrotation<- function(data) {
+  g<- seq(from = 50, to = 480, by = 12)
+  h<- seq(from = 61, to = 481, by = 12)
+  h[36]<- h[36]-1
+  rotation<- c()
+  stuff<- c()
+  VR_Data<- getreachesformodel(data)
+  
+  for (i in 1:length(g)) {
+    
+    stuff[i]<- mean(VR_Data$meanreaches[g[i]:h[i]], na.rm = TRUE)
+    rotation[i]<- data$distortion[g[i]]
+  }
+  
+  return(variation_reach<- data.frame(rotation, stuff))
+}
+
+
+plotvariation<- function (){
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/shared.R')
+  variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
+  variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
+  
+  vprop<- Getshiftsperrotation(variation_localization)
+  vreac<- Getreachesperrotation(variation_reaches)
+  localizations<-vprop$localizations
+  Variation_means<- cbind(vreac,localizations)
+  
+  
+  g<- seq(from = 50, to = 480, by = 12)
+  h<- seq(from = 61, to = 481, by = 12)
+  h[36]<- h[36]-2
+  
+  z<-c(0,50)
+  for (i in 1:36) {
+    
+    z<- c(z, g[i], h[i]+1)
+  }
+  
+  
+  sizes<- c(0,0)
+  
+  for (i in 1:36){
+    
+    sizes<- c(sizes,Variation_means$rotation[i],Variation_means$rotation[i]) 
+    sizes[sizes == 360] <- NA
+  }
+  g<- seq(from = 50, to = 480, by = 12)
+  g<- c(1,g,480)
+  for (i in 1:length(sizes)){
+    
+    
+    if (is.na(sizes[i])){
+      sizes[i]<- 0
+    }
+    
+  }
+  plot(NULL, col = 'white', axes = F,cex.lab = 1.5,
+       cex.main = 1.5,    xlab = "Trial",
+       ylab = "Hand Location [°]", ylim = c(-30, 30), xlim = c(1,480))
+  
+  lines(x = z[1:25], y = sizes[1:25], type = 'l')
+  lines(x = z[25:26], y = c(0,0), lty = 2)
+  lines(x = z[26:33], y = sizes[26:33], type = 'l')
+  lines(x = z[33:36], y = c(0,0,0,0), lty = 2)
+  lines(x = z[36:51], y = sizes[36:51], type = 'l')
+  lines(x = z[51:52], y = c(0,0), lty = 2)
+  lines(x = z[52:61], y = sizes[52:61], type = 'l')
+  lines(x = z[61:62], y = c(0,0), lty = 2)
+  lines(x = z[62:71], y = sizes[62:71], type = 'l')
+  lines(x = z[71:72], y = c(0,0), lty = 2)
+  lines(x = z[73:74], y = sizes[73:74], type = 'l')
+  
+  legend(
+    -5,
+    30,
+    legend = c(
+      'Reaches',
+      'Localizations'),
+    col = c('blue', 'red'),
+    lty = c(1),
+    
+    
+    lwd = c(2),
+    bty = 'n', 
+    cex = 1.2
+  )
+  axis(2, at = c(-30, -15, 0, 15, 30), cex.axis = 1.5,
+       las = 2)
+  axis(1, at = g, cex.axis = .75, las = 2)
+  reachdata<- getreachesformodel(variation_reaches)
+  lines(reachdata$meanreaches*-1, type = 'l', col = 'Blue')
+  locdata<- getreachesformodel(variation_localization)
+  lines(locdata$meanreaches, type = 'l', col = 'red')
+  dataCIs <- trialCI(data = variation_localization)
+  dataCIs <- dataCIs
+  x <-  c(c(1:480), rev(c(1:480)))
+  y <- c(dataCIs[, 1], rev(dataCIs[, 2]))
+  polygon(x, y, col = rgb(1,0,0,.2), border = NA)
+  
+  dataCIs <- trialCI(data = variation_reaches)
+  dataCIs <- dataCIs*-1
+  x <-  c(c(1:480), rev(c(1:480)))
+  y <- c(dataCIs[, 1], rev(dataCIs[, 2]))
+  polygon(x, y, col = rgb(0,0,1,.2), border = NA)
+  
+}
+
 
 Plotlearningovertimebyblock<- function(){
   variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
@@ -253,224 +380,63 @@ Plotlearningovertimealltrials<- function(){
 }
 
 
-plotblocks<- function (){
-  
-rotation<- variation_reaches$distortion
-for (t in 1:480){
- 
-  if (rotation[t] > 0){
-    variation_reaches[t,2:33]<- variation_reaches[t,2:33]*-1
-  } else if (rotation[t] == -360){
-    variation_reaches[t,2:33]<- 0
-  }
-  
-   
-}
-
-blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
-
-
-start<- min(which(blocks==1))
-stop<- max(which(blocks==1))
-plot(rowMeans(variation_reaches[start:stop,2:33]/30*100, na.rm = TRUE), type = "l", ylim = c(-30,100), xlab = "trials", ylab = "Hand Direction")
-
-for (i in 2:36){
-endpoint<-as.numeric(unlist(rowMeans(variation_reaches[stop,2:33], na.rm = TRUE)))
-start<- min(which(blocks==i))
-stop<- max(which(blocks==i))
-
-if (abs(rotation[stop]) == 15| abs(rotation[stop]) == 30 ){
-  lines((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop])*100), type = "l", col = "Blue") 
-  print(abs(rotation[stop]))
-  print((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop])*100))
-  
-} else if (abs(rotation[stop]) == 0) {
-  lines((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop-12])*100), type = "l", col = "Blue")
-  print(abs(rotation[stop]))
-  print((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop-12])*100))
-  
-} else{
-    print("clamp trials")
-  }
-}
-
-}
-
-
-decaymodelfitting<-function(){
-  
-  data<- getreachesformodel(variation_reaches)
-  rotation<- data$distortion
-  blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
-  transition<- colorRampPalette(c("green", "green4", "dark green"))
-  colors<- transition(36) 
-  schedule<- rep(-1,12)
-  
-  for (t in 1:480){
-    
-    if (rotation[t] == 15 | rotation[t] == 30){
-      data[t,1]<- data[t,1]*-1
-    } else if (rotation[t] == 360){
-      #data[t,1]<- NA
-    }
-    
-  }
-  
-  endpoints<-c()
-  rotationsize<- c()
-  for (i in 0:36){
-    stop<- max(which(blocks==i))
-    endpoints[i+1]<-as.numeric(unlist(data[stop,1]))
-    rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
-  }
-  
-  
-  svglite(file='figs/blocks_lasttrial.svg', width=15, height=21, system_fonts=list(sans = "Arial"))
-  layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
-  
-  start<- min(which(blocks==1))
-  stop<- max(which(blocks==1))
-  plot(data[start:stop,1], type = "l", ylim = c(-20,30), xlab = "trials", ylab = "Hand Direction", bty = 'n', col = colors[1], lwd = 2, main = rotationsize[2])
-  
-  reachsig<-data[start:stop,1]
-  pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
-  modeloutput<- asymptoticDecayModel(pars,schedule)
-  lines(modeloutput$output, type = "l", col = "Blue")
-  #legend(2,30, legend = c("data", "decay model"),bty = 'n', col = c(colors[1], "blue"))
-  text(6,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
-  text(6,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
-  text(6,-20, sprintf('last trial = %f', endpoints[1]))
-  print(pars)
-  print(modeloutput$output[12])
-  print(endpoints[2])
-  
-  
-  for (i in 2:36){
-    start<- min(which(blocks==i))
-    stop<- max(which(blocks==i))
-    plot((data[start:stop,1]-endpoints[i])*-1, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
-    #legend(2,30, legend = c("data", "decay model"), col = c(colors[i], "blue"),bty = 'n')
-    reachsig<-(data[start:stop,1]-endpoints[i])*-1
-    pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
-    modeloutput<- asymptoticDecayModel(pars,schedule)
-    lines(modeloutput$output, type = "l", col = "Blue")
-    text(6,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
-    text(6,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
-    text(6,-20, sprintf('last trial = %f', endpoints[i+1]))
-    print(pars)
-    print(modeloutput$output[12])
-    print(endpoints[i+1])
-  }
-  dev.off()
-  
-}
-
-
-
-plotblocks<- function (alldata){
-  
-  data<- getreachesformodel(alldata)
-  data$x<- c(1:49, rep(1:12,times=35), 1:11)
-  rotation<- data$distortion
-  blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
-  transition<- colorRampPalette(c("green", "green4", "dark green"))
-  colors<- transition(36) 
-  
-  for (t in 1:480){
-    
-    if (rotation[t] == 15 | rotation[t] == 30){
-      data[t,1]<- data[t,1]*-1
-    } else if (rotation[t] == 360){
-      #data[t,1]<- NA
-    }
-  
-  }
-  
-  endpoints<-c()
-  rotationsize<- c()
-  for (i in 0:36){
-    stop<- max(which(blocks==i))
-    endpoints[i+1]<-as.numeric(unlist(data[stop,1]))
-    rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
-  }
- for (rot in 1:37){
-   
-   if (rotationsize[rot] == rotationsize[rot+1])
- print("same")
-     }
-  
-  svglite(file='figs/blocks.svg', width=15, height=21, system_fonts=list(sans = "Arial"))
-  layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
-  start<- min(which(blocks==1))
-  stop<- max(which(blocks==1))
-  plot(data[start:stop,1], type = "l", ylim = c(-20,30), xlab = "trials", ylab = "Hand Direction", col = colors[1], lwd = 2, main = rotationsize[2])
- 
-
-  for (i in 2:36){
-    start<- min(which(blocks==i))
-    stop<- max(which(blocks==i))
-    plot(data[start:stop,1], type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction", lwd = 2,main = rotationsize[i+1]) 
-    print(endpoints[i+1])
-  }
-dev.off()
-  
-  
-}
-
-
 ##  Plotting reaches and localization data separately for all changes in the rotation size (including sign) ##
 prepdataforplotting<- function(data){
-
-start<- seq(from = 50, to = 470, by=12)
-stop<- c(seq(from = 62, to = 480, by=12), 480)
-
-t_1<- c()
-t0<- c()
-tdif<- c()
-
-t_1<- 0
-t0<- data$distortion[50]
-trials<- NA
-
-
-for (i in 1:length(start) ) {
-t_1<- c(t_1, data$distortion[start[i]])
-t0<- c(t0,data$distortion[stop[i]])
-
-trials<-c(trials, sprintf("%d to %d", start[i], stop[i]-1))
-}
-
-
-tdif<- t_1 - t0
-trials<- c(trials[-1])
-rotdif<- data.frame(t_1[-37],t0[-37],tdif[-37], trials)
-
-for (i in 1:nrow(rotdif)) {
-if (rotdif$t0..37.[i] == 360)
-  rotdif[i, ]<- NA
-}
-
-idx<-which(is.na(rotdif$trials))
-rotdif<- rotdif[-idx,]
-difs<-unique(rotdif$tdif..37.)
-
-diftrials<- data.frame(matrix(NA, nrow = 4, ncol = length(difs)))
-colnames(diftrials)<- difs
-
-diftrials[,1]<- c(rotdif$trials[rotdif$tdif..37. == difs[1]], NA)
-
-for (i in 2:3){
-diftrials[,i]<-rotdif$trials[rotdif$tdif..37. == difs[i]]
-}
-
-diftrials[,4]<- c(rotdif$trials[rotdif$tdif..37. == difs[4]], NA)
-
-zerodiftrials<<- c(rotdif$trials[rotdif$tdif..37. == difs[5]], NA)
-
-for (i in 6:length(difs)){
-  diftrials[,i]<-rotdif$trials[rotdif$tdif..37. == difs[i]]
-}
-return(diftrials)
+  
+  data<-data.frame(data$distortion, data)
+  
+  data$distortion[data$distortion == 360] <- 0
+  
+  start<- seq(from = 50, to = 470, by=12)
+  stop<- c(seq(from = 62, to = 480, by=12), 480)
+  
+  t_1<- c()
+  t0<- c()
+  tdif<- c()
+  
+  t_1<- 0
+  t0<- data$distortion[50]
+  trials<- NA
+  
+  
+  for (i in 1:length(start) ) {
+    t_1<- c(t_1, data$distortion[start[i]])
+    t0<- c(t0,data$distortion[stop[i]])
+    
+    trials<-c(trials, sprintf("%d to %d", start[i], stop[i]-1))
+  }
+  
+  
+  tdif<- t_1 - t0
+  trials<- c(trials[-1])
+  rotdif<- data.frame(t_1[-37],t0[-37],tdif[-37], trials)
+  
+  for (i in 1:nrow(rotdif)) {
+    if (rotdif$t0..37.[i] == 360)
+      rotdif[i, ]<- NA
+  }
+  
+  idx<-which(is.na(rotdif$trials))
+  rotdif<- rotdif[-idx,]
+  difs<-unique(rotdif$tdif..37.)
+  
+  diftrials<- data.frame(matrix(NA, nrow = 4, ncol = length(difs)))
+  colnames(diftrials)<- difs
+  
+  diftrials[,1]<- c(rotdif$trials[rotdif$tdif..37. == difs[1]], NA)
+  
+  for (i in 2:3){
+    diftrials[,i]<-rotdif$trials[rotdif$tdif..37. == difs[i]]
+  }
+  
+  diftrials[,4]<- c(rotdif$trials[rotdif$tdif..37. == difs[4]], NA)
+  
+  zerodiftrials<<- c(rotdif$trials[rotdif$tdif..37. == difs[5]], NA)
+  
+  for (i in 6:length(difs)){
+    diftrials[,i]<-rotdif$trials[rotdif$tdif..37. == difs[i]]
+  }
+  return(diftrials)
 }
 plotreachesperchange<-function(task = "reaches"){
   
@@ -644,6 +610,10 @@ plotreachesperchange<-function(task = "reaches"){
 ##  Plotting reaches and localization data separately for absolute changes in the rotation size (regardless of sign) ##
 prepdataforabsplotting<- function(data){
   
+  data<-data.frame(data$distortion, data)
+  
+  data$distortion[data$distortion == 360] <- 0
+  
   start<- seq(from = 50, to = 470, by=12)
   stop<- c(seq(from = 62, to = 480, by=12), 480)
   
@@ -654,11 +624,13 @@ prepdataforabsplotting<- function(data){
   t_1<- 0
   t0<- data$distortion[50]
   trials<- NA
+  oldrot<-data$data.distortion[50]
   
   
   for (i in 1:length(start) ) {
     t_1<- c(t_1, data$distortion[start[i]])
     t0<- c(t0,data$distortion[stop[i]])
+    oldrot<- c(oldrot,data$data.distortion[stop[i]])
     
     trials<-c(trials, sprintf("%d to %d", start[i], stop[i]-1))
   }
@@ -666,35 +638,42 @@ prepdataforabsplotting<- function(data){
   
   tdif<- t_1 - t0
   trials<- c(trials[-1])
-  rotdif<- data.frame(t_1[-37],t0[-37],tdif[-37], trials)
+  rotdif<- data.frame(t_1[-37],t0[-37],tdif[-37], trials, oldrot[-37])
   
-  for (i in 1:nrow(rotdif)) {
-    if (rotdif$t0..37.[i] == 360)
-      rotdif[i, ]<- NA
-  }
-  
-  idx<-which(is.na(rotdif$trials))
-  rotdif<- rotdif[-idx,]
+  # for (i in 1:nrow(rotdif)) {
+  #   if (rotdif$t0..37.[i] == 360)
+  #     rotdif[i, ]<- NA
+  # }
+  # 
+  # idx<-which(is.na(rotdif$trials))
+  # rotdif<- rotdif[-idx,]
   
   rotdif$Abstdif<- abs(rotdif$tdif..37.)
   
   difs<-unique(rotdif$Abstdif)
   
-  diftrials<- data.frame(matrix(NA, nrow = 8, ncol = 4))
+  diftrials<- data.frame(matrix(NA, nrow = 12, ncol = 4))
   colnames(diftrials)<- c("15","30","45","60")
   
+  rottrials<- data.frame(matrix(NA, nrow = 12, ncol = 4))
+  colnames(rottrials)<- c("15","30","45","60")
+  
   diftrials[,1]<- rotdif$trials[rotdif$Abstdif == 15]
+  rottrials[,1]<- rotdif$tdif..37.[rotdif$Abstdif == 15]
   
   
   diftrials[,2]<-c(rotdif$trials[rotdif$Abstdif == 30], NA,NA)
+  rottrials[,2]<- c(rotdif$tdif..37.[rotdif$Abstdif == 30], NA,NA)
   
   
-  diftrials[,3]<- c(rotdif$trials[rotdif$Abstdif == 45], NA,NA, NA,NA)
+  diftrials[,3]<- c(rotdif$trials[rotdif$Abstdif == 45], NA,NA, NA,NA, NA,NA, NA,NA)
+  rottrials[,3]<- c(rotdif$tdif..37.[rotdif$Abstdif == 45], NA,NA, NA,NA, NA,NA, NA,NA)
   
   zerodiftrials<<-rotdif$trials[rotdif$Abstdif == 0]
   
-    diftrials[,4]<-c(rotdif$trials[rotdif$Abstdif == 60], NA,NA, NA,NA,NA,NA)
-  
+  diftrials[,4]<-c(rotdif$trials[rotdif$Abstdif == 60], NA,NA, NA,NA,NA,NA, NA,NA, NA,NA)
+  rottrials[,4]<- c(rotdif$tdif..37.[rotdif$Abstdif == 60], NA,NA, NA,NA,NA,NA, NA,NA, NA,NA)
+  rottrials<<-rottrials
   return(diftrials)
 }
 plotdataperABSchange<-function(){
@@ -710,15 +689,16 @@ plotdataperABSchange<-function(){
   alldata<- variation_localization
   
   
-  for (i in 1:nrow(alldata)){
-    if (alldata$distortion[i] < 0)
-      alldata[i,2:ncol(alldata)]<- alldata[i,2:ncol(alldata)]*-1
-  } 
+  # for (i in 1:nrow(alldata)){
+  #   if (alldata$distortion[i] < 0)
+  #     alldata[i,2:ncol(alldata)]<- alldata[i,2:ncol(alldata)]*-1
+  # } 
   
   linetype<- 5
   linetype2<- 3
   scale<- 1
-  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials,linetype2, title, scale)
+  scale2<- -1
+  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials,linetype2, title, scale, scale2)
   
   
   
@@ -728,102 +708,50 @@ plotdataperABSchange<-function(){
   
   alldata<- variation_reaches
   
-  for (i in 1:nrow(alldata)){
-    if (alldata$distortion[i] > 0) 
-      alldata[i,2:ncol(alldata)]<- alldata[i,2:ncol(alldata)]*-1
-    
-    
-  } 
-  
-  
   linetype <- 1
   linetype2<- 3
-  title<- sprintf("%s per ABSOLUTE rotation change_endpoint removed", task)
+  title<- sprintf("%s per ABSOLUTE rotation change_endpoint removed ", task)
   scale<- -1
-  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials, linetype2, title, scale)
+  scale2<- 1
+  plotabschanges(task, diftrials,alldata,linetype, zerodiftrials, linetype2, title, scale, scale2)
   
-
+  
   
 }
-plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, linetype2, title,scale){
+plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, linetype2, title,scale, scale2){
   
-  if (task == "prop"){
-    model<- read.csv("ana/Decay Parameters localizations Data.csv", header = TRUE)
-    modelendpoints<- model$Endpoint
-  } else {
-    model<- read.csv("ana/Decay Parameters reaches Data.csv", header = TRUE)
-    modelendpoints<- model$Endpoint
-  }
-
-  
-  #modelendpoints<- as.numeric(unlist(model[seq(from = 2, to = 143, by = 4),]))
-  trialpoints<- c(seq(from = 61, to = 480, by = 12),480)
   
   # 15degree changes
   
   startloc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[1,1], " to ")))[2]
   #data<- alldata[startloc:stoploc,2:33]
-  #data<- alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)
-  data<- alldata[startloc:stoploc,2:33] - modelendpoints[startloc-1 ==trialpoints]
+  data<- (alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale
+  #print(startloc)
   #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  #print(rowMeans(data, na.rm = TRUE))
   
   
-  startloc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[2,1], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  for (i in 2:length(diftrials$"15")){
+    
+    startloc<-as.numeric(unlist(strsplit(diftrials[i,1], " to ")))[1]
+    stoploc<-as.numeric(unlist(strsplit(diftrials[i,1], " to ")))[2]
+    if (rottrials[i,1] < 0){
+      data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale)
+    } else{
+      data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale2)
+    }
+    #data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+    #print(startloc)
+    #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+    #print(rowMeans(data, na.rm = TRUE))
+    
+  }
+  
+  plot((rowMeans(data, na.rm = TRUE)), type = "l", col = "chartreuse",xlim = c(1,12.5),ylim = c(-5,45), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2, lty = linetype)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15",col = "chartreuse")
   
   
-  startloc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[3,1], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[4,1], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[4,1], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[5,1], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[5,1], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[6,1], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[6,1], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[7,1], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[7,1], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[8,1], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[8,1], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  plot((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "chartreuse",xlim = c(0,12.5),ylim = c(-15,25), xlab = "Trials in a Block", ylab = "Hand Deviation", main = title, lwd = 2, lty = linetype)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "15",col = "chartreuse")
   
   
   #30 degree changes
@@ -831,52 +759,31 @@ plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, line
   startloc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[1,2], " to ")))[2]
   #data<- alldata[startloc:stoploc,2:33]
-  data<- alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  data<- (alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale2
+  #print(startloc)
+  #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  #print(rowMeans(data, na.rm = TRUE))
+  
+  for (i in 2:(length(diftrials$"30") - sum(is.na(diftrials$"30")))){
+    
+    startloc<-as.numeric(unlist(strsplit(diftrials[i,2], " to ")))[1]
+    stoploc<-as.numeric(unlist(strsplit(diftrials[i,2], " to ")))[2]
+    if (rottrials[i,2] < 0){
+      data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale)
+    } else{
+      data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale2)
+    }
+    #data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+    #print(startloc)
+    #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+    #print(rowMeans(data, na.rm = TRUE))
+    
+    
+  }
   
   
-  startloc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[2,2], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[3,2], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[4,2], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[5,2], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[5,2], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[6,2], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[6,2], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  lines((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "cyan", lwd = 2, lty = linetype)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "30", col = "cyan")
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cyan", lwd = 2, lty = linetype)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "30", col = "cyan")
   
   
   
@@ -884,111 +791,628 @@ plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, line
   startloc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[1,3], " to ")))[2]
   #data<- alldata[startloc:stoploc,2:33]
-  #data<- alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)
-  data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  data<- (alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale2
+  #data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  #print(startloc)
+  #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  #print(rowMeans(data, na.rm = TRUE))
   
   
-  startloc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[2,3], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[3,3], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  
-  startloc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(diftrials[4,3], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  lines((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "darkorchid4", lty = linetype, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "45", col = "darkorchid4")
+  for (i in 2:(length(diftrials$"45") - sum(is.na(diftrials$"45")))){
+    
+    startloc<-as.numeric(unlist(strsplit(diftrials[i,3], " to ")))[1]
+    stoploc<-as.numeric(unlist(strsplit(diftrials[i,3], " to ")))[2]
+    if (rottrials[i,3] < 0){
+      data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale)
+    } else{
+      data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale2)
+    }
+    #data<- cbind(data,(alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
+    #print(startloc)
+    #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+    #print(rowMeans(data, na.rm = TRUE))
+  }
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "darkorchid4", lty = linetype, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "45", col = "darkorchid4")
   
   
   
   #60 degree changes
   startloc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[1,4], " to ")))[2]
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)
-  data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  #data<- alldata[startloc:stoploc,2:33])
+  data<- (alldata[startloc:stoploc,2:33] - mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale
+  #data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
+  #print(startloc)
+  #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  #print(rowMeans(data, na.rm = TRUE))
   
   
   startloc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(diftrials[2,4], " to ")))[2]
   #data<- cbind(data,(alldata[startloc:stoploc,2:33]))
-  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE)))
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  lines((rowMeans(data, na.rm = TRUE)*scale), type = "l", col = "deeppink", lty = linetype, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE))*scale)[12], "60", col = "deeppink")
+  data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))*scale2)
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
+  #print(startloc)
+  #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "deeppink", lty = linetype, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "60", col = "deeppink")
   
   
   
   
-  
-  
-  
-  
+  ## repeated blocks
   
   
   startloc<-as.numeric(unlist(strsplit(zerodiftrials[2], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(zerodiftrials[2], " to ")))[2]
-  #data<- alldata[startloc:stoploc,2:33]
-  data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  data<- alldata[startloc:stoploc,2:33]*scale
+  #data<- (alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-13,2:33])), na.rm = TRUE))*scale
+  #print(startloc)
+  #print(mean(as.numeric(unlist(alldata[startloc-13,2:33])), na.rm = TRUE))
+  #print(rowMeans(data, na.rm = TRUE))
   # lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cadetblue1", lty = linetype2, lwd = 2)
   # text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15", col = "cadetblue1")
   # 
-  startloc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[4], " to ")))[2]
-  #data<- cbind(data,alldata[startloc:stoploc,2:33])
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cadetblue1", lty = linetype2, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15", col = "cadetblue1")
+  
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[5], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[5], " to ")))[2]
+  data<- cbind(data,(alldata[startloc:stoploc,2:33])*scale2)
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-13,2:33])), na.rm = TRUE)))
+  #print(startloc)
+  #print(mean(as.numeric(unlist(alldata[startloc-13,2:33])), na.rm = TRUE))
+  #print(rowMeans(data, na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "chartreuse", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "15", col = "chartreuse")
   
   startloc<-as.numeric(unlist(strsplit(zerodiftrials[3], " to ")))[1]
   stoploc<-as.numeric(unlist(strsplit(zerodiftrials[3], " to ")))[2]
-  #data<- alldata[startloc:stoploc,2:33]
-  data<- alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  data<- alldata[startloc:stoploc,2:33]*scale2
+  #data<- alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-13,2:33])), na.rm = TRUE)
+  #print(startloc)
+  #print(mean(as.numeric(unlist(alldata[startloc-13,2:33])), na.rm = TRUE))
+  #print(rowMeans(data, na.rm = TRUE))
   # lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "chartreuse", lty = linetype2, lwd = 2)
   # text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "-30", col = "chartreuse")
   
   
-  startloc<-as.numeric(unlist(strsplit(zerodiftrials[5], " to ")))[1]
-  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[5], " to ")))[2]
-  #data<- cbind(data,alldata[startloc:stoploc,2:33])
-  data<- cbind(data,(alldata[startloc:stoploc,2:33]- modelendpoints[startloc-1 ==trialpoints]))
-  print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
-  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "chartreuse", lty = linetype2, lwd = 2)
-  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "30", col = "chartreuse")
+  startloc<-as.numeric(unlist(strsplit(zerodiftrials[6], " to ")))[1]
+  stoploc<-as.numeric(unlist(strsplit(zerodiftrials[6], " to ")))[2]
+  data<- cbind(data,(alldata[startloc:stoploc,2:33])*scale)
+  #data<- cbind(data,(alldata[startloc:stoploc,2:33]- mean(as.numeric(unlist(alldata[startloc-13,2:33])), na.rm = TRUE))*scale)
+  #print(startloc)
+  #print(mean(as.numeric(unlist(alldata[startloc-1,2:33])), na.rm = TRUE))
+  lines((rowMeans(data, na.rm = TRUE)), type = "l", col = "cadetblue1", lty = linetype2, lwd = 2)
+  text(x = 12.5, y = ((rowMeans(data, na.rm = TRUE)))[12], "30", col = "cadetblue1")
+  
+  text(x = 5, y = -3, "dotted lines are second 12 trials \n when rotation was repeated")
+  
+}
 
-  text(x = 5, y = -10, "dotted lines are second 12 trials \n when rotation was repeated")
+
+
+decaymodelfitting<-function(data, task){
+  library(svglite)
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/shared.R')
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/asymptoticDecayModel.R')
+  data<- getreachesformodel(data)
+  data$distortionNew<-data$distortion
+  data$distortion[data$distortion == 360]<- 0
+  rotation<- data$distortion
+  blocks<- c(rep(0, times = 49), sort(rep(1:35, times = 12)), rep(36,11))
+  transition<- colorRampPalette(c("green", "green4", "dark green"))
+  colors<- transition(36) 
+  schedule<- rep(-1,12)
+  
+  if (task == "reaches"){
+    scale = -1
+    scale2 = 1
+    
+  } else {
+    scale = 1
+    scale2 = -1
+  }
+  
+
   
   
+  Allpars<- c()
+  modeloutputs<- c()
+  endpoints<-c()
+  rotationsize<- c()
+  clamp<- c()
+
+  for (i in 0:36){
+    stop<- max(which(blocks==i))
+    endpoints[i+1]<-as.numeric(unlist(data[stop,1]))
+    rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
+    clamp[i+1]<- as.numeric(unlist(data[stop,3]))
+  
+  }
+  
+  outputfile<-sprintf('figs/DecayModel_PerBlock_%s.svg', task)
+  svglite(file=outputfile, width=15, height=21, system_fonts=list(sans = "Arial"))
+  layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+  
+  start<- min(which(blocks==1))
+  stop<- max(which(blocks==1))
+  
+  if (data$distortion[max(which(blocks==1))] == 15 | data$distortion[max(which(blocks==1))] == 30){
+    plot((data[start:stop,1]-endpoints[1])*scale, type = "l", ylim = c(-20,30),xlim = c(1,12), xlab = "trials", ylab = "Hand Direction", bty = 'n', col = colors[1], lwd = 2, main = rotationsize[2])
+    reachsig<-(data[start:stop,1]-endpoints[1])*scale    
+  } else {
+  plot((data[start:stop,1]-endpoints[1])*scale2, type = "l", ylim = c(-20,30),xlim = c(1,12), xlab = "trials", ylab = "Hand Direction", bty = 'n', col = colors[1], lwd = 2, main = rotationsize[2])
+  reachsig<-(data[start:stop,1]-endpoints[1])*scale2
+  }
+  pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+  modeloutput<- asymptoticDecayModel(pars,schedule)
+  lines(modeloutput$output, type = "l", col = "Blue")
+  #legend(2,30, legend = c("data", "decay model"),bty = 'n', col = c(colors[1], "blue"))
+  text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+  text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+  text(8,-20, sprintf('last trial of previous block = %f', endpoints[1]))
+  print(pars)
+  Allpars<- pars
+  print(modeloutput$output[12])
+  modeloutputs<- modeloutput$output[12]
+  print(endpoints[2])
   
   
+  for (i in 2:35){
+    start<- min(which(blocks==i))
+    stop<- max(which(blocks==i))
+    
+    if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] <0){
+      
+      plot((data[start:stop,1]-endpoints[i])*scale, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+      reachsig<-(data[start:stop,1]-endpoints[i])*scale
+    } else if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] >0) {
+      plot((data[start:stop,1]-endpoints[i])*scale2, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+      reachsig<-(data[start:stop,1]-endpoints[i])*scale2
+    } else if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] == 0){
+      start<- min(which(blocks==i-1))
+      if (data$distortion[max(which(blocks==i-2))] - data$distortion[max(which(blocks==i-1))] <0){
+        plot((data[start:stop,1]-endpoints[i-1])*scale, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+        reachsig<-(data[start:stop,1]-endpoints[i-1])*scale
+      } else if(data$distortion[max(which(blocks==i-2))] - data$distortion[max(which(blocks==i-1))] >0) {
+        plot((data[start:stop,1]-endpoints[i-1])*scale2, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+        reachsig<-(data[start:stop,1]-endpoints[i-1])*scale2
+      }
+      
+    }
+    schedule<- rep(-1, length(reachsig))
+    
+    pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+    modeloutput<- asymptoticDecayModel(pars,schedule)
+    lines(modeloutput$output, type = "l", col = "Blue")
+    text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+    text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+    text(8,-20, sprintf('last trial of current block = %f', endpoints[i+1]))
+    print(pars)
+    Allpars<- rbind(Allpars,pars)
+    print(modeloutput$output[12])
+    modeloutputs<- c(modeloutputs, modeloutput$output[12])
+    print(endpoints[i+1])
+  }
   
+  i = 36
+  start<- min(which(blocks==i))
+  stop<- max(which(blocks==i))
+  
+  if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] <0){
+    plot((data[start:stop,1]-endpoints[i])*scale, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+    reachsig<-(data[start:stop,1]-endpoints[i])*scale
+  } else if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] >0) {
+    plot((data[start:stop,1]-endpoints[i])*scale2, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+    reachsig<-(data[start:stop,1]-endpoints[i])*scale2
+  } else if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] == 0){
+    start<- min(which(blocks==i-1))
+    if (data$distortion[max(which(blocks==i-2))] - data$distortion[max(which(blocks==i-1))] <0){
+      plot((data[start:stop,1]-endpoints[i-1])*scale, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+      reachsig<-(data[start:stop,1]-endpoints[i-1])*scale
+    } else if (data$distortion[max(which(blocks==i-2))] - data$distortion[max(which(blocks==i-1))] >0){
+    plot((data[start:stop,1]-endpoints[i-1])*scale2, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+    reachsig<-(data[start:stop,1]-endpoints[i-1])*scale2
+    } 
+    
+  }
+  schedule<- rep(-1, length(reachsig))
+  pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+  modeloutput<- asymptoticDecayModel(pars,schedule)
+  lines(modeloutput$output, type = "l", col = "Blue")
+  text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+  text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+  text(8,-20, sprintf('last trial of current block = %f', endpoints[i+1]))
+  print(pars)
+  Allpars<- rbind(Allpars,pars)
+  print(modeloutput$output[12])
+  modeloutputs<- c(modeloutputs, modeloutput$output[12])
+  print(endpoints[i+1])
+  
+  dev.off()
+  
+  info<-data.frame(Allpars,modeloutputs,endpoints[2:37],rotationsize[2:37], clamp[2:37], abs((endpoints[1:36]*scale2) + rotationsize[2:37] ))
+  colnames(info)<- c('learning Rate', "Asymptote", "ModelOutput", "Endpoint", "Rotation", "Clamp_Trials", "Change")
+  outputfile<- sprintf("ana/Decay Parameters %s Data.csv", task)
+  write.csv(info, file =outputfile , quote = FALSE, row.names = FALSE)
+  
+}
+
+
+plotblocks<- function (){
+  
+  variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE)   
+  
+  rotation<- variation_reaches$distortion
+  for (t in 1:480){
+    
+    if (rotation[t] > 0){
+      variation_reaches[t,2:33]<- variation_reaches[t,2:33]*-1
+    } else if (rotation[t] == -360){
+      variation_reaches[t,2:33]<- 0
+    }
+    
+    
+  }
+  
+  blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
+  
+  
+  start<- min(which(blocks==1))
+  stop<- max(which(blocks==1))
+  plot(rowMeans(variation_reaches[start:stop,2:33]/30*100, na.rm = TRUE), type = "l", ylim = c(-30,100), xlab = "trials", ylab = "Hand Direction")
+  
+  for (i in 2:36){
+    endpoint<-as.numeric(unlist(rowMeans(variation_reaches[stop,2:33], na.rm = TRUE)))
+    start<- min(which(blocks==i))
+    stop<- max(which(blocks==i))
+    
+    if (abs(rotation[stop]) == 15| abs(rotation[stop]) == 30 ){
+      lines((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop])*100), type = "l", col = "Blue") 
+      print(abs(rotation[stop]))
+      print((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop])*100))
+      
+    } else if (abs(rotation[stop]) == 0) {
+      lines((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop-12])*100), type = "l", col = "Blue")
+      print(abs(rotation[stop]))
+      print((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop-12])*100))
+      
+    } else{
+      print("clamp trials")
+    }
+  }
+  
+}
+plotblocks<- function (alldata){
+  
+  data<- getreachesformodel(alldata)
+  data$x<- c(1:49, rep(1:12,times=35), 1:11)
+  rotation<- data$distortion
+  blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
+  transition<- colorRampPalette(c("green", "green4", "dark green"))
+  colors<- transition(36) 
+  
+  for (t in 1:480){
+    
+    if (rotation[t] == 15 | rotation[t] == 30){
+      data[t,1]<- data[t,1]*-1
+    } else if (rotation[t] == 360){
+      #data[t,1]<- NA
+    }
+  
+  }
+  
+  endpoints<-c()
+  rotationsize<- c()
+  for (i in 0:36){
+    stop<- max(which(blocks==i))
+    endpoints[i+1]<-as.numeric(unlist(data[stop,1]))
+    rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
+  }
+ for (rot in 1:37){
+   
+   if (rotationsize[rot] == rotationsize[rot+1])
+ print("same")
+     }
+  
+  svglite(file='figs/blocks.svg', width=15, height=21, system_fonts=list(sans = "Arial"))
+  layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+  start<- min(which(blocks==1))
+  stop<- max(which(blocks==1))
+  plot(data[start:stop,1], type = "l", ylim = c(-20,30), xlab = "trials", ylab = "Hand Direction", col = colors[1], lwd = 2, main = rotationsize[2])
+ 
+
+  for (i in 2:36){
+    start<- min(which(blocks==i))
+    stop<- max(which(blocks==i))
+    plot(data[start:stop,1], type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction", lwd = 2,main = rotationsize[i+1]) 
+    print(endpoints[i+1])
+  }
+dev.off()
   
   
 }
 
 
 
+plotdecayparamaters<- function (task, yloc = 1){
+
+if (task == "reach"){
+data<- read.csv('ana/Decay Parameters Reaches Data.csv', header = TRUE)
+} else {
+  data<- read.csv('ana/Decay Parameters Prop Data.csv', header = TRUE)
+}
 
 
 
+rots<-c("-30", "-15", "0", "15", "30", "360")
+asymptotes<- data.frame(matrix(NA, nrow = 6, ncol = length(rots)))
+LR<- data.frame(matrix(NA, nrow = 6, ncol = length(rots)))
 
+for (i in 1:length(rots)){
+ 
+asymptotes[,i]<-data$Asymptote[data$Clamp_Trials == rots[i]]
+LR[,i]<-data$learning.Rate[data$Clamp_Trials == rots[i]]
+  
+colors<-  c("chartreuse4","blue" , "Grey" ,"cyan" , "chartreuse", "Black") 
+}
+
+output<- sprintf("figs/Asymptotes & LR for %s Data.png", task)
+png(output, height = 500, width = 1000)
+layout(matrix(c(1,2), nrow=1, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+title<- sprintf("Asymptotes for %s Data", task)
+plot(x = c(1:6), y = asymptotes[,1], type = 'p', xlim = c(.5,6.5), ylim = c(0,35), col = colors[1], axes = FALSE, xlab = "Blocks", ylab = "Hand Direction", main = title)
+lines(x = c(1:6), y = asymptotes[,1], type = 'l', col = colors[1])
+axis(2, at = c(0,10,20,30), las = 2)
+axis(1, at = c(1:6))
+for (i in 2:6){
+lines(x = c(1:6), y = asymptotes[,i], type = 'p', col = colors[i])
+lines(x = c(1:6), y = asymptotes[,i], type = 'l', col = colors[i])
+}
+
+
+title<- sprintf("Learning Rates for %s Data", task)
+plot(x = c(1:6), y = LR[,1], type = 'p', xlim = c(.5,6.5), ylim = c(0,1), col = colors[1], axes = FALSE, xlab = "Blocks", ylab = "Learning Rate", main = title)
+lines(x = c(1:6), y = LR[,1], type = 'l', col = colors[1])
+axis(2, at = c(0,.25,.5,.75,1), las = 2)
+axis(1, at = c(1:6))
+for (i in 2:6){
+  lines(x = c(1:6), y = LR[,i], type = 'p', col = colors[i])
+  lines(x = c(1:6), y = LR[,i], type = 'l', col = colors[i])
+}
+
+
+legend(x = 1, y = yloc, legend = rots, col = colors, lty = 1, bty = 'n', ncol = 2)
+dev.off()
+}
+
+plotproportionaldecayparamatersseparately<- function (task = 'reach', yloc = 1){
+  
+  if (task == "reach"){
+    data<- read.csv('ana/Decay Parameters Reaches Data.csv', header = TRUE)
+  } else {
+    data<- read.csv('ana/Decay Parameters Prop Data.csv', header = TRUE)
+  }
+  
+  
+  
+  rots<-c("-30", "-15", "15", "30")
+  asymptotes<- data.frame(matrix(NA, nrow = 6, ncol = length(rots)))
+  LR<- data.frame(matrix(NA, nrow = 6, ncol = length(rots)))
+  
+  for (i in 1:length(rots)){
+    
+    asymptotes[,i]<-data$Asymptote[data$Clamp_Trials == rots[i]]/abs(as.numeric(rots[i]))
+    LR[,i]<-data$learning.Rate[data$Clamp_Trials == rots[i]]
+    
+    colors<-  c("chartreuse4","blue"  ,"cyan" , "chartreuse") 
+  }
+  
+  output<- sprintf("figs/Asymptotes & LR for %s Data.png", task)
+  png(output, height = 500, width = 1000)
+  layout(matrix(c(1,2), nrow=1, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+  title<- sprintf("Asymptotes for %s Data", task)
+  plot(x = c(1:length(asymptotes[,1])),y = asymptotes[,1], type = 'p', xlim = c(.5, 6.5), ylim = c(0,2), col = colors[1], axes = FALSE, xlab = "Blocks", ylab = "Percent Correction", main = title)
+  lines(x = c(1:6), y = asymptotes[,1], type = 'l', col = colors[1])
+  axis(2, at = c(0,.5,1, 1.5,2), labels = c("0%", "50%", "100%", "150%", "200%"), las = 2)
+  axis(1, at = c(1:6))
+  for (i in 2:4){
+    lines(x = c(1:6), y = asymptotes[,i], type = 'p', col = colors[i])
+    lines(x = c(1:6), y = asymptotes[,i], type = 'l', col = colors[i])
+  }
+  
+  
+  title<- sprintf("Learning Rates for %s Data", task)
+  plot(x = c(1:6), y = LR[,1], type = 'p', xlim = c(.5,6.5), ylim = c(0,1), col = colors[1], axes = FALSE, xlab = "Blocks", ylab = "Learning Rate", main = title)
+  lines(x = c(1:6), y = LR[,1], type = 'l', col = colors[1])
+  axis(2, at = c(0,.25,.5,.75,1), las = 2)
+  axis(1, at = c(1:6))
+  for (i in 2:4){
+    lines(x = c(1:6), y = LR[,i], type = 'p', col = colors[i])
+    lines(x = c(1:6), y = LR[,i], type = 'l', col = colors[i])
+  }
+  
+  
+  legend(x = 1, y = yloc, legend = rots, col = colors, lty = 1, bty = 'n', ncol = 2)
+  dev.off()
+}
+
+
+
+plotproportionaldecayparamaterstogether<- function() {
+png("figs/Asymptotes & Learning Rates across time.png", height = 500, width = 1000)
+layout(matrix(c(1,2), nrow=1, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+
+
+data<- read.csv('ana/Decay Parameters Reaches Data.csv', header = TRUE)
+plot(data$Asymptote[data$Rotation != 0]/abs(data$Change[data$Rotation !=0]), type = 'l', xlab = "Time", ylab = "Compensation", main = "Asymptotes", col = "Blue", ylim = c(0,1.5), axes = FALSE)
+axis(2, at = c(0,.5,1,1.5), labels = c("0%", "50%", "100%", "150%"), las = 2)
+
+data<- read.csv('ana/Decay Parameters Prop Data.csv', header = TRUE)
+lines(data$Asymptote[data$Rotation != 0]/abs(data$Change[data$Rotation !=0]), col = "red")
+
+legend(2, 1.85, legend = c("reaches", "localization"), bty = "n", lty = 1, col = c("blue", "red"))
+
+
+
+data<- read.csv('ana/Decay Parameters Reaches Data.csv', header = TRUE)
+plot(data$learning.Rate[data$Rotation != 0], type = 'l', xlab = "Time", ylab = "Compensation", main = "Learning Rates", col = "Blue", ylim = c(0,2), axes = FALSE)
+axis(2, at = c(0,.5,1,1.5,2), labels = c("0%", "50%", "100%", "150%", "200%"), las = 2)
+
+data<- read.csv('ana/Decay Parameters Prop Data.csv', header = TRUE)
+lines(data$learning.Rate[data$Rotation != 0], col = "red")
+
+legend(2, 1.85, legend = c("reaches", "localization"), bty = "n", lty = 1, col = c("blue", "red"))
+
+dev.off()
+
+}
+
+decaymodelfittingperp<-function(data, task){
+  library(svglite)
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/asymptoticDecayModel.R')
+  
+  distortionNew<-data$distortion
+  data<-data.frame(distortionNew,data)
+  data$distortion[data$distortion == 360]<- 0
+  rotation<- data$distortion
+  blocks<- c(rep(0, times = 49), sort(rep(1:35, times = 12)), rep(36,11))
+  transition<- colorRampPalette(c("green", "green4", "dark green"))
+  colors<- transition(36) 
+  schedule<- rep(-1,12)
+  
+  if (task == "reaches"){
+    scale = -1
+    scale2 = 1
+    
+  } else {
+    scale = 1
+    scale2 = -1
+  }
+  
+  
+  
+  
+  Allpars<- c()
+  modeloutputs<- c()
+  endpoints<-c()
+  rotationsize<- c()
+  clamp<- c()
+  
+  
+  
+  for (i in 0:36){
+    stop<- max(which(blocks==i))
+    endpoints[i+1]<-as.numeric(unlist(data[stop,3]))
+    rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
+    clamp[i+1]<- as.numeric(unlist(data[stop,1]))
+  }
+  
+  outputfile<-sprintf('figs/DecayModel_PerBlock_%s.svg', task)
+  svglite(file=outputfile, width=15, height=21, system_fonts=list(sans = "Arial"))
+  layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+  
+  start<- min(which(blocks==1))
+  stop<- max(which(blocks==1))
+  
+  if (data$distortion[max(which(blocks==1))] == 15 | data$distortion[max(which(blocks==1))] == 30){
+    plot((data[start:stop,1]-endpoints[1])*scale, type = "l", ylim = c(-20,30),xlim = c(1,12), xlab = "trials", ylab = "Hand Direction", bty = 'n', col = colors[1], lwd = 2, main = rotationsize[2])
+    reachsig<-(data[start:stop,1]-endpoints[1])*scale    
+  } else {
+    plot((data[start:stop,1]-endpoints[1])*scale2, type = "l", ylim = c(-20,30),xlim = c(1,12), xlab = "trials", ylab = "Hand Direction", bty = 'n', col = colors[1], lwd = 2, main = rotationsize[2])
+    reachsig<-(data[start:stop,1]-endpoints[1])*scale2
+  }
+  pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+  modeloutput<- asymptoticDecayModel(pars,schedule)
+  lines(modeloutput$output, type = "l", col = "Blue")
+  #legend(2,30, legend = c("data", "decay model"),bty = 'n', col = c(colors[1], "blue"))
+  text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+  text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+  text(8,-20, sprintf('last trial of previous block = %f', endpoints[1]))
+  print(pars)
+  Allpars<- pars
+  print(modeloutput$output[12])
+  modeloutputs<- modeloutput$output[12]
+  print(endpoints[2])
+  
+  
+  for (i in 2:35){
+    start<- min(which(blocks==i))
+    stop<- max(which(blocks==i))
+    
+    if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] <0){
+      
+      plot((data[start:stop,1]-endpoints[i])*scale, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+      reachsig<-(data[start:stop,1]-endpoints[i])*scale
+    } else if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] >0) {
+      plot((data[start:stop,1]-endpoints[i])*scale2, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+      reachsig<-(data[start:stop,1]-endpoints[i])*scale2
+    } else if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] == 0){
+      start<- min(which(blocks==i-1))
+      if (data$distortion[max(which(blocks==i-2))] - data$distortion[max(which(blocks==i-1))] <0){
+        plot((data[start:stop,1]-endpoints[i-1])*scale, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+        reachsig<-(data[start:stop,1]-endpoints[i-1])*scale
+      } else if(data$distortion[max(which(blocks==i-2))] - data$distortion[max(which(blocks==i-1))] >0) {
+        plot((data[start:stop,1]-endpoints[i-1])*scale2, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+        reachsig<-(data[start:stop,1]-endpoints[i-1])*scale2
+      }
+      
+    }
+    schedule<- rep(-1, length(reachsig))
+    
+    pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+    modeloutput<- asymptoticDecayModel(pars,schedule)
+    lines(modeloutput$output, type = "l", col = "Blue")
+    text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+    text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+    text(8,-20, sprintf('last trial of current block = %f', endpoints[i+1]))
+    print(pars)
+    Allpars<- rbind(Allpars,pars)
+    print(modeloutput$output[12])
+    modeloutputs<- c(modeloutputs, modeloutput$output[12])
+    print(endpoints[i+1])
+  }
+  
+  i = 36
+  start<- min(which(blocks==i))
+  stop<- max(which(blocks==i))
+  
+  if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] <0){
+    plot((data[start:stop,1]-endpoints[i])*scale, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+    reachsig<-(data[start:stop,1]-endpoints[i])*scale
+  } else if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] >0) {
+    plot((data[start:stop,1]-endpoints[i])*scale2, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+    reachsig<-(data[start:stop,1]-endpoints[i])*scale2
+  } else if (data$distortion[max(which(blocks==i-1))] - data$distortion[max(which(blocks==i))] == 0){
+    start<- min(which(blocks==i-1))
+    if (data$distortion[max(which(blocks==i-2))] - data$distortion[max(which(blocks==i-1))] <0){
+      plot((data[start:stop,1]-endpoints[i-1])*scale, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+      reachsig<-(data[start:stop,1]-endpoints[i-1])*scale
+    } else if (data$distortion[max(which(blocks==i-2))] - data$distortion[max(which(blocks==i-1))] >0){
+      plot((data[start:stop,1]-endpoints[i-1])*scale2, type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction",bty = 'n', lwd = 2,main = rotationsize[i+1]) 
+      reachsig<-(data[start:stop,1]-endpoints[i-1])*scale2
+    } 
+    
+  }
+  schedule<- rep(-1, length(reachsig))
+  pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
+  modeloutput<- asymptoticDecayModel(pars,schedule)
+  lines(modeloutput$output, type = "l", col = "Blue")
+  text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
+  text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
+  text(8,-20, sprintf('last trial of current block = %f', endpoints[i+1]))
+  print(pars)
+  Allpars<- rbind(Allpars,pars)
+  print(modeloutput$output[12])
+  modeloutputs<- c(modeloutputs, modeloutput$output[12])
+  print(endpoints[i+1])
+  
+  dev.off()
+  
+  info<-data.frame(Allpars,modeloutputs,endpoints[2:37],rotationsize[2:37], clamp[2:37])
+  colnames(info)<- c('learning Rate', "Asymptote", "ModelOutput", "Endpoint", "Rotation", "Clamp_Trials")
+  outputfile<- sprintf("ana/Decay Parameters %s Data.csv", task)
+  write.csv(info, file =outputfile , quote = FALSE, row.names = FALSE)
+  
+}
 

@@ -891,6 +891,8 @@ plotabschanges<- function(task, diftrials,alldata, linetype, zerodiftrials, line
 
 
 
+
+## creating decay parameter files and plotting those parameters
 decaymodelfitting<-function(data, task){
   library(svglite)
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/shared.R')
@@ -1038,103 +1040,6 @@ decaymodelfitting<-function(data, task){
   
 }
 
-
-plotblocks<- function (){
-  
-  variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE)   
-  
-  rotation<- variation_reaches$distortion
-  for (t in 1:480){
-    
-    if (rotation[t] > 0){
-      variation_reaches[t,2:33]<- variation_reaches[t,2:33]*-1
-    } else if (rotation[t] == -360){
-      variation_reaches[t,2:33]<- 0
-    }
-    
-    
-  }
-  
-  blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
-  
-  
-  start<- min(which(blocks==1))
-  stop<- max(which(blocks==1))
-  plot(rowMeans(variation_reaches[start:stop,2:33]/30*100, na.rm = TRUE), type = "l", ylim = c(-30,100), xlab = "trials", ylab = "Hand Direction")
-  
-  for (i in 2:36){
-    endpoint<-as.numeric(unlist(rowMeans(variation_reaches[stop,2:33], na.rm = TRUE)))
-    start<- min(which(blocks==i))
-    stop<- max(which(blocks==i))
-    
-    if (abs(rotation[stop]) == 15| abs(rotation[stop]) == 30 ){
-      lines((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop])*100), type = "l", col = "Blue") 
-      print(abs(rotation[stop]))
-      print((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop])*100))
-      
-    } else if (abs(rotation[stop]) == 0) {
-      lines((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop-12])*100), type = "l", col = "Blue")
-      print(abs(rotation[stop]))
-      print((((rowMeans(variation_reaches[start:stop,2:33], na.rm = TRUE)-endpoint)*-1)/abs(rotation[stop-12])*100))
-      
-    } else{
-      print("clamp trials")
-    }
-  }
-  
-}
-plotblocks<- function (alldata){
-  
-  data<- getreachesformodel(alldata)
-  data$x<- c(1:49, rep(1:12,times=35), 1:11)
-  rotation<- data$distortion
-  blocks<- c(rep(0, times = 48), sort(rep(1:36, times = 12)))
-  transition<- colorRampPalette(c("green", "green4", "dark green"))
-  colors<- transition(36) 
-  
-  for (t in 1:480){
-    
-    if (rotation[t] == 15 | rotation[t] == 30){
-      data[t,1]<- data[t,1]*-1
-    } else if (rotation[t] == 360){
-      #data[t,1]<- NA
-    }
-  
-  }
-  
-  endpoints<-c()
-  rotationsize<- c()
-  for (i in 0:36){
-    stop<- max(which(blocks==i))
-    endpoints[i+1]<-as.numeric(unlist(data[stop,1]))
-    rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
-  }
- for (rot in 1:37){
-   
-   if (rotationsize[rot] == rotationsize[rot+1])
- print("same")
-     }
-  
-  svglite(file='figs/blocks.svg', width=15, height=21, system_fonts=list(sans = "Arial"))
-  layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
-  start<- min(which(blocks==1))
-  stop<- max(which(blocks==1))
-  plot(data[start:stop,1], type = "l", ylim = c(-20,30), xlab = "trials", ylab = "Hand Direction", col = colors[1], lwd = 2, main = rotationsize[2])
- 
-
-  for (i in 2:36){
-    start<- min(which(blocks==i))
-    stop<- max(which(blocks==i))
-    plot(data[start:stop,1], type = "l", col = colors[i], ylim = c(-20,30), xlab = "trials in rotation", ylab = "Hand Direction", lwd = 2,main = rotationsize[i+1]) 
-    print(endpoints[i+1])
-  }
-dev.off()
-  
-  
-}
-
-
-
 plotdecayparamaters<- function (task, yloc = 1){
 
 if (task == "reach"){
@@ -1237,8 +1142,6 @@ plotproportionaldecayparamatersseparately<- function (task = 'reach', yloc = 1){
   dev.off()
 }
 
-
-
 plotproportionaldecayparamaterstogether<- function() {
 png("figs/Asymptotes & Learning Rates across time.png", height = 500, width = 1000)
 layout(matrix(c(1,2), nrow=1, byrow=TRUE), heights=c(1,1), widths = c(1,1))
@@ -1267,6 +1170,9 @@ legend(2, 1.85, legend = c("reaches", "localization"), bty = "n", lty = 1, col =
 dev.off()
 
 }
+
+
+# Get decay parameters per participant to make confidence intervals
 
 decaymodelfittingperp<-function(data, task){
   library(svglite)

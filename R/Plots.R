@@ -1238,43 +1238,74 @@ plotproportionaldecayparamatersseparately<- function (task = 'reach', yloc = 1){
 }
 
 plotproportionaldecayparamaterstogether<- function() {
-png("figs/Asymptotes & Learning Rates across time.png", height = 500, width = 1000)
-layout(matrix(c(1,2), nrow=1, byrow=TRUE), heights=c(1,1), widths = c(1,1))
-
-
-data<- read.csv('ana/Decay Parameters Reaches Data.csv', header = TRUE)
-plot(data$Asymptote[data$Rotation != 0]/abs(data$Change[data$Rotation !=0]), type = 'l', xlab = "Time", ylab = "Compensation", main = "Asymptotes", col = "Blue", ylim = c(0,1.5), axes = FALSE)
-axis(2, at = c(0,.5,1,1.5), labels = c("0%", "50%", "100%", "150%"), las = 2)
-
-data<- read.csv('ana/Decay Parameters Prop Data.csv', header = TRUE)
-lines(data$Asymptote[data$Rotation != 0]/abs(data$Change[data$Rotation !=0]), col = "red")
-
-legend(2, 1.85, legend = c("reaches", "localization"), bty = "n", lty = 1, col = c("blue", "red"))
-
-
-
-data<- read.csv('ana/Decay Parameters Reaches Data.csv', header = TRUE)
-plot(data$learning.Rate[data$Rotation != 0], type = 'l', xlab = "Time", ylab = "Compensation", main = "Learning Rates", col = "Blue", ylim = c(0,2), axes = FALSE)
-axis(2, at = c(0,.5,1,1.5,2), labels = c("0%", "50%", "100%", "150%", "200%"), las = 2)
-
-data<- read.csv('ana/Decay Parameters Prop Data.csv', header = TRUE)
-lines(data$learning.Rate[data$Rotation != 0], col = "red")
-
-legend(2, 1.85, legend = c("reaches", "localization"), bty = "n", lty = 1, col = c("blue", "red"))
-
-dev.off()
-
+  png("figs/Asymptotes & Learning Rates across time.png", height = 500, width = 1000)
+  layout(matrix(c(1,2), nrow=1, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+  
+  
+  data<- read.csv('ana/Decay Parameters Reaches Data.csv', header = TRUE)
+  plot(data$Asymptote[data$Rotation != 0]/abs(data$Change[data$Rotation !=0]), type = 'l', xlab = "Time", ylab = "Compensation", main = "Asymptotes", col = "Blue", ylim = c(-0,2), axes = FALSE)
+  
+  axis(2, at = c(0,.5,1,1.5,2), labels = c("0%", "50%", "100%", "150%", "200%"), las = 2)
+  
+  data<- read.csv('ana/Decay Parameters Prop Data.csv', header = TRUE)
+  lines(data$Asymptote[data$Rotation != 0]/abs(data$Change[data$Rotation !=0]), col = "red")
+  
+  legend(2, 1.85, legend = c("reaches", "localization"), bty = "n", lty = 1, col = c("blue", "red"))
+  
+  
+  
+  data<- read.csv('ana/Decay Parameters Reaches Data.csv', header = TRUE)
+  plot(data$learning.Rate[data$Rotation != 0], type = 'l', xlab = "Time", ylab = "Compensation", main = "Learning Rates", col = "Blue", ylim = c(0,2), axes = FALSE)
+  axis(2, at = c(0,.5,1,1.5,2), labels = c("0%", "50%", "100%", "150%", "200%"), las = 2)
+  
+  data<- read.csv('ana/Decay Parameters Prop Data.csv', header = TRUE)
+  lines(data$learning.Rate[data$Rotation != 0], col = "red")
+  
+  legend(2, 1.85, legend = c("reaches", "localization"), bty = "n", lty = 1, col = c("blue", "red"))
+  
+  dev.off()
+  
 }
+
 
 
 # Get decay parameters per participant to make confidence intervals
 
-decaymodelfittingperp<-function(data, task){
+decaymodelfittingperp<-function(){
   library(svglite)
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/asymptoticDecayModel.R')
   
+  
+  
+  
+  dataset<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
+  task = 'reaches'
+
+for (i in 2:ncol(dataset)) {
+  data<- data.frame(dataset[,i],dataset$distortion)
+  colnames(data)<- c('meanreaches',"distortion" )
+  print(i-1)
+  DecayParameters(data, task, pnum = i-1)
+  
+}
+
+  dataset<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
+  task = 'prop'
+  
+  for (i in 2:ncol(dataset)) {
+    data<- data.frame(dataset[,i],dataset$distortion)
+    colnames(data)<- c('meanreaches',"distortion" )
+    print(i-1)
+    DecayParameters(data, task, pnum = i-1)
+    
+  }
+  
+}
+
+DecayParameters<- function(data, task, pnum){
+  
   distortionNew<-data$distortion
-  data<-data.frame(distortionNew,data)
+  data<-data.frame(data,distortionNew)
   data$distortion[data$distortion == 360]<- 0
   rotation<- data$distortion
   blocks<- c(rep(0, times = 49), sort(rep(1:35, times = 12)), rep(36,11))
@@ -1304,13 +1335,14 @@ decaymodelfittingperp<-function(data, task){
   
   for (i in 0:36){
     stop<- max(which(blocks==i))
-    endpoints[i+1]<-as.numeric(unlist(data[stop,3]))
+    start<- stop - 4
+    endpoints[i+1]<-mean(as.numeric(unlist(data[start:stop,1])), na.rm = TRUE)
     rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
-    clamp[i+1]<- as.numeric(unlist(data[stop,1]))
+    clamp[i+1]<- as.numeric(unlist(data[stop,3]))
   }
   
-  outputfile<-sprintf('figs/DecayModel_PerBlock_%s.svg', task)
-  svglite(file=outputfile, width=15, height=21, system_fonts=list(sans = "Arial"))
+  outputfile<-sprintf('figs/DecayParameters/DecayModel_PerBlock_%s_p%d.pdf', task, pnum)
+  pdf(file=outputfile, width=15, height=21)
   layout(matrix(c(1:40), nrow=8, byrow=TRUE), heights=c(1,1), widths = c(1,1))
   
   start<- min(which(blocks==1))
@@ -1330,11 +1362,11 @@ decaymodelfittingperp<-function(data, task){
   text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
   text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
   text(8,-20, sprintf('last trial of previous block = %f', endpoints[1]))
-  print(pars)
+  #print(pars)
   Allpars<- pars
-  print(modeloutput$output[12])
+  #print(modeloutput$output[12])
   modeloutputs<- modeloutput$output[12]
-  print(endpoints[2])
+  #print(endpoints[2])
   
   
   for (i in 2:35){
@@ -1367,11 +1399,11 @@ decaymodelfittingperp<-function(data, task){
     text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
     text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
     text(8,-20, sprintf('last trial of current block = %f', endpoints[i+1]))
-    print(pars)
+    #print(pars)
     Allpars<- rbind(Allpars,pars)
-    print(modeloutput$output[12])
+    #print(modeloutput$output[12])
     modeloutputs<- c(modeloutputs, modeloutput$output[12])
-    print(endpoints[i+1])
+    #print(endpoints[i+1])
   }
   
   i = 36
@@ -1402,18 +1434,173 @@ decaymodelfittingperp<-function(data, task){
   text(8,-14, sprintf('asymptote = %f', as.numeric(pars[2])))
   text(8,-17, sprintf('curve-endpoint = %f', modeloutput$output[12]))
   text(8,-20, sprintf('last trial of current block = %f', endpoints[i+1]))
-  print(pars)
+  #print(pars)
   Allpars<- rbind(Allpars,pars)
-  print(modeloutput$output[12])
+  #print(modeloutput$output[12])
   modeloutputs<- c(modeloutputs, modeloutput$output[12])
-  print(endpoints[i+1])
+  #print(endpoints[i+1])
   
   dev.off()
   
   info<-data.frame(Allpars,modeloutputs,endpoints[2:37],rotationsize[2:37], clamp[2:37])
   colnames(info)<- c('learning Rate', "Asymptote", "ModelOutput", "Endpoint", "Rotation", "Clamp_Trials")
-  outputfile<- sprintf("ana/Decay Parameters %s Data.csv", task)
+  outputfile<- sprintf("ana/DecayParameters/Decay Parameters %s Data p%d.csv", task, pnum)
   write.csv(info, file =outputfile , quote = FALSE, row.names = FALSE)
+  
   
 }
 
+
+Combineparameters<- function(){
+filenames<-c()
+for (i in 1:32)
+  filenames[i]<-sprintf("ana/DecayParameters/Decay Parameters reaches Data p%d.csv", i)
+
+
+endpoints<-c()
+asymptotes<- c()
+LR<-c()
+modeloutput<-c()
+
+
+for (i in 1:32){
+  data<-read.csv(filenames[i])
+  endpoints<-cbind(endpoints,data[,4])
+  asymptotes<- cbind(asymptotes,data[,2])
+  LR<-cbind(LR,data[,1])
+  modeloutput<-cbind(modeloutput,data[,3])
+}
+
+endpoints<-cbind(endpoints,data[,5])
+asymptotes<- cbind(asymptotes,data[,5])
+LR<-cbind(LR,data[,5])
+modeloutput<-cbind(modeloutput,data[,5])
+
+write.csv(endpoints, "ana/DecayParameters/Reach Decay Endpoints all P.csv", quote = FALSE, row.names = FALSE)
+write.csv(asymptotes, "ana/DecayParameters/Reach Decay Asymptotes all P.csv", quote = FALSE, row.names = FALSE)
+write.csv(LR, "ana/DecayParameters/Reach Decay LR all P.csv", quote = FALSE, row.names = FALSE)
+write.csv(modeloutput, "ana/DecayParameters/Reach Decay Model Outputs all P.csv", quote = FALSE, row.names = FALSE)
+
+
+filenames<-c()
+for (i in 1:32)
+  filenames[i]<-sprintf("ana/DecayParameters/Decay Parameters prop Data p%d.csv", i)
+
+
+endpoints<-c()
+asymptotes<- c()
+LR<-c()
+modeloutput<-c()
+
+
+for (i in 1:32){
+  data<-read.csv(filenames[i])
+  endpoints<-cbind(endpoints,data[,4])
+  asymptotes<- cbind(asymptotes,data[,2])
+  LR<-cbind(LR,data[,1])
+  modeloutput<-cbind(modeloutput,data[,3])
+}
+
+endpoints<-cbind(endpoints,data[,5])
+asymptotes<- cbind(asymptotes,data[,5])
+LR<-cbind(LR,data[,5])
+modeloutput<-cbind(modeloutput,data[,5])
+
+write.csv(endpoints, "ana/DecayParameters/Prop Decay Endpoints all P.csv", quote = FALSE, row.names = FALSE)
+write.csv(asymptotes, "ana/DecayParameters/Prop Decay Asymptotes all P.csv", quote = FALSE, row.names = FALSE)
+write.csv(LR, "ana/DecayParameters/Prop Decay LR all P.csv", quote = FALSE, row.names = FALSE)
+write.csv(modeloutput, "ana/DecayParameters/Prop Decay Model Outputs all P.csv", quote = FALSE, row.names = FALSE)
+
+
+
+
+}
+
+
+trialCI <- function(data) {
+  AllCIs <- data.frame()
+  for (trial in 1:nrow(data)) {
+    y <- unlist(data[trial, 2:length(data)])
+    CItrial <- t.interval(unlist(y))
+    if (prod(dim(AllCIs)) == 0) {
+      AllCIs <- CItrial
+    } else {
+      AllCIs <- rbind(AllCIs, CItrial)
+    }
+  }
+  return(AllCIs)
+}
+t.interval = function(data, variance = var(data, na.rm = TRUE), conf.level = 0.95) {
+  z = qt((1 - conf.level) / 2,
+         df = length(data) - 1,
+         lower.tail = FALSE)
+  
+  xbar = mean(data, na.rm = TRUE)
+  sdx = sqrt(variance / length(data))
+  
+  return(c(xbar - z * sdx, xbar + z * sdx))
+  
+}
+
+plotproportionaldecayparamaterstogetherCIs<- function() {
+  png("figs/Asymptotes & Learning Rates across time with CI.png", height = 500, width = 1000)
+  layout(matrix(c(1,2), nrow=1, byrow=TRUE), heights=c(1,1), widths = c(1,1))
+  
+  
+  data<-read.csv('ana/DecayParameters/Reach Decay Asymptotes all P.csv', header = TRUE)
+  indx<-which(data$V33 != 0)
+  for (i in indx)
+    data[i,1:32]<- data[i,1:32]/abs(data[i,33])
+  
+  plot(rowMeans(data[indx,1:32]), type = 'l', xlab = "Time", ylab = "Compensation", main = "Asymptotes", col = "Blue", ylim = c(-2,4), axes = FALSE)
+  
+  
+  dataCIs <- trialCI(data = data) 
+  x <- c(c(1:24), rev(c(1:24)))
+  y <- c(dataCIs[indx, 1], rev(dataCIs[indx, 2]))
+  polygon(x, y, col = rgb(0.1, 0.3, 0.5, 0.2), border = NA)
+  
+  
+  axis(2, at = c(-2,-1,0,.5,1,1.5,2,3,3.5,4), labels = c("-200%", "-100%","0%", "50%", "100%", "150%", "200%", "300%", "350%", "400%"), las = 2)
+  
+  data<-read.csv('ana/DecayParameters/Prop Decay Asymptotes all P.csv', header = TRUE)
+  indx<-which(data$V33 != 0)
+  for (i in indx)
+    data[i,1:32]<- data[i,1:32]/abs(data[i,33])
+  lines(rowMeans(data[indx,1:32]), col = "red")
+  dataCIs <- trialCI(data = data) 
+  x <- c(c(1:24), rev(c(1:24)))
+  y <- c(dataCIs[indx, 1], rev(dataCIs[indx, 2]))
+  polygon(x, y, col = rgb(1, 0.0, 0., 0.2), border = NA)
+  
+  
+  
+  legend(10, -1.2, legend = c("reaches", "localization"), bty = "n", lty = 1, col = c("blue", "red"))
+  
+  
+  
+  data<-read.csv('ana/DecayParameters/Reach Decay LR all P.csv', header = TRUE)
+  indx<-which(data$V33 != 0)
+  plot(rowMeans(data[indx,1:32]), type = 'l', xlab = "Time", ylab = "Amount learned on any trial", main = "Learning Rate", col = "Blue", ylim = c(-2,4), axes = FALSE)
+  
+  
+  dataCIs <- trialCI(data = data) 
+  x <- c(c(1:24), rev(c(1:24)))
+  y <- c(dataCIs[indx, 1], rev(dataCIs[indx, 2]))
+  polygon(x, y, col = rgb(0.1, 0.3, 0.5, 0.2), border = NA)
+  axis(2, at = c(-2,-1,0,.5,1,1.5,2,3,3.5,4), labels = c("-200%", "-100%","0%", "50%", "100%", "150%", "200%", "300%", "350%", "400%"), las = 2)
+  
+  data<-read.csv('ana/DecayParameters/Prop Decay LR all P.csv', header = TRUE)
+  indx<-which(data$V33 != 0)
+  lines(rowMeans(data[indx,1:32]), col = "red")
+  dataCIs <- trialCI(data = data) 
+  x <- c(c(1:24), rev(c(1:24)))
+  y <- c(dataCIs[indx, 1], rev(dataCIs[indx, 2]))
+  polygon(x, y, col = rgb(1, 0.0, 0., 0.2), border = NA)
+  
+  
+  legend(10, -1.2, legend = c("reaches", "localization"), bty = "n", lty = 1, col = c("blue", "red"))
+  
+  dev.off()
+  
+}

@@ -1296,13 +1296,13 @@ for (i in 2:ncol(dataset)) {
     data<- data.frame(dataset[,i],dataset$distortion)
     colnames(data)<- c('meanreaches',"distortion" )
     print(i-1)
-    DecayParameters(data, task, pnum = i-1)
+    DecayParameters(data, task, pnum = i-1, rotate = -1)
     
   }
   
 }
 
-DecayParameters<- function(data, task, pnum){
+DecayParameters<- function(data, task, pnum, rotate = -1){
   
   distortionNew<-data$distortion
   data<-data.frame(data,distortionNew)
@@ -1391,7 +1391,7 @@ DecayParameters<- function(data, task, pnum){
       }
       
     }
-    schedule<- rep(-1, length(reachsig))
+    schedule<- rep(rotate, length(reachsig))
     
     pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
     modeloutput<- asymptoticDecayModel(pars,schedule)
@@ -1427,7 +1427,7 @@ DecayParameters<- function(data, task, pnum){
     } 
     
   }
-  schedule<- rep(-1, length(reachsig))
+  schedule<- rep(rotate, length(reachsig))
   pars<-asymptoticDecayFit(schedule = schedule, signal = reachsig)
   modeloutput<- asymptoticDecayModel(pars,schedule)
   lines(modeloutput$output, type = "l", col = "Blue")
@@ -1449,6 +1449,9 @@ DecayParameters<- function(data, task, pnum){
   
   
 }
+
+
+
 
 
 Combineparameters<- function(){
@@ -1515,6 +1518,9 @@ write.csv(modeloutput, "ana/DecayParameters/Prop Decay Model Outputs all P.csv",
 
 
 }
+
+
+
 
 
 trialCI <- function(data) {
@@ -1604,3 +1610,25 @@ plotproportionaldecayparamaterstogetherCIs<- function() {
   dev.off()
   
 }
+
+
+##best way to make the reaches proportional
+data$perc<- abs((data$meanreaches/abs(data$distortion))*100)
+
+extremes<- list()
+for (i in 1:36){
+  extremes[[i]]<-data[i,data[i,] > abs(data[i,33])]
+}
+extremes<- extremes[which(data[,33] != 0)]
+blocks<-which(data[,33] != 0)
+
+badpeeps<-c()
+for (i in blocks){
+  badpeeps<- c(badpeeps, colnames(extremes[[i]]))
+}
+bp<- unique(badpeeps)
+count<- c()
+for (i in 1:length(bp)){
+  count<-c(count,sum(badpeeps == bp[i]))
+}
+badpeoples<- data.frame(bp, count)

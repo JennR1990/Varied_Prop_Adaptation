@@ -43,8 +43,8 @@ plotvariationperp<- function (){
   variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
   variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
   
-  pdf("figs/Participant Curves.pdf", height = 30, width = 16)
-  layout(matrix(1:32,nrow = 8, byrow = TRUE))
+  pdf("figs/Participant Curves.pdf", height = 10, width = 16)
+  #layout(matrix(1:32,nrow = 8, byrow = TRUE))
 
   for (q in 2:33){
   

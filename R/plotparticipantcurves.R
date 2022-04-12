@@ -132,8 +132,8 @@ plotaverageperp<- function (){
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/shared.R')
   variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
   variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
-  
-  pdf("figs/Participant Curves_PerCycle.pdf", height = 10, width = 16)
+  variation_localization[variation_localization < -50] <- NA
+  pdf("figs/Participant Curves_PerCycle_Cleaned.pdf", height = 10, width = 16)
   #layout(matrix(1:32,nrow = 8, byrow = TRUE))
   
   for (q in 2:33){

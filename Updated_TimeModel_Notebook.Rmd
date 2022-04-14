@@ -68,7 +68,7 @@ reach_par <-
     )
  reach_model <-
     twoRateReachModel(par = reach_par, schedule = reaches$distortion)
- write.csv(reach_model$slow,file = "data/slowprocess.csv", quote = FALSE, row.names = FALSE)
+ write.csv(reach_model$slow,file = "data/variation_slowprocess.csv", quote = FALSE, row.names = FALSE)
 ```
  
  Now that we have the reaches, localization and slow process for the data.  We want to look at each rotation chunk as it's own learning period.  We somehow need to run those three lines of code below for each of the chunks. 

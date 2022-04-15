@@ -149,6 +149,73 @@ for (signalname in tasks) {
 
 }
 
+plotDecaymodels<- function() {
+
+data<- read.csv("ana/Decay Outputs localization.csv", header = TRUE)
 
 
-#data<- read.csv("ana/Decay Outputs localization.csv", header = TRUE)
+rotations<- c(-30,-15,15,30)
+pdf("figs/localization decay model outputs by rotation size.pdf", height = 8, width = 10)
+layout(matrix(1:4, nrow = 2, byrow = TRUE), heights = c(2,2))
+
+for (i in rotations){
+  
+p30<-data[data$rotation == i,1:13]
+
+title<- sprintf("Decay Model Output \n localizations for %d°", i)
+plot(as.numeric(unlist(p30[1,])), type = "l", col = "Blue", ylim = c(0, 15),xlim = c(0,14), xlab = "Trials in Block", ylab = "Hand Direction [°]", main = title, axes = FALSE)
+text(x = 13.5, y = as.numeric(unlist(p30[1,13])), " 1st", col = "blue")
+lines(as.numeric(unlist(p30[2,])), col = "Green")
+text(x = 13.5, y = as.numeric(unlist(p30[2,13])), " 2nd", col = "green")
+lines(as.numeric(unlist(p30[3,])), col = "red")
+text(x = 13.5, y = as.numeric(unlist(p30[3,13])), " 3rd", col = "red")
+lines(as.numeric(unlist(p30[4,])), col = "Purple")
+text(x = 13.5, y = as.numeric(unlist(p30[4,13])), " 4th", col = "Purple")
+lines(as.numeric(unlist(p30[5,])), col = "Pink")
+text(x = 13.5, y = as.numeric(unlist(p30[5,13])), " 5th", col = "pink")
+axis(1, at = c(1,2,3,4,5,13), labels = c(0,1,2,3,4,"end of \n block"))
+axis(2, at = c(0,5,10,15), las =2)
+abline(v = 2, lty = 2, col = "light grey")
+abline(v = 3, lty = 2, col = "light grey")
+abline(v = 4, lty = 2, col = "light grey")
+abline(v = 5, lty = 2, col = "light grey")
+}
+
+
+dev.off()
+
+
+data<- read.csv("ana/Decay Outputs reaches.csv", header = TRUE)
+
+rotations<- c(-30,-15,15,30)
+
+pdf("figs/reaches decay model outputs by rotation size.pdf", height = 8, width = 10)
+layout(matrix(1:4, nrow = 2, byrow = TRUE), heights = c(2,2))
+
+
+for (i in rotations){
+  
+  p30<-data[data$rotation == i,1:12]
+  
+  title<- sprintf("Decay Model Output \n reaches for %d°", i)
+  plot(as.numeric(unlist(p30[1,])), type = "l", col = "Blue", ylim = c(0, 40),xlim = c(0,13), xlab = "Trials in Block", ylab = "Hand Direction [°]", main = title, axes = FALSE)
+  text(x = 12.5, y = as.numeric(unlist(p30[1,12])), " 1st", col = "blue")
+  lines(as.numeric(unlist(p30[2,])), col = "Green")
+  text(x = 12.5, y = as.numeric(unlist(p30[2,12])), " 2nd", col = "green")
+  lines(as.numeric(unlist(p30[3,])), col = "red")
+  text(x = 12.5, y = as.numeric(unlist(p30[3,12])), " 3rd", col = "red")
+  lines(as.numeric(unlist(p30[4,])), col = "Purple")
+  text(x = 12.5, y = as.numeric(unlist(p30[4,12])), " 4th", col = "Purple")
+  lines(as.numeric(unlist(p30[5,])), col = "Pink")
+  text(x = 12.5, y = as.numeric(unlist(p30[5,12])), " 5th", col = "pink")
+  axis(1, at = c(1,2,3,4,5,6,12), labels = c(0,1,2,3,4,5,"end of \n block"))
+  axis(2, at = c(0,10,20,30,40), las =2)
+  abline(v = 2, lty = 2, col = "light grey")
+  abline(v = 3, lty = 2, col = "light grey")
+  abline(v = 4, lty = 2, col = "light grey")
+  abline(v = 5, lty = 2, col = "light grey")
+  abline(v = 6, lty = 2, col = "light grey")
+
+}
+dev.off()
+}

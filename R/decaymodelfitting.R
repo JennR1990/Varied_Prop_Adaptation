@@ -79,3 +79,76 @@ decaymodelfitting<-function(data, task){
   write.csv(info, file =outputfile , quote = FALSE, row.names = FALSE)
   
 }
+
+
+
+
+
+
+getmodeloutputs<- function(){
+df <- read.csv('data/asymptoticDecayParameterCIs.csv', stringsAsFactors = F)
+
+
+trialsets <- list('1'=c(50:61),      "2" = c(62:73),      "3" = c(74:85),   "4" = c(86:97), 
+                  "5" = c(98:109),   "6" = c(110:133),    "7" = c(134:157), "8" = c(158:181),
+                  "9" = c(194:205), "10" = c(206:217),   "11" = c(218:229), "12" = c(254:265),
+                  "13" = c(266:289),   "14" = c(290:313),   "15" = c(314:325),   "16" = c(326:337),
+                  "17" = c(350:361),   "18" = c(362:373),   "19" = c(374:385),   "20" = c(386:397),
+                  "21" = c(410:421),   "22" = c(422:433),   "23" = c(434:445),   "24" = c(446:457))
+
+rot<- read.csv("data/Reaches_Baselined.csv", header = TRUE)$distortion
+rots<- c()
+for (i in 1:length(trialsets)){
+  rots[as.numeric(i)]<-unique(rot[trialsets[[i]]])
+}
+
+
+
+transition<- colorRampPalette(c("plum", "darkorchid"))
+colors<- transition(24) 
+tasks<- c("localization", "reaches")
+phases<- as.character(1:24)
+
+
+
+for (signalname in tasks) {
+  
+  leadingzero <- FALSE
+  if (signalname == 'localization') {
+    leadingzero <- TRUE
+    dfit<-data.frame(matrix(NA, nrow = 24, ncol = 13))
+    colnames(dfit)<- c(1:ncol(dfit))
+  } else{
+    dfit<-data.frame(matrix(NA, nrow = 24, ncol = 12))
+    colnames(dfit)<- c(1:ncol(dfit))
+  }
+  
+  schedulelength <- 12
+  if (leadingzero) {
+    schedulelength <- schedulelength + 1
+  }
+  schedule <- rep(-1, schedulelength)
+  
+  for (trialset in phases) {
+    par <-
+      c('lambda' = df[which(df$signal == signalname &
+                              df$phase == trialset), "lambda"], 'N0' = df[which(df$signal == signalname & df$phase == trialset), 'N0'])
+    
+    dfit[as.numeric(trialset),] <- asymptoticDecayModel(par,schedule)$output
+   
+    
+    
+  }
+  dfit$rotation<- rots
+  outputname<- sprintf("ana/Decay Outputs %s.csv", signalname)
+ write.csv(dfit,outputname, quote = FALSE, row.names = FALSE)
+  
+  
+  
+}
+
+}
+
+
+
+#data<- read.csv("ana/Decay Outputs localization.csv", header = TRUE)

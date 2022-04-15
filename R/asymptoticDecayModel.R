@@ -316,7 +316,7 @@ bootstrapSemiAsymptoticDecayModels <- function(bootstraps=100) {
           
         }
         
-        write.csv(data.frame(lambda, N0), file=sprintf('data/%s_%s_%s_semi.csv',group,signalname,trialset), quote=F, row.names=F)
+        write.csv(data.frame(lambda, N0), file=sprintf('ana/Bootstrap Decay Parameters/%s_%s_%s_semi.csv',group,signalname,trialset), quote=F, row.names=F)
         
       }
       
@@ -462,7 +462,7 @@ getAsymptoticDecayParameterCIs <- function(semi=TRUE) {
         } else {
           sstr <- ''
         }
-        df <- read.csv(sprintf('data/%s_%s_%s%s.csv', groupname, signalname, trialset, sstr), stringsAsFactors = F)
+        df <- read.csv(sprintf('ana/Bootstrap Decay Parameters/%s_%s_%s%s.csv', groupname, signalname, trialset, sstr), stringsAsFactors = F)
         
         group <- c(group, groupname)
         signal <- c(signal, signalname)
@@ -500,7 +500,7 @@ getAsymptoticDecayParameterCIs <- function(semi=TRUE) {
 getSaturationTrials <- function(criterion='CI') {
   
   df <- read.csv('data/asymptoticDecayParameterCIs.csv', stringsAsFactors = F)
-  df <- df[which(df$phase == 'main'),]
+  #df <- df[which(df$phase == 'main'),]
   
   settings <- asymptoticDecaySettings()
   
@@ -516,6 +516,7 @@ getSaturationTrials <- function(criterion='CI') {
   avg <- c()
   lwr <- c()
   upr <- c()
+  set<-c()
   
   # loop through groups:
   for (groupname in names(groupsignals)) {
@@ -545,10 +546,10 @@ getSaturationTrials <- function(criterion='CI') {
       
       # loop through parts of the signal we want to fit:
       #for (trialset in c('main','reversal')) {
-      for (trialset in c('main')) {
+      for (trialset in names(trialsets)) {
         
         # get the part of the data we want to fit:
-        indices <- trialsets[[trialset]] + BL
+        indices <- trialsets[[trialset]]
         #setdf <- rawdf[indices,]
         
         # schedule is a vector of values -1 and length the same as the signal:
@@ -564,7 +565,7 @@ getSaturationTrials <- function(criterion='CI') {
         
         for (roc in c('lambda','lambda_975','lambda_025')) {
           
-          par <- c('lambda'=df[which(df$group == groupname & df$signal == signalname),roc], 'N0'=df[which(df$group == groupname & df$signal == signalname),'N0'])
+          par <- c('lambda'=df[which(df$group == groupname & df$signal == signalname & df$phase == trialset),roc], 'N0'=df[which(df$group == groupname & df$signal == signalname & df$phase == trialset),'N0'])
           
           fitdf <- asymptoticDecayModel(par=par, schedule=schedule)
           
@@ -572,7 +573,7 @@ getSaturationTrials <- function(criterion='CI') {
             crit <- (par['N0'] * criterion)
           }
           if ( criterion == 'CI' ) {
-            crit <- df$N0_025[which(df$group == groupname & df$signal == signalname)]
+            crit <- df$N0_025[which(df$group == groupname & df$signal == signalname & df$phase == trialset)]
           }
           
           trialno <- which(fitdf$output > crit)[1]
@@ -590,8 +591,9 @@ getSaturationTrials <- function(criterion='CI') {
         avg <- c(avg, trialnos[['lambda']])
         lwr <- c(lwr, trialnos[['lambda_975']])
         upr <- c(upr, trialnos[['lambda_025']])
+        set<- c(set, trialset)
         
-        cat(sprintf('%s, %s: trial %d (%d - %d)\n', groupname, signalname, trialnos[['lambda']], trialnos[['lambda_975']], trialnos[['lambda_025']]))
+        cat(sprintf('%s, %s, %s: trial %d (%d - %d)\n', groupname, signalname,trialset, trialnos[['lambda']], trialnos[['lambda_975']], trialnos[['lambda_025']]))
 
       }
       
@@ -599,11 +601,13 @@ getSaturationTrials <- function(criterion='CI') {
     
   }
   
-  df <- data.frame(group, signal, avg, lwr, upr)
+  newdf <- data.frame(group, signal, avg, lwr, upr, set)
   
-  write.csv(df, 'data/saturation_trials.csv', row.names = FALSE, quote = FALSE)
+  write.csv(df, 'ana/saturation_trials.csv', row.names = FALSE, quote = FALSE)
   
 }
+
+
 
 getStyles <- function() {
   
@@ -679,7 +683,6 @@ getStyles <- function() {
   return(styles)
 
 }
-
 
 plotSaturation <- function(xscale='normal', target='tiff') {
   
@@ -778,7 +781,7 @@ plotSaturation <- function(xscale='normal', target='tiff') {
       schedulesign <- schedules[[groupname]][[signalname]]
       
       # loop through parts of the signal we want to fit:
-      for (trialset in c('main')) {
+      for (trialset in names(trialsets)) {
         
         # get the part of the data we want to fit:
         indices <- trialsets[[trialset]] + BL
@@ -796,8 +799,8 @@ plotSaturation <- function(xscale='normal', target='tiff') {
         
         for (roc in c('lambda','lambda_975','lambda_025')) {
           
-          par <- c('lambda'=df[which(df$group == groupname & df$signal == signalname),roc], 'N0'=df[which(df$group == groupname & df$signal == signalname),'N0'])
-          par['scale'] <- df$N0_025[which(df$group == groupname & df$signal == signalname)]
+          par <- c('lambda'=df[which(df$group == groupname & df$signal == signalname & df$phase == trialset ),roc], 'N0'=df[which(df$group == groupname & df$signal == signalname & df$phase == trialset),'N0'])
+          par['scale'] <- df$N0_025[which(df$group == groupname & df$signal == signalname & df$phase == trialset)]
           #print(par)
           
           dfit <- asymptoticDecayModel(par,schedule)$output

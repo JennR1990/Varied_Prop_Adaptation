@@ -1612,23 +1612,4 @@ plotproportionaldecayparamaterstogetherCIs<- function() {
 }
 
 
-##best way to make the reaches proportional
-data$perc<- abs((data$meanreaches/abs(data$distortion))*100)
 
-extremes<- list()
-for (i in 1:36){
-  extremes[[i]]<-data[i,data[i,] > abs(data[i,33])]
-}
-extremes<- extremes[which(data[,33] != 0)]
-blocks<-which(data[,33] != 0)
-
-badpeeps<-c()
-for (i in blocks){
-  badpeeps<- c(badpeeps, colnames(extremes[[i]]))
-}
-bp<- unique(badpeeps)
-count<- c()
-for (i in 1:length(bp)){
-  count<-c(count,sum(badpeeps == bp[i]))
-}
-badpeoples<- data.frame(bp, count)

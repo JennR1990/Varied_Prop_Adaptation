@@ -175,7 +175,7 @@ asymptoticDecaySettings <- function() {
   
 }
 
-bootstrapSemiAsymptoticDecayModels <- function(bootstraps=100) {
+bootstrapSemiAsymptoticDecayModels <- function(bootstraps=1000) {
   
   settings <- asymptoticDecaySettings()
   

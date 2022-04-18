@@ -1450,10 +1450,6 @@ DecayParameters<- function(data, task, pnum, rotate = -1){
   
 }
 
-
-
-
-
 Combineparameters<- function(){
 filenames<-c()
 for (i in 1:32)
@@ -1518,9 +1514,6 @@ write.csv(modeloutput, "ana/DecayParameters/Prop Decay Model Outputs all P.csv",
 
 
 }
-
-
-
 
 
 trialCI <- function(data) {

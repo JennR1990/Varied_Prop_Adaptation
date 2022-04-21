@@ -1,4 +1,6 @@
 
+
+plotLR&Aperblock<- function(){
 phase0<- c(3,6,10,20)
 remove<- c(phase0, (phase0+24))
 df<- read.csv("ana/asymptoticDecayParameterCIs.csv", header = TRUE)
@@ -27,28 +29,43 @@ newdf<- cbind(newdf,rotation)
 newN0<- (newdf$N0/abs(newdf$rotation))*100
 newN_97<- (newdf$N0_975/abs(newdf$rotation))*100
 newN_25<- (newdf$N0_025/abs(newdf$rotation))*100
+newN_5<- (newdf$N0_5/abs(newdf$rotation))*100
 
-plot(newN0[1:20], type = "l", ylim = c(0,150), col = "Red", main = "Localization Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)")
+pdf("figs/LR & Asymptotes Across Blocks.pdf", height = 8, width = 10)
+layout(matrix(1:4, nrow = 2, byrow = TRUE), heights = c(2,2))
 
+plot(newN_5[1:20], type = "l", xlim = c(0,20),ylim = c(0,150), col = "Red", main = "Localization Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE)
+indx<- seq(from = 0, to = 20, by = 4)
+indx[1]<- 1
+axis(1, at = indx)
+axis(2, at = c(0,25,50,75,100,125,150), las = 2)
 locCI<-c(newN_25[1:20],rev(newN_97[1:20]))
 x<- c(1:20,20:1)
 polygon(x, locCI, col = rgb(1,0,0,.2), border = NA)
 
 
-plot(newN0[21:40], type = "l", ylim = c(0,200), col = "Blue", main = "Reach Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)")
+plot(newN_5[21:40], type = "l", ylim = c(0,200), col = "Blue", main = "Reach Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE)
+axis(1, at = indx)
+axis(2, at = c(0,25,50,75,100,125,150,175,200), las = 2)
 reachCI<-c(newN_25[21:40],rev(newN_97[21:40]))
 polygon(x, reachCI, col = rgb(0,0,1,.2), border = NA)
 
 
 
 
-plot(newN0[1:20], type = "l", ylim = c(0,150), col = "Red", main = "Localization Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)")
+plot(df$lambda_500[1:20], type = "l", ylim = c(0,1), col = "Red", main = "Localization Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE)
 
-locCI<-c(newN_25[1:20],rev(newN_97[1:20]))
+locCI<-c(df$lambda_025[1:20],rev(df$lambda_975[1:20]))
 x<- c(1:20,20:1)
+axis(1, at = indx)
+axis(2, at = c(0,.25,.5,.75,1), las = 2)
 polygon(x, locCI, col = rgb(1,0,0,.2), border = NA)
 
 
-plot(newN0[21:40], type = "l", ylim = c(0,200), col = "Blue", main = "Reach Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)")
-reachCI<-c(newN_25[21:40],rev(newN_97[21:40]))
+plot(df$lambda_500[21:40], type = "l", ylim = c(0,1), col = "Blue", main = "Reach Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE)
+axis(1, at = indx)
+axis(2, at = c(0,.25,.5,.75,1), las = 2)
+reachCI<-c(df$lambda_025[21:40],rev(df$lambda_975[21:40]))
 polygon(x, reachCI, col = rgb(0,0,1,.2), border = NA)
+dev.off()
+}

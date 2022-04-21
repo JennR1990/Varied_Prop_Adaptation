@@ -78,6 +78,9 @@ bootstrapSemiAsymptoticDecayModels()
 getAsymptoticDecayParameterCIs()
 getSaturationTrials()
 
+#plotting the data we just worked out
+plotLR_Aperblock()
+
 #This code requires the list of either 1 or -1 depending on data type and the actual reaches or localizations.  So i will feed it only 12 trials at a time in a for loop. 
 asymptoticDecayFit
 ```

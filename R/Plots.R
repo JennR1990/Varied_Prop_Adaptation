@@ -774,8 +774,8 @@ prepdataforabsplotting<- function(data){
 plotdataperABSchange<-function(){
   
   
-  variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
-  variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
+  variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)
+  variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
   diftrials<- prepdataforabsplotting(variation_reaches)
   
   
@@ -1017,15 +1017,22 @@ decaymodelfitting<-function(data, task){
   modeloutputs<- c()
   endpoints<-c()
   rotationsize<- c()
+  SDs<- c()
   clamp<- c()
 
   for (i in 0:36){
     stop<- max(which(blocks==i))
-    endpoints[i+1]<-as.numeric(unlist(data[stop,1]))
+    start<- stop-4
+    endpoints[i+1]<-mean(as.numeric(unlist(data[start:stop,1])), na.rm = TRUE)
     rotationsize[i+1]<- as.numeric(unlist(data[stop,2]))
     clamp[i+1]<- as.numeric(unlist(data[stop,3]))
+    SDs[i+1]<- sd(as.numeric(unlist(data[start:stop,1])), na.rm = TRUE)
   
   }
+
+  Info<<- data.frame(endpoints,SDs,rotationsize)
+  output<-sprintf("ana/endpoint & SDs %s.csv", task)
+  write.csv(Info, file = output, quote = FALSE, row.names = FALSE)
   
   outputfile<-sprintf('figs/DecayModel_PerBlock_%s.svg', task)
   svglite(file=outputfile, width=15, height=21, system_fonts=list(sans = "Arial"))
@@ -1128,8 +1135,8 @@ decaymodelfitting<-function(data, task){
   
   dev.off()
   
-  info<-data.frame(Allpars,modeloutputs,endpoints[2:37],rotationsize[2:37], clamp[2:37], abs((endpoints[1:36]*scale2) + rotationsize[2:37] ))
-  colnames(info)<- c('learning Rate', "Asymptote", "ModelOutput", "Endpoint", "Rotation", "Clamp_Trials", "Change")
+  info<-data.frame(Allpars,modeloutputs,endpoints[2:37],rotationsize[2:37], clamp[2:37], abs((endpoints[1:36]*scale2) + rotationsize[2:37] ), SDs[2:37])
+  colnames(info)<- c('learning Rate', "Asymptote", "ModelOutput", "Endpoint", "Rotation", "Clamp_Trials", "Change", "SDs")
   outputfile<- sprintf("ana/Decay Parameters %s Data.csv", task)
   write.csv(info, file =outputfile , quote = FALSE, row.names = FALSE)
   
@@ -1278,7 +1285,7 @@ decaymodelfittingperp<-function(){
   
   
   
-  dataset<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
+  dataset<- read.csv("data/variation_reaches.csv.csv", header = TRUE) 
   task = 'reaches'
 
 for (i in 2:ncol(dataset)) {
@@ -1289,7 +1296,7 @@ for (i in 2:ncol(dataset)) {
   
 }
 
-  dataset<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
+  dataset<- read.csv("data/variation_localization.csv.csv", header = TRUE)
   task = 'prop'
   
   for (i in 2:ncol(dataset)) {
@@ -1604,5 +1611,142 @@ plotproportionaldecayparamaterstogetherCIs<- function() {
   
 }
 
+
+
+
+getmodeloutputs<- function(){
+  df <- read.csv('data/asymptoticDecayParameterCIs.csv', stringsAsFactors = F)
+  
+  
+  trialsets <- list('1'=c(50:61),      "2" = c(62:73),      "3" = c(74:85),   "4" = c(86:97), 
+                    "5" = c(98:109),   "6" = c(110:133),    "7" = c(134:157), "8" = c(158:181),
+                    "9" = c(194:205), "10" = c(206:217),   "11" = c(218:229), "12" = c(254:265),
+                    "13" = c(266:289),   "14" = c(290:313),   "15" = c(314:325),   "16" = c(326:337),
+                    "17" = c(350:361),   "18" = c(362:373),   "19" = c(374:385),   "20" = c(386:397),
+                    "21" = c(410:421),   "22" = c(422:433),   "23" = c(434:445),   "24" = c(446:457))
+  
+  rot<- read.csv("data/Reaches_Baselined.csv", header = TRUE)$distortion
+  rots<- c()
+  for (i in 1:length(trialsets)){
+    rots[as.numeric(i)]<-unique(rot[trialsets[[i]]])
+  }
+  
+  
+  
+  transition<- colorRampPalette(c("plum", "darkorchid"))
+  colors<- transition(24) 
+  tasks<- c("localization", "reaches")
+  phases<- as.character(1:24)
+  
+  
+  
+  for (signalname in tasks) {
+    
+    leadingzero <- FALSE
+    if (signalname == 'localization') {
+      leadingzero <- TRUE
+      dfit<-data.frame(matrix(NA, nrow = 24, ncol = 13))
+      colnames(dfit)<- c(1:ncol(dfit))
+    } else{
+      dfit<-data.frame(matrix(NA, nrow = 24, ncol = 12))
+      colnames(dfit)<- c(1:ncol(dfit))
+    }
+    
+    schedulelength <- 12
+    if (leadingzero) {
+      schedulelength <- schedulelength + 1
+    }
+    schedule <- rep(-1, schedulelength)
+    
+    for (trialset in phases) {
+      par <-
+        c('lambda' = df[which(df$signal == signalname &
+                                df$phase == trialset), "lambda"], 'N0' = df[which(df$signal == signalname & df$phase == trialset), 'N0'])
+      
+      dfit[as.numeric(trialset),] <- asymptoticDecayModel(par,schedule)$output
+      
+      
+      
+    }
+    dfit$rotation<- rots
+    outputname<- sprintf("ana/Decay Outputs %s.csv", signalname)
+    write.csv(dfit,outputname, quote = FALSE, row.names = FALSE)
+    
+    
+    
+  }
+  
+}
+
+plotDecaymodels<- function() {
+  
+  data<- read.csv("ana/Decay Outputs localization.csv", header = TRUE)
+  
+  
+  rotations<- c(-30,-15,15,30)
+  pdf("figs/localization decay model outputs by rotation size.pdf", height = 8, width = 10)
+  layout(matrix(1:4, nrow = 2, byrow = TRUE), heights = c(2,2))
+  
+  for (i in rotations){
+    
+    p30<-data[data$rotation == i,1:13]
+    
+    title<- sprintf("Decay Model Output \n localizations for %d°", i)
+    plot(as.numeric(unlist(p30[1,])), type = "l", col = "Blue", ylim = c(0, 15),xlim = c(0,14), xlab = "Trials in Block", ylab = "Hand Direction [°]", main = title, axes = FALSE)
+    text(x = 13.5, y = as.numeric(unlist(p30[1,13])), " 1st", col = "blue")
+    lines(as.numeric(unlist(p30[2,])), col = "Green")
+    text(x = 13.5, y = as.numeric(unlist(p30[2,13])), " 2nd", col = "green")
+    lines(as.numeric(unlist(p30[3,])), col = "red")
+    text(x = 13.5, y = as.numeric(unlist(p30[3,13])), " 3rd", col = "red")
+    lines(as.numeric(unlist(p30[4,])), col = "Purple")
+    text(x = 13.5, y = as.numeric(unlist(p30[4,13])), " 4th", col = "Purple")
+    lines(as.numeric(unlist(p30[5,])), col = "Pink")
+    text(x = 13.5, y = as.numeric(unlist(p30[5,13])), " 5th", col = "pink")
+    axis(1, at = c(1,2,3,4,5,13), labels = c(0,1,2,3,4,"end of \n block"))
+    axis(2, at = c(0,5,10,15), las =2)
+    abline(v = 2, lty = 2, col = "light grey")
+    abline(v = 3, lty = 2, col = "light grey")
+    abline(v = 4, lty = 2, col = "light grey")
+    abline(v = 5, lty = 2, col = "light grey")
+  }
+  
+  
+  dev.off()
+  
+  
+  data<- read.csv("ana/Decay Outputs reaches.csv", header = TRUE)
+  
+  rotations<- c(-30,-15,15,30)
+  
+  pdf("figs/reaches decay model outputs by rotation size.pdf", height = 8, width = 10)
+  layout(matrix(1:4, nrow = 2, byrow = TRUE), heights = c(2,2))
+  
+  
+  for (i in rotations){
+    
+    p30<-data[data$rotation == i,1:12]
+    
+    title<- sprintf("Decay Model Output \n reaches for %d°", i)
+    plot(as.numeric(unlist(p30[1,])), type = "l", col = "Blue", ylim = c(0, 40),xlim = c(0,13), xlab = "Trials in Block", ylab = "Hand Direction [°]", main = title, axes = FALSE)
+    text(x = 12.5, y = as.numeric(unlist(p30[1,12])), " 1st", col = "blue")
+    lines(as.numeric(unlist(p30[2,])), col = "Green")
+    text(x = 12.5, y = as.numeric(unlist(p30[2,12])), " 2nd", col = "green")
+    lines(as.numeric(unlist(p30[3,])), col = "red")
+    text(x = 12.5, y = as.numeric(unlist(p30[3,12])), " 3rd", col = "red")
+    lines(as.numeric(unlist(p30[4,])), col = "Purple")
+    text(x = 12.5, y = as.numeric(unlist(p30[4,12])), " 4th", col = "Purple")
+    lines(as.numeric(unlist(p30[5,])), col = "Pink")
+    text(x = 12.5, y = as.numeric(unlist(p30[5,12])), " 5th", col = "pink")
+    axis(1, at = c(1,2,3,4,5,6,12), labels = c(0,1,2,3,4,5,"end of \n block"))
+    axis(2, at = c(0,10,20,30,40), las =2)
+    abline(v = 2, lty = 2, col = "light grey")
+    abline(v = 3, lty = 2, col = "light grey")
+    abline(v = 4, lty = 2, col = "light grey")
+    abline(v = 5, lty = 2, col = "light grey")
+    abline(v = 6, lty = 2, col = "light grey")
+    
+  }
+  dev.off()
+}
 
 

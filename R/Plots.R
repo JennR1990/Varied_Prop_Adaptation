@@ -166,8 +166,8 @@ Getreachesperrotation<- function(data) {
 
 plotvariation<- function (){
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/shared.R')
-  variation_localization<- read.csv("data/Localizations_Baselined.csv", header = TRUE)
-  variation_reaches<- read.csv("data/Reaches_Baselined.csv", header = TRUE) 
+  variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)
+  variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
   
   vprop<- Getshiftsperrotation(variation_localization)
   vreac<- Getreachesperrotation(variation_reaches)
@@ -1752,6 +1752,9 @@ plotDecaymodels<- function() {
 
 ##Plotting learning rates and asymptotes after bootstrapping across blocks
 plotLR_Aperblock<- function(){
+  variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)
+  variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
+  
   phase0<- c(3,6,10,20)
   remove<- c(phase0, (phase0+24))
   df<- read.csv("ana/asymptoticDecayParameterCIs.csv", header = TRUE)
@@ -1777,11 +1780,45 @@ plotLR_Aperblock<- function(){
   rotation<- c(rot,rot)
   newdf<- cbind(newdf,rotation)
   
-  newN0<- (newdf$N0/abs(newdf$rotation))*100
-  newN_97<- (newdf$N0_975/abs(newdf$rotation))*100
-  newN_25<- (newdf$N0_025/abs(newdf$rotation))*100
-  newN_5<- (newdf$N0_5/abs(newdf$rotation))*100
   
+  
+  
+  phases<- as.character(c(2,4,5,7,8,9,11,12,13:19,21:24))
+  epr<-c(0)
+  for (phase in phases){
+  stop<-min(as.numeric(unlist(trialsets[phase])))-1
+  start<- stop-3
+  epr<- c(epr,mean(as.numeric(unlist(variation_reaches[stop,2:33])), na.rm = TRUE))
+  }
+  
+
+  epl<-c(0)
+  for (phase in phases){
+    stop<-min(as.numeric(unlist(trialsets[phase])))-1
+    start<- stop-3
+    epl<- c(epl,mean(as.numeric(unlist(variation_localization[stop,2:33])), na.rm = TRUE))
+  }
+  epr<- epr*-1
+  
+  
+  
+  
+  #ep<- c(0,newdf$N0[1:19])
+  scale<- newdf$rotation[1:20] - epl
+  #ep<- c(0,newdf$N0[21:39])
+  scale<- c(scale, (newdf$rotation[21:40] - epr))
+
+  
+  
+  
+  
+  
+  
+  newN0<- (newdf$N0/abs(scale))*100
+  newN_97<- (newdf$N0_975/abs(scale))*100
+  newN_25<- (newdf$N0_025/abs(scale))*100
+  newN_5<- (newdf$N0_5/abs(scale))*100
+  #newdf$rotation
   svglite("figs/LR & Asymptotes Across Blocks Together.svg", height = 5, width = 14)
   layout(matrix(1:2, nrow = 1, byrow = TRUE), heights = c(2))
   

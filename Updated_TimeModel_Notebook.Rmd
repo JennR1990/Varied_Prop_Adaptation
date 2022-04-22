@@ -76,13 +76,12 @@ reach_par <-
 #These codes run it for a bunch of data and bootstrap it a bunch.  Im not doing that yet.  Just use the specific model code and run it on the data that i feed it.
 bootstrapSemiAsymptoticDecayModels()
 getAsymptoticDecayParameterCIs()
-getSaturationTrials()
+#getSaturationTrials()
 
 #plotting the data we just worked out
 plotLR_Aperblock()
 
-#This code requires the list of either 1 or -1 depending on data type and the actual reaches or localizations.  So i will feed it only 12 trials at a time in a for loop. 
-asymptoticDecayFit
+
 ```
 
 

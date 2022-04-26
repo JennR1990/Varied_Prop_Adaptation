@@ -1919,13 +1919,12 @@ dataCIs<- trialCI(datar)
 y <- c(dataCIs[, 1], rev(dataCIs[, 2]))
 x = c(c(1:20), rev(c(1:20)))
 polygon(x,y,col = rgb(0,0,1,.2), border = NA )
-legend(3,3, legend= c("Localizations, r2 = .01", "Reaches, r2 = .36*"), col = c("Red", "Blue"), lty = 1, lwd = 1, bty = "n")
+legend(3,3, legend= c("Localizations, r2 = .01", "Reaches, r2 = .36*", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n")
 reaches<-rowMeans(datar[,2:33], na.rm = TRUE)
 time<- 1:20
 stuff<- data.frame(reaches, time)
-abline(lm(reaches~time, data = stuff), col = "blue")
 model<-lm(reaches~time, data = stuff)
-
+lines(time, predict(model), col = "blue", lty = 2)
 
 data<- cbind(1:2, sdCIsl)
 lines(rowMeans(data[,2:33], na.rm = TRUE), col = "red")
@@ -1936,9 +1935,8 @@ polygon(x,y,col = rgb(1,0,0,.2), border = NA )
 localizations<-rowMeans(data[,2:33], na.rm = TRUE)
 time<- 1:20
 stuff<- data.frame(localizations, time)
-abline(lm(localizations~time, data = stuff), col = "red")
-
 model<-lm(localizations~time, data = stuff)
+lines(time, predict(model), col = "red", lty = 2)
 summary(model)
 
 

@@ -1830,6 +1830,12 @@ plotLR_Aperblock<- function(){
   locCI<-c(newN_25[1:20],rev(newN_97[1:20]))
   x<- c(1:20,20:1)
   polygon(x, locCI, col = rgb(1,0,0,.2), border = NA)
+  time<- c(1:20,1:20)
+  modeld<- data.frame(newN_5, newdf$lambda_500, time)
+  model<-lm(newN_5[1:20]~time[1:20], data = modeld)
+  lines(1:20,predict(model), col = "red", lty = 2)
+  
+  
   
   
   #plot(newN_5[21:40], type = "l", ylim = c(0,200), col = "Blue", main = "Reach Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE)
@@ -1838,8 +1844,10 @@ plotLR_Aperblock<- function(){
   #axis(2, at = c(0,25,50,75,100,125,150,175,200), las = 2)
   reachCI<-c(newN_25[21:40],rev(newN_97[21:40]))
   polygon(x, reachCI, col = rgb(0,0,1,.2), border = NA)
+  model<-lm(newN_5[21:40]~time[21:40], data = modeld)
+  lines(1:20,predict(model), col = "blue", lty = 2)
   
-  legend(3,200, legend= c("Localizations", "Reaches"), col = c("Red", "Blue"), lty = 1, lwd = 1, bty = "n")
+  legend(3,200, legend= c("Localizations, r2 = .02", "Reaches, r2 = .12", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n")
   
   
   plot(df$lambda_500[1:20], type = "l", ylim = c(0,1), col = "Red", main = "Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE)
@@ -1849,6 +1857,9 @@ plotLR_Aperblock<- function(){
   axis(1, at = indx)
   axis(2, at = c(0,.25,.5,.75,1), las = 2)
   polygon(x, locCI, col = rgb(1,0,0,.2), border = NA)
+  model<-lm(newdf.lambda_500[1:20]~time[1:20], data = modeld)
+  lines(1:20,predict(model), col = "red", lty = 2)
+
   
   
   #plot(df$lambda_500[21:40], type = "l", ylim = c(0,1), col = "Blue", main = "Reach Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE)
@@ -1857,7 +1868,12 @@ plotLR_Aperblock<- function(){
   axis(2, at = c(0,.25,.5,.75,1), las = 2)
   reachCI<-c(df$lambda_025[21:40],rev(df$lambda_975[21:40]))
   polygon(x, reachCI, col = rgb(0,0,1,.2), border = NA)
-  legend(3,1, legend= c("Localizations", "Reaches"), col = c("Red", "Blue"), lty = 1, lwd = 1, bty = "n")
+  model<-lm(newdf.lambda_500[21:40]~time[21:40], data = modeld)
+  lines(1:20,predict(model), col = "blue", lty = 2)
+
+  
+  
+  legend(3,.2, legend= c("Localizations, r2 = .01", "Reaches, r2 = .21", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n")
   dev.off()
 }
 

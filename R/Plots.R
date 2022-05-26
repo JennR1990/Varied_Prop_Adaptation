@@ -1752,6 +1752,7 @@ plotDecaymodels<- function() {
 
 ##Plotting learning rates and asymptotes after bootstrapping across blocks
 plotLR_Aperblock<- function(){
+  library(svglite)
   variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)
   variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
   
@@ -1819,17 +1820,34 @@ plotLR_Aperblock<- function(){
   newN_25<- (newdf$N0_025/abs(scale))*100
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
-  svglite("figs/LR & Asymptotes Across Blocks Together.svg", height = 5, width = 14)
-  layout(matrix(1:2, nrow = 1, byrow = TRUE), heights = c(2))
+  svglite("figs/LR & Asymptotes Across Blocks Together_0525.svg", height = 10, width = 14)
   
-  plot(newN_5[1:20], type = "l", xlim = c(0,20),ylim = c(0,200), col = "Red", main = "Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE)
+  
+  
+  
+  layout(matrix(c(1,1,2,2,1,1,2,2,3,3,4,4), nrow = 3, ncol = 4, byrow = TRUE))
+  
+  lefts<- sort(c((1:20)-.10,(1:20)-.10))
+  rights<- sort(c((1:20)+.15,(1:20)+.15))
+  
+  plot(newN_5[1:20], xlim = c(0,20),ylim = c(0,200), col = "Red", main = "Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE, cex.lab = 1.7, cex.main = 1.5)
+  abline(h = 100, lty = 2, col = "grey")
+  abline(h = 20, lty = 2, col = "grey")
+  
   indx<- seq(from = 0, to = 20, by = 4)
   indx[1]<- 1
-  axis(1, at = indx)
-  axis(2, at = c(0,25,50,75,100,125,150,175,200), las = 2)
-  locCI<-c(newN_25[1:20],rev(newN_97[1:20]))
-  x<- c(1:20,20:1)
-  polygon(x, locCI, col = rgb(1,0,0,.2), border = NA)
+  axis(1, at = indx,cex.axis = 1.5)
+  axis(2, at = c(0,25,50,75,100,125,150,175,200), las = 2,cex.axis = 1.5)
+  
+  startlocs<- seq(from = 1, to = 40, by = 2)
+  for (i in 1:20){
+  lower<- startlocs[i]
+  x<- c(lefts[lower],rights[lower],rights[lower+1],lefts[lower+1])
+  y <- c(newN_25[i],newN_25[i],newN_97[i],newN_97[i])
+  polygon(x, y, col = rgb(1,0,0,.2), border = NA)
+  }
+  
+
   time<- c(1:20,1:20)
   modeld<- data.frame(newN_5, newdf$lambda_500, time)
   model<-lm(newN_5[1:20]~time[1:20], data = modeld)
@@ -1839,45 +1857,85 @@ plotLR_Aperblock<- function(){
   
   
   #plot(newN_5[21:40], type = "l", ylim = c(0,200), col = "Blue", main = "Reach Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE)
-  lines(newN_5[21:40], col = "Blue")
+  points(newN_5[21:40], col = "Blue")
   #axis(1, at = indx)
   #axis(2, at = c(0,25,50,75,100,125,150,175,200), las = 2)
-  reachCI<-c(newN_25[21:40],rev(newN_97[21:40]))
-  polygon(x, reachCI, col = rgb(0,0,1,.2), border = NA)
+
+  for (i in 1:20){
+    lower<- startlocs[i]
+    x<- c(lefts[lower],rights[lower],rights[lower+1],lefts[lower+1])
+    y <- c(newN_25[i+20],newN_25[i+20],newN_97[i+20],newN_97[i+20])
+    polygon(x, y, col = rgb(0,0,1,.2), border = NA)
+  }
+  
   model<-lm(newN_5[21:40]~time[21:40], data = modeld)
   lines(1:20,predict(model), col = "blue", lty = 2)
   
-  legend(3,200, legend= c("Localizations, r2 = .02", "Reaches, r2 = .12", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n")
+  legend(3,200, legend= c("Localizations, r2 = .02", "Reaches, r2 = .12", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
   
-  plot(df$lambda_500[1:20], type = "l", ylim = c(0,1), col = "Red", main = "Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE)
+
   
-  locCI<-c(df$lambda_025[1:20],rev(df$lambda_975[1:20]))
-  x<- c(1:20,20:1)
-  axis(1, at = indx)
-  axis(2, at = c(0,.25,.5,.75,1), las = 2)
-  polygon(x, locCI, col = rgb(1,0,0,.2), border = NA)
+  
+  
+  
+  
+  
+  plot(df$lambda_500[1:20], ylim = c(0,1), col = "Red", main = "Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE,  cex.lab = 1.7, cex.main = 1.5)
+  
+  abline(h = .2, lty = 2, col = "grey")
+  for (i in 1:20){
+    lower<- startlocs[i]
+    x<- c(lefts[lower],rights[lower],rights[lower+1],lefts[lower+1])
+    y <- c(df$lambda_025[i],df$lambda_025[i],df$lambda_975[i],df$lambda_975[i])
+    polygon(x, y, col = rgb(1,0,0,.2), border = NA)
+  }
+  
+
+  axis(1, at = indx, cex.axis = 1.5)
+  axis(2, at = c(0,.25,.5,.75,1), las = 2, cex.axis = 1.5)
   model<-lm(newdf.lambda_500[1:20]~time[1:20], data = modeld)
   lines(1:20,predict(model), col = "red", lty = 2)
 
   
   
   #plot(df$lambda_500[21:40], type = "l", ylim = c(0,1), col = "Blue", main = "Reach Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE)
-  lines(df$lambda_500[21:40], col = "Blue")
-  axis(1, at = indx)
-  axis(2, at = c(0,.25,.5,.75,1), las = 2)
-  reachCI<-c(df$lambda_025[21:40],rev(df$lambda_975[21:40]))
-  polygon(x, reachCI, col = rgb(0,0,1,.2), border = NA)
+  points(df$lambda_500[21:40], col = "Blue")
+  
+  
+  for (i in 1:20){
+    lower<- startlocs[i]
+    x<- c(lefts[lower],rights[lower],rights[lower+1],lefts[lower+1])
+    y <- c(df$lambda_025[i+20],df$lambda_025[i+20],df$lambda_975[i+20],df$lambda_975[i+20])
+    polygon(x, y, col = rgb(0,0,1,.2), border = NA)
+  }
+
   model<-lm(newdf.lambda_500[21:40]~time[21:40], data = modeld)
   lines(1:20,predict(model), col = "blue", lty = 2)
 
   
   
-  legend(3,.2, legend= c("Localizations, r2 = .01", "Reaches, r2 = .21", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n")
+  legend(3,.2, legend= c("Localizations, r2 = .01", "Reaches, r2 = .21", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  
+  
+  y<-c()
+  for (i in 1:20){
+  y<- c(y, rot[i], rot[i])  
+  }
+  x<- c(1,sort(c(2:20,2:20)))
+  plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(0,20), cex.lab = 1.7)
+  axis(1, at = indx,cex.axis = 1.5)
+  axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
+ 
+  plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(1,20), cex.lab = 1.7)
+  axis(1, at = indx,cex.axis = 1.5)
+  axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
+  
+   
   dev.off()
 }
 
-##looking at variability across blocks
+##looking at variability across blocks This needs to be looking at the variability within subjects not across subjects
 
 variabilityplot<-function() {
 variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)

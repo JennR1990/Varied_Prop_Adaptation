@@ -1,8 +1,11 @@
-oneRateModel <- function(par, schedule) {
+threeRateModel <- function(par, schedule) {
+  rotation<- schedule
+  rotation[is.na(rotation)]<- 0
   
   # thse values should be zero at the start of the loop:
   Et <- 0 # previous error: none
   Pt <- 0 # state of slow process: aligned
+  AP <- 0 # attenuation parameter: Starts at zero and increases with number of rotation changes
   
   # we'll store what happens on each trial in these vectors:
   process <- c()
@@ -10,9 +13,25 @@ oneRateModel <- function(par, schedule) {
   # now we loop through the perturbations in the schedule:
   for (t in c(1:length(schedule))) {
     
+    
+    if (t > 1){
+      if (rotation[t] == rotation[t-1]){
+        AP <- AP
+      } else {
+        AP <- AP + 1
+      }
+    } else {
+      AP <- AP
+    }
+    
+    
+    
     # first we calculate what the model does
     # this happens before we get visual feedback about potential errors
-    Pt <- (par['R'] * Pt) - (par['L'] * Et)
+    # on the first trial, since we set Et and Pt at zero, overall Pt will be zero
+    # I want to add an additional term that basically scales the AP parameter so there is less learning overall as time goes by. 
+    Pt <- (par['R'] * Pt) - (par['L'] * Et) - (par['A'] * AP)
+    #Pt <- (.857 * Pt) - (.232 * Et) - (.1 * AP)
     
     # now we calculate what the previous error will be for the next trial:
     if (is.na(schedule[t])) {
@@ -32,46 +51,47 @@ oneRateModel <- function(par, schedule) {
 }
 
 
-oneRateMSE <- function(par, schedule, reaches) {
+threeRateMSE <- function(par, schedule, reaches) {
   
   bigError <- mean(schedule^2, na.rm=TRUE) * 10
   
-  return( mean((oneRateModel(par, schedule)$process - reaches)^2, na.rm=TRUE) )
+  return( mean((threeRateModel(par, schedule)$process - reaches)^2, na.rm=TRUE) )
   
 }
 
-oneRateFit <- function(schedule, reaches, gridpoints=6, gridfits=6) {
+threeRateFit <- function(schedule, reaches, gridpoints=6, gridfits=6) {
   
   parvals <- seq(1/gridpoints/2,1-(1/gridpoints/2),1/gridpoints)
   
   searchgrid <- expand.grid('L'=parvals,
-                            'R'=parvals)
+                            'R'=parvals,
+                            'A'=parvals)
   # evaluate starting positions:
-  MSE <- apply(searchgrid, FUN=oneRateMSE, MARGIN=c(1), schedule=schedule, reaches=reaches)
+  MSE <- apply(searchgrid, FUN=threeRateMSE, MARGIN=c(1), schedule=schedule, reaches=reaches)
   
-  optimxInstalled <- require("optimx")
-  
-  if (optimxInstalled) {
-    
-    # run optimx on the best starting positions:
-    allfits <- do.call("rbind",
-                       apply( searchgrid[order(MSE)[1:gridfits],],
-                              MARGIN=c(1),
-                              FUN=optimx::optimx,
-                              fn=oneRateMSE,
-                              method='L-BFGS-B',
-                              lower=c(0,0),
-                              upper=c(.99,.99),
-                              schedule=schedule,
-                              reaches=reaches ) )
-    
-    # pick the best fit:
-    win <- allfits[order(allfits$value)[1],]
-    
-    # return the best parameters:
-    return(unlist(win[1:2]))
-    
-  } else {
+  # optimxInstalled <- require("optimx")
+  # 
+  # if (optimxInstalled) {
+  #   
+  #   # run optimx on the best starting positions:
+  #   allfits <- do.call("rbind",
+  #                      apply( searchgrid[order(MSE)[1:gridfits],],
+  #                             MARGIN=c(1),
+  #                             FUN=optimx::optimx,
+  #                             fn=threeRateMSE,
+  #                             method='L-BFGS-B',
+  #                             lower=c(0,0),
+  #                             upper=c(.99,.99),
+  #                             schedule=schedule,
+  #                             reaches=reaches ) )
+  #   
+  #   # pick the best fit:
+  #   win <- allfits[order(allfits$value)[1],]
+  #   
+  #   # return the best parameters:
+  #   return(unlist(win[1:2]))
+  #   
+  # } else {
     
     cat('(consider installing optimx, falling back on optim now)\n')
     
@@ -80,7 +100,7 @@ oneRateFit <- function(schedule, reaches, gridpoints=6, gridfits=6) {
                        apply( searchgrid[order(MSE)[1:gridfits],],
                               MARGIN=c(1),
                               FUN=stats::optim,
-                              fn=oneRateMSE,
+                              fn=threeRateMSE,
                               method='Nelder-Mead',
                               schedule=schedule,
                               reaches=reaches ) )
@@ -91,6 +111,59 @@ oneRateFit <- function(schedule, reaches, gridpoints=6, gridfits=6) {
     # return the best parameters:
     return(win$par)
     
-  }
+  #}
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)
+variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
+reaches<- rowMeans(variation_reaches[,2:33], na.rm = TRUE)
+schedule<- variation_reaches$distortion
+schedule[schedule == 360]<- NA
+plotvariation()
+par<-oneRateFit(schedule = schedule, reaches = reaches)
+model<-oneRateModel(par,schedule)
+
+lines(model*-1, lwd = 2, lty = 2, col = "green")
+
+
+pars<-threeRateFit(schedule = schedule, reaches = reaches)
+output<- threeRateModel(pars, schedule)
+
+
+lines(output*-1, lwd = 3,lty = 5, col = "purple")
+text(x = 280, y = -20, labels = "purple is attentuation model", col = "purple")
+text(x = 280, y = -25, labels = "green is one-rate model", col = "green")

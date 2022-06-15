@@ -2000,3 +2000,41 @@ summary(model)
 
 
 }
+
+
+
+
+
+# Comparing models for reach data
+SimpleModelComparisonPlot<- function() {
+  
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/SignChangeModel.R')
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/AttenuationModel.R')
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/TwoRateModel.R')
+  
+variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
+reaches<- rowMeans(variation_reaches[,2:33], na.rm = TRUE)
+schedule<- variation_reaches$distortion
+schedule[schedule == 360]<- NA
+plotvariation()
+par<-oneRateFit(schedule = schedule, reaches = reaches)
+model<-oneRateModel(par,schedule)
+
+lines(model*-1, lwd = 1.5, lty = 2, col = "green")
+
+
+pars<-SignChangeFit(schedule = schedule, reaches = reaches)
+output<- SignChangeModel(pars, schedule)
+
+
+lines(output*-1, lwd = 2,lty = 5, col = "purple")
+
+
+pars<-threeRateFit(schedule = schedule, reaches = reaches)
+modeloutput<- threeRateModel(pars, schedule)
+lines(modeloutput*-1, lwd = 2,lty = 3, col = "Orange")
+text(x = 285, y = -30, labels = "Orange is attentuation model", col = "Orange")
+text(x = 285, y = -20, labels = "purple is Sign Change model", col = "purple")
+text(x = 285, y = -25, labels = "green is one-rate model", col = "green")
+}
+

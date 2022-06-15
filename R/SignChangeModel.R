@@ -1,4 +1,4 @@
-threeRateModel <- function(par, schedule) {
+SignChangeModel <- function(par, schedule) {
   rotation<- schedule
   rotation[is.na(rotation)]<- 0
   
@@ -15,7 +15,7 @@ threeRateModel <- function(par, schedule) {
     
     
     if (t > 1){
-      if (rotation[t] == rotation[t-1]){
+      if (sign(rotation[t]) == sign(rotation[t-1])){
         AP <- AP
       } else {
         AP <- AP + 1
@@ -51,15 +51,15 @@ threeRateModel <- function(par, schedule) {
 }
 
 
-threeRateMSE <- function(par, schedule, reaches) {
+SignChangeMSE <- function(par, schedule, reaches) {
   
   bigError <- mean(schedule^2, na.rm=TRUE) * 10
   
-  return( mean((threeRateModel(par, schedule)$process - reaches)^2, na.rm=TRUE) )
+  return( mean((SignChangeModel(par, schedule)$process - reaches)^2, na.rm=TRUE) )
   
 }
 
-threeRateFit <- function(schedule, reaches, gridpoints=6, gridfits=6) {
+SignChangeFit <- function(schedule, reaches, gridpoints=6, gridfits=6) {
   
   parvals <- seq(1/gridpoints/2,1-(1/gridpoints/2),1/gridpoints)
   
@@ -67,7 +67,7 @@ threeRateFit <- function(schedule, reaches, gridpoints=6, gridfits=6) {
                             'R'=parvals,
                             'A'=parvals)
   # evaluate starting positions:
-  MSE <- apply(searchgrid, FUN=threeRateMSE, MARGIN=c(1), schedule=schedule, reaches=reaches)
+  MSE <- apply(searchgrid, FUN=SignChangeMSE, MARGIN=c(1), schedule=schedule, reaches=reaches)
   
   # optimxInstalled <- require("optimx")
   # 
@@ -92,56 +92,28 @@ threeRateFit <- function(schedule, reaches, gridpoints=6, gridfits=6) {
   #   return(unlist(win[1:2]))
   #   
   # } else {
-    
-    cat('(consider installing optimx, falling back on optim now)\n')
-    
-    # use optim with Nelder-Mead after all:
-    allfits <- do.call("rbind",
-                       apply( searchgrid[order(MSE)[1:gridfits],],
-                              MARGIN=c(1),
-                              FUN=stats::optim,
-                              fn=threeRateMSE,
-                              method='Nelder-Mead',
-                              schedule=schedule,
-                              reaches=reaches ) )
-    
-    # pick the best fit:
-    win <- allfits[order(unlist(data.frame(allfits)[,'value']))[1],]
-    
-    # return the best parameters:
-    return(win$par)
-    
+  
+  cat('(consider installing optimx, falling back on optim now)\n')
+  
+  # use optim with Nelder-Mead after all:
+  allfits <- do.call("rbind",
+                     apply( searchgrid[order(MSE)[1:gridfits],],
+                            MARGIN=c(1),
+                            FUN=stats::optim,
+                            fn=SignChangeMSE,
+                            method='Nelder-Mead',
+                            schedule=schedule,
+                            reaches=reaches ) )
+  
+  # pick the best fit:
+  win <- allfits[order(unlist(data.frame(allfits)[,'value']))[1],]
+  
+  # return the best parameters:
+  return(win$par)
+  
   #}
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

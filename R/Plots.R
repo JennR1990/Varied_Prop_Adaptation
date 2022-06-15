@@ -2020,6 +2020,10 @@ plotvariation()
 par<-oneRateFit(schedule = schedule, reaches = reaches)
 model<-oneRateModel(par,schedule)
 
+pars2<-SizeofChangeFit(schedule = schedule, reaches = reaches)
+modeloutput<- SizeofChangeModel(pars2, schedule)
+lines(modeloutput*-1, lwd = 2, col = "grey")
+
 lines(model*-1, lwd = 1.5, lty = 2, col = "green")
 
 
@@ -2030,11 +2034,15 @@ output<- SignChangeModel(pars, schedule)
 lines(output*-1, lwd = 2,lty = 5, col = "purple")
 
 
-pars<-threeRateFit(schedule = schedule, reaches = reaches)
-modeloutput<- threeRateModel(pars, schedule)
+pars1<-threeRateFit(schedule = schedule, reaches = reaches)
+modeloutput<- threeRateModel(pars1, schedule)
 lines(modeloutput*-1, lwd = 2,lty = 3, col = "Orange")
+
+
+
+text(x = 285, y = -17, labels = "Grey is Size of Change model", col = "grey")
 text(x = 285, y = -30, labels = "Orange is attentuation model", col = "Orange")
-text(x = 285, y = -20, labels = "purple is Sign Change model", col = "purple")
-text(x = 285, y = -25, labels = "green is one-rate model", col = "green")
+text(x = 285, y = -22, labels = "purple is Sign Change model", col = "purple")
+text(x = 285, y = -27, labels = "green is one-rate model", col = "green")
 }
 

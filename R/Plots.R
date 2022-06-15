@@ -2019,11 +2019,6 @@ schedule[schedule == 360]<- NA
 plotvariation()
 par<-oneRateFit(schedule = schedule, reaches = reaches)
 model<-oneRateModel(par,schedule)
-
-pars2<-SizeofChangeFit(schedule = schedule, reaches = reaches)
-modeloutput<- SizeofChangeModel(pars2, schedule)
-lines(modeloutput*-1, lwd = 2, col = "grey")
-
 lines(model*-1, lwd = 1.5, lty = 2, col = "green")
 
 
@@ -2039,8 +2034,11 @@ modeloutput<- threeRateModel(pars1, schedule)
 lines(modeloutput*-1, lwd = 2,lty = 3, col = "Orange")
 
 
+pars2<-SizeofChangeFit(schedule = schedule, reaches = reaches)
+modeloutput1<- SizeofChangeModel(pars2, schedule)
+lines(modeloutput1*-1, lwd = 2,lty = 4, col = "cyan")
 
-text(x = 285, y = -17, labels = "Grey is Size of Change model", col = "grey")
+text(x = 285, y = -17, labels = "cyan is Size of Change model", col = "cyan")
 text(x = 285, y = -30, labels = "Orange is attentuation model", col = "Orange")
 text(x = 285, y = -22, labels = "purple is Sign Change model", col = "purple")
 text(x = 285, y = -27, labels = "green is one-rate model", col = "green")

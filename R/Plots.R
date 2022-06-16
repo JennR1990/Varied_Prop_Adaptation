@@ -165,7 +165,7 @@ Getreachesperrotation<- function(data) {
 
 
 plotvariation<- function (){
-  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/shared.R')
+  source('R/shared.R')
   variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)
   variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
   
@@ -1820,7 +1820,7 @@ plotLR_Aperblock<- function(){
   newN_25<- (newdf$N0_025/abs(scale))*100
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
-  svglite("figs/LR & Asymptotes Across Blocks Together_0525.svg", height = 10, width = 14)
+  svglite("figs/LR & Asymptotes Across Blocks Together_0616.svg", height = 10, width = 14)
   
   
   
@@ -1848,10 +1848,17 @@ plotLR_Aperblock<- function(){
   }
   
 
-  time<- c(1:20,1:20)
-  modeld<- data.frame(newN_5, newdf$lambda_500, time)
-  model<-lm(newN_5[1:20]~time[1:20], data = modeld)
-  lines(1:20,predict(model), col = "red", lty = 2)
+  #time<- c(1:20,1:20)
+  #modeld<- data.frame(newN_5, newdf$lambda_500, time)
+  #model<-lm(newN_5[1:20]~time[1:20], data = modeld)
+  #lines(1:20,predict(model), col = "red", lty = 2)
+  
+  time<- c(1:17,1:17)
+  newnewN_5<- newN_5[-c(1,2,14,21,22,34)]
+  lambda_500<- newdf$lambda_500[-c(1,2,14,21,22,34)]
+  modeld<- data.frame(newnewN_5, lambda_500, time)
+  model<-lm(newnewN_5[1:17]~time[1:17], data = modeld)
+  lines(3:19,predict(model), col = "red", lty = 2)
   
   
   
@@ -1868,10 +1875,10 @@ plotLR_Aperblock<- function(){
     polygon(x, y, col = rgb(0,0,1,.2), border = NA)
   }
   
-  model<-lm(newN_5[21:40]~time[21:40], data = modeld)
-  lines(1:20,predict(model), col = "blue", lty = 2)
+  model<-lm(newnewN_5[18:34]~time[18:34], data = modeld)
+  lines(3:19,predict(model), col = "blue", lty = 2)
   
-  legend(3,200, legend= c("Localizations, r2 = .02", "Reaches, r2 = .12", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  legend(3,200, legend= c("Localizations, r2 = .05", "Reaches, r2 = .10", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
   
 
@@ -1894,8 +1901,11 @@ plotLR_Aperblock<- function(){
 
   axis(1, at = indx, cex.axis = 1.5)
   axis(2, at = c(0,.25,.5,.75,1), las = 2, cex.axis = 1.5)
-  model<-lm(newdf.lambda_500[1:20]~time[1:20], data = modeld)
-  lines(1:20,predict(model), col = "red", lty = 2)
+  #model<-lm(newdf.lambda_500[1:20]~time[1:20], data = modeld)
+  #lines(1:20,predict(model), col = "red", lty = 2)
+  
+  model<-lm(lambda_500[1:17]~time[1:17], data = modeld)
+  lines(3:19,predict(model), col = "red", lty = 2)
 
   
   
@@ -1910,12 +1920,12 @@ plotLR_Aperblock<- function(){
     polygon(x, y, col = rgb(0,0,1,.2), border = NA)
   }
 
-  model<-lm(newdf.lambda_500[21:40]~time[21:40], data = modeld)
-  lines(1:20,predict(model), col = "blue", lty = 2)
+  model<-lm(lambda_500[18:34]~time[18:34], data = modeld)
+  lines(3:19,predict(model), col = "blue", lty = 2)
 
   
   
-  legend(3,.2, legend= c("Localizations, r2 = .01", "Reaches, r2 = .21", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  legend(3,.2, legend= c("Localizations, r2 = .004", "Reaches, r2 = .30*", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
   
   y<-c()
@@ -2008,9 +2018,11 @@ summary(model)
 # Comparing models for reach data
 SimpleModelComparisonPlot<- function() {
   
-  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/SignChangeModel.R')
-  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/AttenuationModel.R')
-  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/TwoRateModel.R')
+  source('R/SimpleTimeModel.R')
+  source('R/SizeChangeModel.R')  
+  source('R/SignChangeModel.R')
+  source('R/AttenuationModel.R')
+  source('R/TwoRateModel.R')
   
 variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
 reaches<- rowMeans(variation_reaches[,2:33], na.rm = TRUE)
@@ -2021,11 +2033,13 @@ par<-oneRateFit(schedule = schedule, reaches = reaches)
 model<-oneRateModel(par,schedule)
 lines(model*-1, lwd = 1.5, lty = 2, col = "green")
 
+par1<-twoRateFit(schedule = schedule, reaches = reaches)
+model1<-twoRateModel(par1,schedule)
+lines(model1$total*-1, lwd = 1.5, lty = 2, col = "brown")
+
 
 pars<-SignChangeFit(schedule = schedule, reaches = reaches)
 output<- SignChangeModel(pars, schedule)
-
-
 lines(output*-1, lwd = 2,lty = 5, col = "purple")
 
 
@@ -2038,9 +2052,15 @@ pars2<-SizeofChangeFit(schedule = schedule, reaches = reaches)
 modeloutput1<- SizeofChangeModel(pars2, schedule)
 lines(modeloutput1*-1, lwd = 2,lty = 4, col = "cyan")
 
-text(x = 285, y = -17, labels = "cyan is Size of Change model", col = "cyan")
-text(x = 285, y = -30, labels = "Orange is attentuation model", col = "Orange")
-text(x = 285, y = -22, labels = "purple is Sign Change model", col = "purple")
-text(x = 285, y = -27, labels = "green is one-rate model", col = "green")
+pars3<-SimpleTimeFit(schedule = schedule, reaches = reaches)
+modeloutput2<- SimpleTimeModel(pars3, schedule)
+lines(modeloutput2*-1, lwd = 2,lty = 6, col = "dark grey")
+
+text(x = 285, y = -17, labels = "brown is two-rate model", col = "brown")
+text(x = 285, y = -21, labels = "dark grey is Simple time model", col = "dark grey")
+text(x = 285, y = -25, labels = "cyan is Size of Change model", col = "cyan")
+text(x = 285, y = -29, labels = "Orange is Pure rotation model", col = "Orange")
+text(x = 285, y = -23, labels = "purple is Sign Change model", col = "purple")
+text(x = 285, y = -19, labels = "green is one-rate model", col = "green")
 }
 

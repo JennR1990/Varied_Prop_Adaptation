@@ -2011,6 +2011,8 @@ SimpleModelComparisonPlot<- function() {
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/SignChangeModel.R')
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/AttenuationModel.R')
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/TwoRateModel.R')
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/SizeChangeModel.R')
+  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/SimpleTimeModel.R')
   
 variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
 reaches<- rowMeans(variation_reaches[,2:33], na.rm = TRUE)
@@ -2019,28 +2021,49 @@ schedule[schedule == 360]<- NA
 plotvariation()
 par<-oneRateFit(schedule = schedule, reaches = reaches)
 model<-oneRateModel(par,schedule)
+oneRateMSE<-oneRateMSE(par,schedule,reaches)
 lines(model*-1, lwd = 1.5, lty = 2, col = "green")
+
+par1<-twoRateFit(schedule = schedule, reaches = reaches)
+model<-twoRateModel(par1,schedule)
+twoRateMSE<-twoRateMSE(par1,schedule,reaches)
+lines(model$total*-1, lwd = 2, lty = 2, col = "brown")
+
 
 
 pars<-SignChangeFit(schedule = schedule, reaches = reaches)
 output<- SignChangeModel(pars, schedule)
-
-
+SignChangeMSE<-SignChangeMSE(pars,schedule,reaches)
 lines(output*-1, lwd = 2,lty = 5, col = "purple")
 
 
 pars1<-threeRateFit(schedule = schedule, reaches = reaches)
 modeloutput<- threeRateModel(pars1, schedule)
+AttenutationMSE<-threeRateMSE(pars1,schedule,reaches)
 lines(modeloutput*-1, lwd = 2,lty = 3, col = "Orange")
 
 
 pars2<-SizeofChangeFit(schedule = schedule, reaches = reaches)
 modeloutput1<- SizeofChangeModel(pars2, schedule)
+SizeofChangeMSE<-SizeofChangeMSE(pars2,schedule,reaches)
 lines(modeloutput1*-1, lwd = 2,lty = 4, col = "cyan")
 
-text(x = 285, y = -17, labels = "cyan is Size of Change model", col = "cyan")
+pars3<-SimpleTimeFit(schedule = schedule, reaches = reaches)
+modeloutput2<- SimpleTimeModel(pars3, schedule)
+SimpleTimeMSE<-SimpleTimeMSE(pars3,schedule,reaches)
+lines(modeloutput2*-1, lwd = 2,lty = 6, col = "black")
+
+
+text(x = 285, y = -16, labels = "brown is a two-rate model", col = "brown")
+text(x = 285, y = -24, labels = "Black is a simple time model", col = "black")
+text(x = 285, y = -18, labels = "cyan is Size of Change model", col = "cyan")
 text(x = 285, y = -30, labels = "Orange is attentuation model", col = "Orange")
-text(x = 285, y = -22, labels = "purple is Sign Change model", col = "purple")
+text(x = 285, y = -21, labels = "purple is Sign Change model", col = "purple")
 text(x = 285, y = -27, labels = "green is one-rate model", col = "green")
+
+Modelnames<- c("OneRate", "TwoRate", "Time", "Number of Rotation", "Sign Changes", "Size of Change")
+MSEs<- c(oneRateMSE, twoRateMSE,SimpleTimeMSE,AttenutationMSE, SignChangeMSE, SizeofChangeMSE)
+
+return(data.frame(MSEs, Modelnames))
 }
 

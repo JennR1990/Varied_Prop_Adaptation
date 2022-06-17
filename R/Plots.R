@@ -235,7 +235,8 @@ plotvariation<- function (){
   )
   axis(2, at = c(-30, -15, 0, 15, 30), cex.axis = 1.5,
        las = 2)
-  axis(1, at = g, cex.axis = .75, las = 2)
+  g<- c(seq(from = 50, to = 480, by = 48), 480)
+  axis(1, at = g, cex.axis = 1.25)
   reachdata<- getreachesformodel(variation_reaches)
   lines(reachdata$meanreaches*-1, type = 'l', col = 'Blue')
   locdata<- getreachesformodel(variation_localization)
@@ -2056,11 +2057,7 @@ pars3<-SimpleTimeFit(schedule = schedule, reaches = reaches)
 modeloutput2<- SimpleTimeModel(pars3, schedule)
 lines(modeloutput2*-1, lwd = 2,lty = 6, col = "dark grey")
 
-text(x = 285, y = -17, labels = "brown is two-rate model", col = "brown")
-text(x = 285, y = -21, labels = "dark grey is Simple time model", col = "dark grey")
-text(x = 285, y = -25, labels = "cyan is Size of Change model", col = "cyan")
-text(x = 285, y = -29, labels = "Orange is Pure rotation model", col = "Orange")
-text(x = 285, y = -23, labels = "purple is Sign Change model", col = "purple")
-text(x = 285, y = -19, labels = "green is one-rate model", col = "green")
+legend(x = 208, y = -15, legend = c("One-Rate", "Two-Rate", "Time", "Rotation", "Size of Change", "Sign Change"), col = c("green", "brown", "grey", "orange", "cyan", "purple"), 
+       lty = c(2,2,6,3,4,5), bty = 'n', ncol= 2)
 }
 

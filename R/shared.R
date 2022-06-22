@@ -13,7 +13,7 @@ Loaddata<- function (group='passive', task='reaches') {
 loadalldata<- function () {
   
   variation_reaches<<- removeReachOutliers(Loaddata(group='Reaches', task = 'Baselined'))
-  variation_localizationsss<<- removeReachOutliers(Loaddata(group='Localizations', task = 'Baselined'))
+  variation_localizations<<- removeReachOutliers(Loaddata(group='Localizations', task = 'Baselined'))
 
   
 }

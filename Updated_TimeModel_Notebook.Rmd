@@ -89,6 +89,10 @@ plotLR_Aperblock()
 
 ```{r Random Codes}
 
+alldata<- rbind(variation_reaches, variation_localizations)
+sum(is.na(alldata))/(480*32*2)*100
+
+
 ##best way to make the reaches proportional
 data$perc<- abs((data$meanreaches/abs(data$distortion))*100)
 

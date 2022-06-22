@@ -165,7 +165,7 @@ Getreachesperrotation<- function(data) {
 
 
 plotvariation<- function (){
-  source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/shared.R')
+  source('R/shared.R')
   variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)
   variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
   
@@ -235,7 +235,8 @@ plotvariation<- function (){
   )
   axis(2, at = c(-30, -15, 0, 15, 30), cex.axis = 1.5,
        las = 2)
-  axis(1, at = g, cex.axis = .75, las = 2)
+  g<- c(seq(from = 50, to = 480, by = 48), 480)
+  axis(1, at = g, cex.axis = 1.25)
   reachdata<- getreachesformodel(variation_reaches)
   lines(reachdata$meanreaches*-1, type = 'l', col = 'Blue')
   locdata<- getreachesformodel(variation_localization)
@@ -1820,7 +1821,7 @@ plotLR_Aperblock<- function(){
   newN_25<- (newdf$N0_025/abs(scale))*100
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
-  svglite("figs/LR & Asymptotes Across Blocks Together_0525.svg", height = 10, width = 14)
+  svglite("figs/LR & Asymptotes Across Blocks Together_0616.svg", height = 10, width = 14)
   
   
   
@@ -1848,10 +1849,17 @@ plotLR_Aperblock<- function(){
   }
   
 
-  time<- c(1:20,1:20)
-  modeld<- data.frame(newN_5, newdf$lambda_500, time)
-  model<-lm(newN_5[1:20]~time[1:20], data = modeld)
-  lines(1:20,predict(model), col = "red", lty = 2)
+  #time<- c(1:20,1:20)
+  #modeld<- data.frame(newN_5, newdf$lambda_500, time)
+  #model<-lm(newN_5[1:20]~time[1:20], data = modeld)
+  #lines(1:20,predict(model), col = "red", lty = 2)
+  
+  time<- c(1:17,1:17)
+  newnewN_5<- newN_5[-c(1,2,14,21,22,34)]
+  lambda_500<- newdf$lambda_500[-c(1,2,14,21,22,34)]
+  modeld<- data.frame(newnewN_5, lambda_500, time)
+  model<-lm(newnewN_5[1:17]~time[1:17], data = modeld)
+  lines(3:19,predict(model), col = "red", lty = 2)
   
   
   
@@ -1868,10 +1876,10 @@ plotLR_Aperblock<- function(){
     polygon(x, y, col = rgb(0,0,1,.2), border = NA)
   }
   
-  model<-lm(newN_5[21:40]~time[21:40], data = modeld)
-  lines(1:20,predict(model), col = "blue", lty = 2)
+  model<-lm(newnewN_5[18:34]~time[18:34], data = modeld)
+  lines(3:19,predict(model), col = "blue", lty = 2)
   
-  legend(3,200, legend= c("Localizations, r2 = .02", "Reaches, r2 = .12", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  legend(3,200, legend= c("Localizations, r2 = .05", "Reaches, r2 = .10", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
   
 
@@ -1894,8 +1902,11 @@ plotLR_Aperblock<- function(){
 
   axis(1, at = indx, cex.axis = 1.5)
   axis(2, at = c(0,.25,.5,.75,1), las = 2, cex.axis = 1.5)
-  model<-lm(newdf.lambda_500[1:20]~time[1:20], data = modeld)
-  lines(1:20,predict(model), col = "red", lty = 2)
+  #model<-lm(newdf.lambda_500[1:20]~time[1:20], data = modeld)
+  #lines(1:20,predict(model), col = "red", lty = 2)
+  
+  model<-lm(lambda_500[1:17]~time[1:17], data = modeld)
+  lines(3:19,predict(model), col = "red", lty = 2)
 
   
   
@@ -1910,12 +1921,12 @@ plotLR_Aperblock<- function(){
     polygon(x, y, col = rgb(0,0,1,.2), border = NA)
   }
 
-  model<-lm(newdf.lambda_500[21:40]~time[21:40], data = modeld)
-  lines(1:20,predict(model), col = "blue", lty = 2)
+  model<-lm(lambda_500[18:34]~time[18:34], data = modeld)
+  lines(3:19,predict(model), col = "blue", lty = 2)
 
   
   
-  legend(3,.2, legend= c("Localizations, r2 = .01", "Reaches, r2 = .21", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  legend(3,.2, legend= c("Localizations, r2 = .004", "Reaches, r2 = .30*", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
   
   y<-c()
@@ -2008,12 +2019,19 @@ summary(model)
 # Comparing models for reach data
 SimpleModelComparisonPlot<- function() {
   
+
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/SignChangeModel.R')
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/AttenuationModel.R')
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/TwoRateModel.R')
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/SizeChangeModel.R')
   source('E:/Jenn/Documents/Varied_Prop_Adaptation/R/SimpleTimeModel.R')
-  
+
+  source('R/SimpleTimeModel.R')
+  source('R/SizeChangeModel.R')  
+  source('R/SignChangeModel.R')
+  source('R/AttenuationModel.R')
+  source('R/TwoRateModel.R')
+
 variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
 reaches<- rowMeans(variation_reaches[,2:33], na.rm = TRUE)
 schedule<- variation_reaches$distortion
@@ -2054,16 +2072,22 @@ SimpleTimeMSE<-SimpleTimeMSE(pars3,schedule,reaches)
 lines(modeloutput2*-1, lwd = 2,lty = 6, col = "black")
 
 
-text(x = 285, y = -16, labels = "brown is a two-rate model", col = "brown")
-text(x = 285, y = -24, labels = "Black is a simple time model", col = "black")
-text(x = 285, y = -18, labels = "cyan is Size of Change model", col = "cyan")
-text(x = 285, y = -30, labels = "Orange is attentuation model", col = "Orange")
-text(x = 285, y = -21, labels = "purple is Sign Change model", col = "purple")
-text(x = 285, y = -27, labels = "green is one-rate model", col = "green")
+#text(x = 285, y = -16, labels = "brown is a two-rate model", col = "brown")
+#text(x = 285, y = -24, labels = "Black is a simple time model", col = "black")
+#text(x = 285, y = -18, labels = "cyan is Size of Change model", col = "cyan")
+#text(x = 285, y = -30, labels = "Orange is attentuation model", col = "Orange")
+#text(x = 285, y = -21, labels = "purple is Sign Change model", col = "purple")
+#text(x = 285, y = -27, labels = "green is one-rate model", col = "green")
 
 Modelnames<- c("OneRate", "TwoRate", "Time", "Number of Rotation", "Sign Changes", "Size of Change")
 MSEs<- c(oneRateMSE, twoRateMSE,SimpleTimeMSE,AttenutationMSE, SignChangeMSE, SizeofChangeMSE)
 
+
+
+legend(x = 208, y = -15, legend = c("One-Rate", "Two-Rate", "Time", "Rotation", "Size of Change", "Sign Change"), col = c("green", "brown", "grey", "orange", "cyan", "purple"), 
+       lty = c(2,2,6,3,4,5), bty = 'n', ncol= 2)
+
 return(data.frame(MSEs, Modelnames))
+
 }
 

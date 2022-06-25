@@ -30,7 +30,7 @@ threeRateModel <- function(par, schedule) {
     # this happens before we get visual feedback about potential errors
     # on the first trial, since we set Et and Pt at zero, overall Pt will be zero
     # I want to add an additional term that basically scales the AP parameter so there is less learning overall as time goes by. 
-    Pt <- (par['R'] * Pt) - (par['L'] * Et) - (par['A'] * AP)
+    Pt <- (par['R'] * Pt) - (par['L'] * Et) + (par['A'] * AP)
     #Pt <- (.857 * Pt) - (.232 * Et) - (.1 * AP)
     
     # now we calculate what the previous error will be for the next trial:

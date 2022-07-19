@@ -1821,7 +1821,7 @@ plotLR_Aperblock<- function(){
   newN_25<- (newdf$N0_025/abs(scale))*100
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
-  svglite("figs/LR & Asymptotes Across Blocks Together_0616.svg", height = 10, width = 14)
+  svglite("figs/LR & Asymptotes Across Blocks Together_0719.svg", height = 10, width = 14)
   
   
   
@@ -1881,7 +1881,7 @@ plotLR_Aperblock<- function(){
   
   legend(3,200, legend= c("Localizations, r2 = .05", "Reaches, r2 = .10", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
-  
+  mtext('A', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
 
   
   
@@ -1927,21 +1927,21 @@ plotLR_Aperblock<- function(){
   
   
   legend(3,.2, legend= c("Localizations, r2 = .004", "Reaches, r2 = .30*", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
-  
+  mtext('B', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
   
   y<-c()
   for (i in 1:20){
   y<- c(y, rot[i], rot[i])  
   }
   x<- c(1,sort(c(2:20,2:20)))
-  plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(0,20), cex.lab = 1.7)
-  axis(1, at = indx,cex.axis = 1.5)
-  axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
- 
   plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(1,20), cex.lab = 1.7)
   axis(1, at = indx,cex.axis = 1.5)
   axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
-  
+  mtext('C', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
+  plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(1,20), cex.lab = 1.7)
+  axis(1, at = indx,cex.axis = 1.5)
+  axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
+  mtext('D', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
    
   dev.off()
 }

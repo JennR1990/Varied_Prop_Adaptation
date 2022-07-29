@@ -39,9 +39,9 @@
      inkscape:window-height="1017"
      id="namedview691"
      showgrid="false"
-     inkscape:zoom="0.84523809"
-     inkscape:cx="387.35271"
-     inkscape:cy="581.41093"
+     inkscape:zoom="0.42261905"
+     inkscape:cx="93.307751"
+     inkscape:cy="543.12382"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -75,6 +75,78 @@
          id="rect8" />
     </clipPath>
   </defs>
+  <polygon
+     id="polygon351"
+     style="fill:#808080;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="562.7,53.51 557.28,53.51 557.28,346.26 562.7,346.26 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon353"
+     style="fill:#999999;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="584.39,100.75 578.97,100.75 578.97,416.99 584.39,416.99 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon487"
+     style="fill:#999999;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="584.39,53.51 578.97,53.51 578.97,375.5 584.39,375.5 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon377"
+     style="fill:#808080;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="844.67,53.51 839.25,53.51 839.25,220.05 844.67,220.05 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon511"
+     style="fill:#808080;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="844.67,190.01 839.25,190.01 839.25,284.22 844.67,284.22 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon485"
+     style="fill:#999999;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="562.7,53.51 557.28,53.51 557.28,347.96 562.7,347.96 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon255"
+     style="fill:#999999;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="347.02,36.33 341.86,36.33 341.86,325.17 347.02,325.17 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon173"
+     style="fill:#999999;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="347.02,77.24 341.86,77.24 341.86,416.15 347.02,416.15 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon147"
+     style="fill:#808080;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="79.15,363.89 74,363.89 74,388.03 79.15,388.03 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon149"
+     style="fill:#808080;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="99.75,0 94.6,0 94.6,413.99 99.75,413.99 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon229"
+     style="fill:#808080;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="79.15,268.04 74,268.04 74,296.76 79.15,296.76 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon231"
+     style="fill:#808080;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="99.75,171.75 94.6,171.75 94.6,254.64 99.75,254.64 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
   <g
      clip-path="url(#cpMC4wMHwxMDA4LjAwfDAuMDB8NzIwLjAw)"
      id="g13" />
@@ -90,130 +162,166 @@
          id="rect15" />
     </clipPath>
   </defs>
-  <g
-     clip-path="url(#cpMzguOTd8NDg0LjA0fDM4Ljk3fDQzMS41Mw==)"
-     id="g60">
-    <circle
-       cx="76.06"
-       cy="377.47"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle20" />
-    <circle
-       cx="96.66"
-       cy="172.51"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle22" />
-    <circle
-       cx="117.27"
-       cy="325.66"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle24" />
-    <circle
-       cx="137.87"
-       cy="337.75"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle26" />
-    <circle
-       cx="158.48"
-       cy="372.57"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle28" />
-    <circle
-       cx="179.08"
-       cy="349.52"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle30" />
-    <circle
-       cx="199.69"
-       cy="380.36"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle32" />
-    <circle
-       cx="220.29"
-       cy="368.01"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle34" />
-    <circle
-       cx="240.90"
-       cy="376.66"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle36" />
-    <circle
-       cx="261.50"
-       cy="320.15"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle38" />
-    <circle
-       cx="282.11"
-       cy="360.64"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle40" />
-    <circle
-       cx="302.71"
-       cy="335.87"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle42" />
-    <circle
-       cx="323.32"
-       cy="318.61"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle44" />
-    <circle
-       cx="343.93"
-       cy="253.89"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle46" />
-    <circle
-       cx="364.53"
-       cy="403.92"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle48" />
-    <circle
-       cx="385.14"
-       cy="360.68"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle50" />
-    <circle
-       cx="405.74"
-       cy="352.70"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle52" />
-    <circle
-       cx="426.35"
-       cy="397.21"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle54" />
-    <circle
-       cx="446.95"
-       cy="356.04"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle56" />
-    <circle
-       cx="467.56"
-       cy="357.31"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle58" />
-  </g>
+  <circle
+     id="circle20"
+     style="fill:#ff0000;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="377.47"
+     cx="76.059998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle22"
+     style="fill:#ff0000;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="172.50999"
+     cx="96.660004"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle24"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="325.66"
+     cx="117.27"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle26"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="337.75"
+     cx="137.87"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle28"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="372.57001"
+     cx="158.48"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle30"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="349.51999"
+     cx="179.08"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle32"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="380.35999"
+     cx="199.69"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle34"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="368.01001"
+     cx="220.28999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle36"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="376.66"
+     cx="240.89999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle38"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="320.14999"
+     cx="261.5"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle40"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="360.64001"
+     cx="282.10999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle42"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="335.87"
+     cx="302.70999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle44"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="318.60999"
+     cx="323.32001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle46"
+     style="fill:#ff0000;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="253.89"
+     cx="343.92999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle48"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="403.92001"
+     cx="364.53"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle50"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="360.67999"
+     cx="385.14001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle52"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="352.70001"
+     cx="405.73999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle54"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="397.20999"
+     cx="426.35001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle56"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="356.04001"
+     cx="446.95001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle58"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="357.31"
+     cx="467.56"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
   <defs
      id="defs65">
     <clipPath
@@ -228,7 +336,9 @@
   </defs>
   <g
      clip-path="url(#cpMC4wMHw1MDQuMDB8MC4wMHw0ODAuMDA=)"
-     id="g73">
+     id="g73"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <text
        x="261.50"
        y="23.73"
@@ -255,7 +365,9 @@
   </g>
   <g
      clip-path="url(#cpMzguOTd8NDg0LjA0fDM4Ljk3fDQzMS41Mw==)"
-     id="g79">
+     id="g79"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <line
        x1="38.97"
        y1="235.25"
@@ -273,7 +385,9 @@
   </g>
   <g
      clip-path="url(#cpMC4wMHwxMDA4LjAwfDAuMDB8NzIwLjAw)"
-     id="g145">
+     id="g145"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <line
        x1="76.06"
        y1="431.53"
@@ -514,343 +628,441 @@
        lengthAdjust="spacingAndGlyphs"
        id="text143">200</text>
   </g>
-  <g
-     clip-path="url(#cpMzguOTd8NDg0LjA0fDM4Ljk3fDQzMS41Mw==)"
-     id="g283">
-    <polygon
-       points="74.00,388.03 79.15,388.03 79.15,363.89 74.00,363.89 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon147" />
-    <polygon
-       points="94.60,413.99 99.75,413.99 99.75,0.00 94.60,0.00 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon149" />
-    <polygon
-       points="115.21,357.06 120.36,357.06 120.36,289.87 115.21,289.87 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon151" />
-    <polygon
-       points="135.81,356.58 140.96,356.58 140.96,315.93 135.81,315.93 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon153" />
-    <polygon
-       points="156.42,389.89 161.57,389.89 161.57,353.62 156.42,353.62 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon155" />
-    <polygon
-       points="177.02,358.39 182.17,358.39 182.17,340.68 177.02,340.68 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon157" />
-    <polygon
-       points="197.63,395.62 202.78,395.62 202.78,349.43 197.63,349.43 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon159" />
-    <polygon
-       points="218.23,380.27 223.38,380.27 223.38,356.74 218.23,356.74 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon161" />
-    <polygon
-       points="238.84,389.04 243.99,389.04 243.99,363.55 238.84,363.55 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon163" />
-    <polygon
-       points="259.44,342.59 264.59,342.59 264.59,300.51 259.44,300.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon165" />
-    <polygon
-       points="280.05,372.04 285.20,372.04 285.20,349.58 280.05,349.58 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon167" />
-    <polygon
-       points="300.65,390.90 305.81,390.90 305.81,155.80 300.65,155.80 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon169" />
-    <polygon
-       points="321.26,340.81 326.41,340.81 326.41,293.62 321.26,293.62 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon171" />
-    <polygon
-       points="341.86,416.15 347.02,416.15 347.02,77.24 341.86,77.24 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon173" />
-    <polygon
-       points="362.47,416.99 367.62,416.99 367.62,317.46 362.47,317.46 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon175" />
-    <polygon
-       points="383.08,369.90 388.23,369.90 388.23,349.74 383.08,349.74 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon177" />
-    <polygon
-       points="403.68,374.48 408.83,374.48 408.83,330.46 403.68,330.46 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon179" />
-    <polygon
-       points="424.29,409.97 429.44,409.97 429.44,381.59 424.29,381.59 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon181" />
-    <polygon
-       points="444.89,370.03 450.04,370.03 450.04,340.63 444.89,340.63 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon183" />
-    <polygon
-       points="465.50,372.23 470.65,372.23 470.65,343.37 465.50,343.37 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon185" />
-    <polyline
-       points="117.27,347.99 137.87,349.15 158.48,350.31 179.08,351.47 199.69,352.63 220.29,353.79 240.90,354.95 261.50,356.11 282.11,357.27 302.71,358.43 323.32,359.60 343.93,360.76 364.53,361.92 385.14,363.08 405.74,364.24 426.35,365.40 446.95,366.56 "
-       style="stroke-width: 0.75; stroke: #FF0000; stroke-dasharray: 4.00,4.00;"
-       id="polyline187" />
-    <circle
-       cx="76.06"
-       cy="284.01"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle189" />
-    <circle
-       cx="96.66"
-       cy="214.55"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle191" />
-    <circle
-       cx="117.27"
-       cy="278.59"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle193" />
-    <circle
-       cx="137.87"
-       cy="269.65"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle195" />
-    <circle
-       cx="158.48"
-       cy="266.97"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle197" />
-    <circle
-       cx="179.08"
-       cy="287.77"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle199" />
-    <circle
-       cx="199.69"
-       cy="295.44"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle201" />
-    <circle
-       cx="220.29"
-       cy="308.50"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle203" />
-    <circle
-       cx="240.90"
-       cy="291.49"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle205" />
-    <circle
-       cx="261.50"
-       cy="278.89"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle207" />
-    <circle
-       cx="282.11"
-       cy="282.40"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle209" />
-    <circle
-       cx="302.71"
-       cy="266.90"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle211" />
-    <circle
-       cx="323.32"
-       cy="288.56"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle213" />
-    <circle
-       cx="343.93"
-       cy="268.98"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle215" />
-    <circle
-       cx="364.53"
-       cy="308.00"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle217" />
-    <circle
-       cx="385.14"
-       cy="283.77"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle219" />
-    <circle
-       cx="405.74"
-       cy="296.11"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle221" />
-    <circle
-       cx="426.35"
-       cy="303.40"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle223" />
-    <circle
-       cx="446.95"
-       cy="294.19"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle225" />
-    <circle
-       cx="467.56"
-       cy="274.43"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle227" />
-    <polygon
-       points="74.00,296.76 79.15,296.76 79.15,268.04 74.00,268.04 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon229" />
-    <polygon
-       points="94.60,254.64 99.75,254.64 99.75,171.75 94.60,171.75 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon231" />
-    <polygon
-       points="115.21,300.52 120.36,300.52 120.36,250.94 115.21,250.94 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon233" />
-    <polygon
-       points="135.81,281.41 140.96,281.41 140.96,259.00 135.81,259.00 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon235" />
-    <polygon
-       points="156.42,280.23 161.57,280.23 161.57,254.49 156.42,254.49 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon237" />
-    <polygon
-       points="177.02,295.23 182.17,295.23 182.17,281.13 177.02,281.13 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon239" />
-    <polygon
-       points="197.63,318.37 202.78,318.37 202.78,270.46 197.63,270.46 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon241" />
-    <polygon
-       points="218.23,317.48 223.38,317.48 223.38,300.60 218.23,300.60 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon243" />
-    <polygon
-       points="238.84,312.46 243.99,312.46 243.99,270.96 238.84,270.96 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon245" />
-    <polygon
-       points="259.44,292.24 264.59,292.24 264.59,265.87 259.44,265.87 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon247" />
-    <polygon
-       points="280.05,289.89 285.20,289.89 285.20,275.00 280.05,275.00 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon249" />
-    <polygon
-       points="300.65,298.75 305.81,298.75 305.81,235.02 300.65,235.02 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon251" />
-    <polygon
-       points="321.26,300.52 326.41,300.52 326.41,275.53 321.26,275.53 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon253" />
-    <polygon
-       points="341.86,325.17 347.02,325.17 347.02,36.33 341.86,36.33 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon255" />
-    <polygon
-       points="362.47,329.43 367.62,329.43 367.62,268.92 362.47,268.92 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon257" />
-    <polygon
-       points="383.08,293.91 388.23,293.91 388.23,272.06 383.08,272.06 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon259" />
-    <polygon
-       points="403.68,316.88 408.83,316.88 408.83,273.89 403.68,273.89 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon261" />
-    <polygon
-       points="424.29,322.93 429.44,322.93 429.44,283.98 424.29,283.98 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon263" />
-    <polygon
-       points="444.89,304.90 450.04,304.90 450.04,282.56 444.89,282.56 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon265" />
-    <polygon
-       points="465.50,291.57 470.65,291.57 470.65,256.75 465.50,256.75 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon267" />
-    <polyline
-       points="117.27,280.24 137.87,281.06 158.48,281.87 179.08,282.69 199.69,283.51 220.29,284.32 240.90,285.14 261.50,285.95 282.11,286.77 302.71,287.58 323.32,288.40 343.93,289.22 364.53,290.03 385.14,290.85 405.74,291.66 426.35,292.48 446.95,293.29 "
-       style="stroke-width: 0.75; stroke: #0000FF; stroke-dasharray: 4.00,4.00;"
-       id="polyline269" />
-    <line
-       x1="127.96"
-       y1="67.76"
-       x2="149.34"
-       y2="67.76"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="line271" />
-    <line
-       x1="127.96"
-       y1="82.02"
-       x2="149.34"
-       y2="82.02"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="line273" />
-    <line
-       x1="127.96"
-       y1="96.27"
-       x2="149.34"
-       y2="96.27"
-       style="stroke-width: 0.75; stroke-dasharray: 4.00,4.00;"
-       id="line275" />
-    <text
-       x="160.03"
-       y="72.01"
-       style="font-size: 11.88px; font-family: &quot;Arial&quot;;"
-       textLength="115.82px"
-       lengthAdjust="spacingAndGlyphs"
-       id="text277">Localizations, r2 = .05</text>
-    <text
-       x="160.03"
-       y="86.27"
-       style="font-size: 11.88px; font-family: &quot;Arial&quot;;"
-       textLength="94.05px"
-       lengthAdjust="spacingAndGlyphs"
-       id="text279">Reaches, r2 = .10</text>
-    <text
-       x="160.03"
-       y="100.53"
-       style="font-size: 11.88px; font-family: &quot;Arial&quot;;"
-       textLength="60.06px"
-       lengthAdjust="spacingAndGlyphs"
-       id="text281">Regression</text>
-  </g>
+  <polygon
+     id="polygon151"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="120.36,289.87 115.21,289.87 115.21,357.06 120.36,357.06 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon153"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="140.96,315.93 135.81,315.93 135.81,356.58 140.96,356.58 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon155"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="161.57,353.62 156.42,353.62 156.42,389.89 161.57,389.89 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon157"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="182.17,340.68 177.02,340.68 177.02,358.39 182.17,358.39 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon159"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="202.78,349.43 197.63,349.43 197.63,395.62 202.78,395.62 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon161"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="223.38,356.74 218.23,356.74 218.23,380.27 223.38,380.27 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon163"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="243.99,363.55 238.84,363.55 238.84,389.04 243.99,389.04 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon165"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="264.59,300.51 259.44,300.51 259.44,342.59 264.59,342.59 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon167"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="285.2,349.58 280.05,349.58 280.05,372.04 285.2,372.04 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon169"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="305.81,155.8 300.65,155.8 300.65,390.9 305.81,390.9 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon171"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="326.41,293.62 321.26,293.62 321.26,340.81 326.41,340.81 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon175"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="367.62,317.46 362.47,317.46 362.47,416.99 367.62,416.99 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon177"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="388.23,349.74 383.08,349.74 383.08,369.9 388.23,369.9 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon179"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="408.83,330.46 403.68,330.46 403.68,374.48 408.83,374.48 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon181"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="429.44,381.59 424.29,381.59 424.29,409.97 429.44,409.97 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon183"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="450.04,340.63 444.89,340.63 444.89,370.03 450.04,370.03 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon185"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="470.65,343.37 465.5,343.37 465.5,372.23 470.65,372.23 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polyline
+     id="polyline187"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:4, 4"
+     points="117.27,347.99 137.87,349.15 158.48,350.31 179.08,351.47 199.69,352.63 220.29,353.79 240.90,354.95 261.50,356.11 282.11,357.27 302.71,358.43 323.32,359.60 343.93,360.76 364.53,361.92 385.14,363.08 405.74,364.24 426.35,365.40 446.95,366.56 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle189"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="284.01001"
+     cx="76.059998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle191"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="214.55"
+     cx="96.660004"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle193"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="278.59"
+     cx="117.27"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle195"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="269.64999"
+     cx="137.87"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle197"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="266.97"
+     cx="158.48"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle199"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="287.76999"
+     cx="179.08"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle201"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="295.44"
+     cx="199.69"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle203"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="308.5"
+     cx="220.28999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle205"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="291.48999"
+     cx="240.89999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle207"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="278.89001"
+     cx="261.5"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle209"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="282.39999"
+     cx="282.10999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle211"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="266.89999"
+     cx="302.70999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle213"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="288.56"
+     cx="323.32001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle215"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="268.98001"
+     cx="343.92999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle217"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="308"
+     cx="364.53"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle219"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="283.76999"
+     cx="385.14001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle221"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="296.10999"
+     cx="405.73999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle223"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="303.39999"
+     cx="426.35001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle225"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="294.19"
+     cx="446.95001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle227"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="274.42999"
+     cx="467.56"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon233"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="120.36,250.94 115.21,250.94 115.21,300.52 120.36,300.52 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon235"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="140.96,259 135.81,259 135.81,281.41 140.96,281.41 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon237"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="161.57,254.49 156.42,254.49 156.42,280.23 161.57,280.23 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon239"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="182.17,281.13 177.02,281.13 177.02,295.23 182.17,295.23 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon241"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="202.78,270.46 197.63,270.46 197.63,318.37 202.78,318.37 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon243"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="223.38,300.6 218.23,300.6 218.23,317.48 223.38,317.48 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon245"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="243.99,270.96 238.84,270.96 238.84,312.46 243.99,312.46 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon247"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="264.59,265.87 259.44,265.87 259.44,292.24 264.59,292.24 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon249"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="285.2,275 280.05,275 280.05,289.89 285.2,289.89 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon251"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="305.81,235.02 300.65,235.02 300.65,298.75 305.81,298.75 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon253"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="326.41,275.53 321.26,275.53 321.26,300.52 326.41,300.52 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon257"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="367.62,268.92 362.47,268.92 362.47,329.43 367.62,329.43 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon259"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="388.23,272.06 383.08,272.06 383.08,293.91 388.23,293.91 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon261"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="408.83,273.89 403.68,273.89 403.68,316.88 408.83,316.88 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon263"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="429.44,283.98 424.29,283.98 424.29,322.93 429.44,322.93 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon265"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="450.04,282.56 444.89,282.56 444.89,304.9 450.04,304.9 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon267"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="470.65,256.75 465.5,256.75 465.5,291.57 470.65,291.57 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polyline
+     id="polyline269"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:4, 4"
+     points="117.27,280.24 137.87,281.06 158.48,281.87 179.08,282.69 199.69,283.51 220.29,284.32 240.90,285.14 261.50,285.95 282.11,286.77 302.71,287.58 323.32,288.40 343.93,289.22 364.53,290.03 385.14,290.85 405.74,291.66 426.35,292.48 446.95,293.29 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <line
+     id="line271"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     y2="67.760002"
+     x2="149.34"
+     y1="67.760002"
+     x1="127.96"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <line
+     id="line273"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     y2="82.019997"
+     x2="149.34"
+     y1="82.019997"
+     x1="127.96"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <line
+     id="line275"
+     style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:4, 4"
+     y2="96.269997"
+     x2="149.34"
+     y1="96.269997"
+     x1="127.96"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <text
+     id="text277"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="115.82"
+     style="font-size:11.88000011px;font-family:Arial;white-space:pre"
+     y="72.010002"
+     x="160.03"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">Localizations, r2 = .05</text>
+  <text
+     id="text279"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="94.050003"
+     style="font-size:11.88000011px;font-family:Arial;white-space:pre"
+     y="86.269997"
+     x="160.03"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">Reaches, r2 = .10</text>
+  <text
+     id="text281"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="60.060001"
+     style="font-size:11.88000011px;font-family:Arial;white-space:pre"
+     y="100.53"
+     x="160.03"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">Regression</text>
   <g
      clip-path="url(#cpMC4wMHwxMDA4LjAwfDAuMDB8NzIwLjAw)"
-     id="g287">
+     id="g287"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <text
        x="38.97"
        y="44.74"
@@ -871,130 +1083,166 @@
          id="rect289" />
     </clipPath>
   </defs>
-  <g
-     clip-path="url(#cpNTQyLjk3fDk4OC4wNHwzOC45N3w0MzEuNTM=)"
-     id="g334">
-    <circle
-       cx="559.45"
-       cy="259.88"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle294" />
-    <circle
-       cx="581.14"
-       cy="408.90"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle296" />
-    <circle
-       cx="602.83"
-       cy="304.72"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle298" />
-    <circle
-       cx="624.52"
-       cy="169.64"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle300" />
-    <circle
-       cx="646.21"
-       cy="279.01"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle302" />
-    <circle
-       cx="667.90"
-       cy="167.07"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle304" />
-    <circle
-       cx="689.59"
-       cy="111.20"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle306" />
-    <circle
-       cx="711.28"
-       cy="108.36"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle308" />
-    <circle
-       cx="732.97"
-       cy="281.97"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle310" />
-    <circle
-       cx="754.66"
-       cy="188.88"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle312" />
-    <circle
-       cx="776.35"
-       cy="140.49"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle314" />
-    <circle
-       cx="798.04"
-       cy="198.06"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle316" />
-    <circle
-       cx="819.73"
-       cy="284.93"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle318" />
-    <circle
-       cx="841.42"
-       cy="128.69"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle320" />
-    <circle
-       cx="863.11"
-       cy="363.40"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle322" />
-    <circle
-       cx="884.80"
-       cy="213.86"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle324" />
-    <circle
-       cx="906.49"
-       cy="404.86"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle326" />
-    <circle
-       cx="928.18"
-       cy="308.19"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle328" />
-    <circle
-       cx="949.87"
-       cy="122.05"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle330" />
-    <circle
-       cx="971.56"
-       cy="184.52"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="circle332" />
-  </g>
+  <circle
+     id="circle294"
+     style="fill:#ff0000;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="259.88"
+     cx="559.45001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle296"
+     style="fill:#ff0000;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="408.89999"
+     cx="581.14001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle298"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="304.72"
+     cx="602.83002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle300"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="169.64"
+     cx="624.52002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle302"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="279.01001"
+     cx="646.21002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle304"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="167.07001"
+     cx="667.90002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle306"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="111.2"
+     cx="689.59003"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle308"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="108.36"
+     cx="711.28003"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle310"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="281.97"
+     cx="732.96997"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle312"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="188.88"
+     cx="754.65997"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle314"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="140.49001"
+     cx="776.34998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle316"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="198.06"
+     cx="798.03998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle318"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="284.92999"
+     cx="819.72998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle320"
+     style="fill:#ff0000;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="128.69"
+     cx="841.41998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle322"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="363.39999"
+     cx="863.10999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle324"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="213.86"
+     cx="884.79999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle326"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="404.85999"
+     cx="906.48999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle328"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="308.19"
+     cx="928.17999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle330"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="122.05"
+     cx="949.87"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle332"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="184.52"
+     cx="971.56"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
   <defs
      id="defs339">
     <clipPath
@@ -1009,7 +1257,9 @@
   </defs>
   <g
      clip-path="url(#cpNTA0LjAwfDEwMDguMDB8MC4wMHw0ODAuMDA=)"
-     id="g347">
+     id="g347"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <text
        x="765.50"
        y="23.73"
@@ -1034,100 +1284,122 @@
        lengthAdjust="spacingAndGlyphs"
        id="text345">Amount learned per trial</text>
   </g>
-  <g
-     clip-path="url(#cpNTQyLjk3fDk4OC4wNHwzOC45N3w0MzEuNTM=)"
-     id="g391">
-    <line
-       x1="542.97"
-       y1="344.29"
-       x2="988.04"
-       y2="344.29"
-       style="stroke-width: 0.75; stroke: #BEBEBE; stroke-dasharray: 4.00,4.00;"
-       id="line349" />
-    <polygon
-       points="557.28,346.26 562.70,346.26 562.70,53.51 557.28,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon351" />
-    <polygon
-       points="578.97,416.99 584.39,416.99 584.39,100.75 578.97,100.75 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon353" />
-    <polygon
-       points="600.66,404.31 606.08,404.31 606.08,53.51 600.66,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon355" />
-    <polygon
-       points="622.35,271.09 627.77,271.09 627.77,54.42 622.35,54.42 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon357" />
-    <polygon
-       points="644.04,343.56 649.46,343.56 649.46,176.62 644.04,176.62 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon359" />
-    <polygon
-       points="665.73,250.51 671.15,250.51 671.15,96.95 665.73,96.95 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon361" />
-    <polygon
-       points="687.42,323.91 692.84,323.91 692.84,53.51 687.42,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon363" />
-    <polygon
-       points="709.11,262.67 714.53,262.67 714.53,53.51 709.11,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon365" />
-    <polygon
-       points="730.80,384.49 736.22,384.49 736.22,53.51 730.80,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon367" />
-    <polygon
-       points="752.49,282.75 757.91,282.75 757.91,53.51 752.49,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon369" />
-    <polygon
-       points="774.18,204.29 779.60,204.29 779.60,53.51 774.18,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon371" />
-    <polygon
-       points="795.87,298.88 801.29,298.88 801.29,53.51 795.87,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon373" />
-    <polygon
-       points="817.56,341.43 822.98,341.43 822.98,53.51 817.56,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon375" />
-    <polygon
-       points="839.25,220.05 844.67,220.05 844.67,53.51 839.25,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon377" />
-    <polygon
-       points="860.94,413.50 866.36,413.50 866.36,53.51 860.94,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon379" />
-    <polygon
-       points="882.63,357.55 888.05,357.55 888.05,91.46 882.63,91.46 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon381" />
-    <polygon
-       points="904.32,416.99 909.74,416.99 909.74,53.51 904.32,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon383" />
-    <polygon
-       points="926.01,416.99 931.43,416.99 931.43,179.50 926.01,179.50 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon385" />
-    <polygon
-       points="947.70,269.33 953.12,269.33 953.12,53.51 947.70,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon387" />
-    <polygon
-       points="969.39,265.30 974.81,265.30 974.81,53.51 969.39,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #FF0000; fill-opacity: 0.20;"
-       id="polygon389" />
-  </g>
+  <line
+     id="line349"
+     style="fill:none;stroke:#bebebe;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:4, 4"
+     y2="344.29001"
+     x2="988.03998"
+     y1="344.29001"
+     x1="542.96997"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon355"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="606.08,53.51 600.66,53.51 600.66,404.31 606.08,404.31 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon357"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="627.77,54.42 622.35,54.42 622.35,271.09 627.77,271.09 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon359"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="649.46,176.62 644.04,176.62 644.04,343.56 649.46,343.56 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon361"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="671.15,96.95 665.73,96.95 665.73,250.51 671.15,250.51 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon363"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="692.84,53.51 687.42,53.51 687.42,323.91 692.84,323.91 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon365"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="714.53,53.51 709.11,53.51 709.11,262.67 714.53,262.67 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon367"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="736.22,53.51 730.8,53.51 730.8,384.49 736.22,384.49 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon369"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="757.91,53.51 752.49,53.51 752.49,282.75 757.91,282.75 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon371"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="779.6,53.51 774.18,53.51 774.18,204.29 779.6,204.29 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon373"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="801.29,53.51 795.87,53.51 795.87,298.88 801.29,298.88 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon375"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="822.98,53.51 817.56,53.51 817.56,341.43 822.98,341.43 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon379"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="866.36,53.51 860.94,53.51 860.94,413.5 866.36,413.5 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon381"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="888.05,91.46 882.63,91.46 882.63,357.55 888.05,357.55 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon383"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="909.74,53.51 904.32,53.51 904.32,416.99 909.74,416.99 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon385"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="931.43,179.5 926.01,179.5 926.01,416.99 931.43,416.99 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon387"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="953.12,53.51 947.7,53.51 947.7,269.33 953.12,269.33 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon389"
+     style="fill:#ff0000;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="974.81,53.51 969.39,53.51 969.39,265.3 974.81,265.3 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
   <g
      clip-path="url(#cpMC4wMHwxMDA4LjAwfDAuMDB8NzIwLjAw)"
-     id="g441">
+     id="g441"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <line
        x1="559.45"
        y1="431.53"
@@ -1308,263 +1580,339 @@
        lengthAdjust="spacingAndGlyphs"
        id="text439">1.00</text>
   </g>
-  <g
-     clip-path="url(#cpNTQyLjk3fDk4OC4wNHwzOC45N3w0MzEuNTM=)"
-     id="g539">
-    <polyline
-       points="602.83,202.98 624.52,201.92 646.21,200.87 667.90,199.81 689.59,198.75 711.28,197.69 732.97,196.63 754.66,195.57 776.35,194.51 798.04,193.45 819.73,192.39 841.42,191.33 863.11,190.27 884.80,189.21 906.49,188.15 928.18,187.09 949.87,186.03 "
-       style="stroke-width: 0.75; stroke: #FF0000; stroke-dasharray: 4.00,4.00;"
-       id="polyline443" />
-    <circle
-       cx="559.45"
-       cy="112.63"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle445" />
-    <circle
-       cx="581.14"
-       cy="53.51"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle447" />
-    <circle
-       cx="602.83"
-       cy="215.89"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle449" />
-    <circle
-       cx="624.52"
-       cy="214.77"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle451" />
-    <circle
-       cx="646.21"
-       cy="315.54"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle453" />
-    <circle
-       cx="667.90"
-       cy="269.74"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle455" />
-    <circle
-       cx="689.59"
-       cy="279.51"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle457" />
-    <circle
-       cx="711.28"
-       cy="285.02"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle459" />
-    <circle
-       cx="732.97"
-       cy="298.77"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle461" />
-    <circle
-       cx="754.66"
-       cy="264.60"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle463" />
-    <circle
-       cx="776.35"
-       cy="285.19"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle465" />
-    <circle
-       cx="798.04"
-       cy="295.78"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle467" />
-    <circle
-       cx="819.73"
-       cy="312.27"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle469" />
-    <circle
-       cx="841.42"
-       cy="243.82"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle471" />
-    <circle
-       cx="863.11"
-       cy="227.51"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle473" />
-    <circle
-       cx="884.80"
-       cy="210.76"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle475" />
-    <circle
-       cx="906.49"
-       cy="281.61"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle477" />
-    <circle
-       cx="928.18"
-       cy="278.59"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle479" />
-    <circle
-       cx="949.87"
-       cy="238.39"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle481" />
-    <circle
-       cx="971.56"
-       cy="252.30"
-       r="1.78"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="circle483" />
-    <polygon
-       points="557.28,347.96 562.70,347.96 562.70,53.51 557.28,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon485" />
-    <polygon
-       points="578.97,375.50 584.39,375.50 584.39,53.51 578.97,53.51 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon487" />
-    <polygon
-       points="600.66,276.25 606.08,276.25 606.08,98.58 600.66,98.58 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon489" />
-    <polygon
-       points="622.35,297.68 627.77,297.68 627.77,124.47 622.35,124.47 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon491" />
-    <polygon
-       points="644.04,350.07 649.46,350.07 649.46,272.05 644.04,272.05 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon493" />
-    <polygon
-       points="665.73,351.25 671.15,351.25 671.15,83.32 665.73,83.32 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon495" />
-    <polygon
-       points="687.42,316.96 692.84,316.96 692.84,239.82 687.42,239.82 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon497" />
-    <polygon
-       points="709.11,336.73 714.53,336.73 714.53,193.77 709.11,193.77 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon499" />
-    <polygon
-       points="730.80,322.20 736.22,322.20 736.22,268.90 730.80,268.90 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon501" />
-    <polygon
-       points="752.49,303.17 757.91,303.17 757.91,213.90 752.49,213.90 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon503" />
-    <polygon
-       points="774.18,315.25 779.60,315.25 779.60,248.26 774.18,248.26 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon505" />
-    <polygon
-       points="795.87,314.94 801.29,314.94 801.29,268.23 795.87,268.23 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon507" />
-    <polygon
-       points="817.56,363.19 822.98,363.19 822.98,263.53 817.56,263.53 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon509" />
-    <polygon
-       points="839.25,284.22 844.67,284.22 844.67,190.01 839.25,190.01 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon511" />
-    <polygon
-       points="860.94,268.46 866.36,268.46 866.36,161.97 860.94,161.97 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon513" />
-    <polygon
-       points="882.63,264.05 888.05,264.05 888.05,128.05 882.63,128.05 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon515" />
-    <polygon
-       points="904.32,305.57 909.74,305.57 909.74,245.61 904.32,245.61 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon517" />
-    <polygon
-       points="926.01,306.40 931.43,306.40 931.43,246.78 926.01,246.78 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon519" />
-    <polygon
-       points="947.70,322.24 953.12,322.24 953.12,150.21 947.70,150.21 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon521" />
-    <polygon
-       points="969.39,287.42 974.81,287.42 974.81,197.91 969.39,197.91 "
-       style="stroke-width: 0.75; stroke: none; fill: #0000FF; fill-opacity: 0.20;"
-       id="polygon523" />
-    <polyline
-       points="602.83,296.11 624.52,291.22 646.21,286.33 667.90,281.44 689.59,276.55 711.28,271.66 732.97,266.77 754.66,261.88 776.35,256.99 798.04,252.10 819.73,247.21 841.42,242.32 863.11,237.43 884.80,232.54 906.49,227.65 928.18,222.76 949.87,217.87 "
-       style="stroke-width: 0.75; stroke: #0000FF; stroke-dasharray: 4.00,4.00;"
-       id="polyline525" />
-    <line
-       x1="613.52"
-       y1="358.55"
-       x2="634.91"
-       y2="358.55"
-       style="stroke-width: 0.75; stroke: #FF0000;"
-       id="line527" />
-    <line
-       x1="613.52"
-       y1="372.81"
-       x2="634.91"
-       y2="372.81"
-       style="stroke-width: 0.75; stroke: #0000FF;"
-       id="line529" />
-    <line
-       x1="613.52"
-       y1="387.06"
-       x2="634.91"
-       y2="387.06"
-       style="stroke-width: 0.75; stroke-dasharray: 4.00,4.00;"
-       id="line531" />
-    <text
-       x="645.60"
-       y="362.80"
-       style="font-size: 11.88px; font-family: &quot;Arial&quot;;"
-       textLength="122.42px"
-       lengthAdjust="spacingAndGlyphs"
-       id="text533">Localizations, r2 = .004</text>
-    <text
-       x="645.60"
-       y="377.06"
-       style="font-size: 11.88px; font-family: &quot;Arial&quot;;"
-       textLength="98.67px"
-       lengthAdjust="spacingAndGlyphs"
-       id="text535">Reaches, r2 = .30*</text>
-    <text
-       x="645.60"
-       y="391.31"
-       style="font-size: 11.88px; font-family: &quot;Arial&quot;;"
-       textLength="60.06px"
-       lengthAdjust="spacingAndGlyphs"
-       id="text537">Regression</text>
-  </g>
+  <polyline
+     id="polyline443"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:4, 4"
+     points="602.83,202.98 624.52,201.92 646.21,200.87 667.90,199.81 689.59,198.75 711.28,197.69 732.97,196.63 754.66,195.57 776.35,194.51 798.04,193.45 819.73,192.39 841.42,191.33 863.11,190.27 884.80,189.21 906.49,188.15 928.18,187.09 949.87,186.03 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle445"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="112.63"
+     cx="559.45001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle447"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="53.509998"
+     cx="581.14001"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle449"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="215.89"
+     cx="602.83002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle451"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="214.77"
+     cx="624.52002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle453"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="315.54001"
+     cx="646.21002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle455"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="269.73999"
+     cx="667.90002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle457"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="279.51001"
+     cx="689.59003"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle459"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="285.01999"
+     cx="711.28003"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle461"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="298.76999"
+     cx="732.96997"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle463"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="264.60001"
+     cx="754.65997"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle465"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="285.19"
+     cx="776.34998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle467"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="295.78"
+     cx="798.03998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle469"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="312.26999"
+     cx="819.72998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle471"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="243.82001"
+     cx="841.41998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle473"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="227.50999"
+     cx="863.10999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle475"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="210.75999"
+     cx="884.79999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle477"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="281.60999"
+     cx="906.48999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle479"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="278.59"
+     cx="928.17999"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle481"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="238.39"
+     cx="949.87"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <circle
+     id="circle483"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     r="1.78"
+     cy="252.3"
+     cx="971.56"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon489"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="606.08,98.58 600.66,98.58 600.66,276.25 606.08,276.25 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon491"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="627.77,124.47 622.35,124.47 622.35,297.68 627.77,297.68 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon493"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="649.46,272.05 644.04,272.05 644.04,350.07 649.46,350.07 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon495"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="671.15,83.32 665.73,83.32 665.73,351.25 671.15,351.25 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon497"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="692.84,239.82 687.42,239.82 687.42,316.96 692.84,316.96 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon499"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="714.53,193.77 709.11,193.77 709.11,336.73 714.53,336.73 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon501"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="736.22,268.9 730.8,268.9 730.8,322.2 736.22,322.2 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon503"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="757.91,213.9 752.49,213.9 752.49,303.17 757.91,303.17 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon505"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="779.6,248.26 774.18,248.26 774.18,315.25 779.6,315.25 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon507"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="801.29,268.23 795.87,268.23 795.87,314.94 801.29,314.94 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon509"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="822.98,263.53 817.56,263.53 817.56,363.19 822.98,363.19 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon513"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="866.36,161.97 860.94,161.97 860.94,268.46 866.36,268.46 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon515"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="888.05,128.05 882.63,128.05 882.63,264.05 888.05,264.05 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon517"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="909.74,245.61 904.32,245.61 904.32,305.57 909.74,305.57 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon519"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="931.43,246.78 926.01,246.78 926.01,306.4 931.43,306.4 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon521"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="953.12,150.21 947.7,150.21 947.7,322.24 953.12,322.24 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polygon
+     id="polygon523"
+     style="fill:#0000ff;fill-opacity:0.2;stroke:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     points="974.81,197.91 969.39,197.91 969.39,287.42 974.81,287.42 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <polyline
+     id="polyline525"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:4, 4"
+     points="602.83,296.11 624.52,291.22 646.21,286.33 667.90,281.44 689.59,276.55 711.28,271.66 732.97,266.77 754.66,261.88 776.35,256.99 798.04,252.10 819.73,247.21 841.42,242.32 863.11,237.43 884.80,232.54 906.49,227.65 928.18,222.76 949.87,217.87 "
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <line
+     id="line527"
+     style="fill:none;stroke:#ff0000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     y2="358.54999"
+     x2="634.90997"
+     y1="358.54999"
+     x1="613.52002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <line
+     id="line529"
+     style="fill:none;stroke:#0000ff;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+     y2="372.81"
+     x2="634.90997"
+     y1="372.81"
+     x1="613.52002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <line
+     id="line531"
+     style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:4, 4"
+     y2="387.06"
+     x2="634.90997"
+     y1="387.06"
+     x1="613.52002"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <text
+     id="text533"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="122.42"
+     style="font-size:11.88000011px;font-family:Arial;white-space:pre"
+     y="362.79999"
+     x="645.59998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">Localizations, r2 = .004</text>
+  <text
+     id="text535"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="98.669998"
+     style="font-size:11.88000011px;font-family:Arial;white-space:pre"
+     y="377.06"
+     x="645.59998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">Reaches, r2 = .30*</text>
+  <text
+     id="text537"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="60.060001"
+     style="font-size:11.88000011px;font-family:Arial;white-space:pre"
+     y="391.31"
+     x="645.59998"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">Regression</text>
   <g
      clip-path="url(#cpMC4wMHwxMDA4LjAwfDAuMDB8NzIwLjAw)"
-     id="g543">
+     id="g543"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <text
        x="542.97"
        y="44.74"
@@ -1587,7 +1935,9 @@
   </defs>
   <g
      clip-path="url(#cpMzguOTd8NDg0LjA0fDUxOC45N3w2NzEuNTM=)"
-     id="g552">
+     id="g552"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <polyline
        points="55.45,524.62 77.14,524.62 77.14,559.93 98.83,559.93 98.83,559.93 120.52,559.93 120.52,630.56 142.21,630.56 142.21,630.56 163.90,630.56 163.90,524.62 185.59,524.62 185.59,524.62 207.28,524.62 207.28,665.88 228.97,665.88 228.97,665.88 250.66,665.88 250.66,559.93 272.35,559.93 272.35,665.88 294.04,665.88 294.04,630.56 315.73,630.56 315.73,559.93 337.42,559.93 337.42,559.93 359.11,559.93 359.11,524.62 380.80,524.62 380.80,665.88 402.49,665.88 402.49,630.56 424.18,630.56 424.18,665.88 445.87,665.88 445.87,524.62 467.56,524.62 467.56,630.56 "
        style="stroke-width: 0.75;"
@@ -1607,7 +1957,9 @@
   </defs>
   <g
      clip-path="url(#cpMC4wMHw1MDQuMDB8NDgwLjAwfDcyMC4wMA==)"
-     id="g563">
+     id="g563"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <text
        x="261.50"
        y="707.64"
@@ -1626,7 +1978,9 @@
   </g>
   <g
      clip-path="url(#cpMC4wMHwxMDA4LjAwfDAuMDB8NzIwLjAw)"
-     id="g615">
+     id="g615"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <line
        x1="55.45"
        y1="671.53"
@@ -1823,7 +2177,9 @@
   </defs>
   <g
      clip-path="url(#cpNTQyLjk3fDk4OC4wNHw1MTguOTd8NjcxLjUz)"
-     id="g624">
+     id="g624"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <polyline
        points="559.45,524.62 581.14,524.62 581.14,559.93 602.83,559.93 602.83,559.93 624.52,559.93 624.52,630.56 646.21,630.56 646.21,630.56 667.90,630.56 667.90,524.62 689.59,524.62 689.59,524.62 711.28,524.62 711.28,665.88 732.97,665.88 732.97,665.88 754.66,665.88 754.66,559.93 776.35,559.93 776.35,665.88 798.04,665.88 798.04,630.56 819.73,630.56 819.73,559.93 841.42,559.93 841.42,559.93 863.11,559.93 863.11,524.62 884.80,524.62 884.80,665.88 906.49,665.88 906.49,630.56 928.18,630.56 928.18,665.88 949.87,665.88 949.87,524.62 971.56,524.62 971.56,630.56 "
        style="stroke-width: 0.75;"
@@ -1843,7 +2199,9 @@
   </defs>
   <g
      clip-path="url(#cpNTA0LjAwfDEwMDguMDB8NDgwLjAwfDcyMC4wMA==)"
-     id="g635">
+     id="g635"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <text
        x="765.50"
        y="707.64"
@@ -1862,7 +2220,9 @@
   </g>
   <g
      clip-path="url(#cpMC4wMHwxMDA4LjAwfDAuMDB8NzIwLjAw)"
-     id="g687">
+     id="g687"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
     <line
        x1="559.45"
        y1="671.53"

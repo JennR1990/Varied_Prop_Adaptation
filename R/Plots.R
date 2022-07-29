@@ -236,7 +236,7 @@ plotvariation<- function (){
   axis(2, at = c(-30, -15, 0, 15, 30), cex.axis = 1.5,
        las = 2)
   g<- c(seq(from = 50, to = 480, by = 48), 480)
-  axis(1, at = g, cex.axis = 1.25)
+  axis(1, at = c(1,g), cex.axis = 1.25)
   reachdata<- getreachesformodel(variation_reaches)
   lines(reachdata$meanreaches*-1, type = 'l', col = 'Blue')
   locdata<- getreachesformodel(variation_localization)
@@ -1821,7 +1821,7 @@ plotLR_Aperblock<- function(){
   newN_25<- (newdf$N0_025/abs(scale))*100
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
-  svglite("figs/LR & Asymptotes Across Blocks Together_0719.svg", height = 10, width = 14)
+  #svglite("figs/LR & Asymptotes Across Blocks Together_0719.svg", height = 10, width = 14)
   
   
   
@@ -1860,6 +1860,7 @@ plotLR_Aperblock<- function(){
   modeld<- data.frame(newnewN_5, lambda_500, time)
   model<-lm(newnewN_5[1:17]~time[1:17], data = modeld)
   lines(3:19,predict(model), col = "red", lty = 2)
+  print(summary(model))
   
   
   
@@ -1878,6 +1879,7 @@ plotLR_Aperblock<- function(){
   
   model<-lm(newnewN_5[18:34]~time[18:34], data = modeld)
   lines(3:19,predict(model), col = "blue", lty = 2)
+  print(summary(model))
   
   legend(3,200, legend= c("Localizations, r2 = .05", "Reaches, r2 = .10", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
@@ -1907,7 +1909,7 @@ plotLR_Aperblock<- function(){
   
   model<-lm(lambda_500[1:17]~time[1:17], data = modeld)
   lines(3:19,predict(model), col = "red", lty = 2)
-
+  print(summary(model))
   
   
   #plot(df$lambda_500[21:40], type = "l", ylim = c(0,1), col = "Blue", main = "Reach Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE)
@@ -1923,7 +1925,7 @@ plotLR_Aperblock<- function(){
 
   model<-lm(lambda_500[18:34]~time[18:34], data = modeld)
   lines(3:19,predict(model), col = "blue", lty = 2)
-
+  print(summary(model))
   
   
   legend(3,.2, legend= c("Localizations, r2 = .004", "Reaches, r2 = .30*", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
@@ -1943,7 +1945,7 @@ plotLR_Aperblock<- function(){
   axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
   mtext('D', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
    
-  dev.off()
+  #dev.off()
 }
 
 ##looking at variability across blocks This needs to be looking at the variability within subjects not across subjects

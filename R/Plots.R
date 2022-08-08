@@ -1821,7 +1821,7 @@ plotLR_Aperblock<- function(){
   newN_25<- (newdf$N0_025/abs(scale))*100
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
-  #svglite("figs/LR & Asymptotes Across Blocks Together_0719.svg", height = 10, width = 14)
+  svglite("figs/LR & Asymptotes Across Blocks Together_0807.svg", height = 10, width = 14)
   
   
   
@@ -1831,9 +1831,9 @@ plotLR_Aperblock<- function(){
   lefts<- sort(c((1:20)-.10,(1:20)-.10))
   rights<- sort(c((1:20)+.15,(1:20)+.15))
   
-  plot(newN_5[1:20], xlim = c(0,20),ylim = c(0,200), col = "Red", main = "Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE, cex.lab = 1.7, cex.main = 1.5)
-  abline(h = 100, lty = 2, col = "grey")
-  abline(h = 20, lty = 2, col = "grey")
+  plot(newN_5[1:20], xlim = c(1,20),ylim = c(0,200), col = "Red", main = "Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE, cex.lab = 1.7, cex.main = 1.5)
+  abline(h = 100, lty = 1, col = "red")
+  abline(h = 20, lty = 1, col = "blue")
   
   indx<- seq(from = 0, to = 20, by = 4)
   indx[1]<- 1
@@ -1854,12 +1854,12 @@ plotLR_Aperblock<- function(){
   #model<-lm(newN_5[1:20]~time[1:20], data = modeld)
   #lines(1:20,predict(model), col = "red", lty = 2)
   
-  time<- c(1:17,1:17)
-  newnewN_5<- newN_5[-c(1,2,14,21,22,34)]
-  lambda_500<- newdf$lambda_500[-c(1,2,14,21,22,34)]
+  time<- c(1:18,1:18)
+  newnewN_5<- newN_5[-c(2,14,22,34)]
+  lambda_500<- newdf$lambda_500[-c(2,14,22,34)]
   modeld<- data.frame(newnewN_5, lambda_500, time)
-  model<-lm(newnewN_5[1:17]~time[1:17], data = modeld)
-  lines(3:19,predict(model), col = "red", lty = 2)
+  model<-lm(newnewN_5[1:18]~time[1:18], data = modeld)
+  lines(2:19,predict(model), col = "red", lty = 2)
   print(summary(model))
   
   
@@ -1877,11 +1877,11 @@ plotLR_Aperblock<- function(){
     polygon(x, y, col = rgb(0,0,1,.2), border = NA)
   }
   
-  model<-lm(newnewN_5[18:34]~time[18:34], data = modeld)
-  lines(3:19,predict(model), col = "blue", lty = 2)
+  model<-lm(newnewN_5[19:36]~time[19:36], data = modeld)
+  lines(2:19,predict(model), col = "blue", lty = 2)
   print(summary(model))
   
-  legend(3,200, legend= c("Localizations, r2 = .05", "Reaches, r2 = .10", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  legend(3,200, legend= c("Localizations, r2 = .02", "Reaches, r2 = .09", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
   mtext('A', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
 
@@ -1893,7 +1893,7 @@ plotLR_Aperblock<- function(){
   
   plot(df$lambda_500[1:20], ylim = c(0,1), col = "Red", main = "Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE,  cex.lab = 1.7, cex.main = 1.5)
   
-  abline(h = .2, lty = 2, col = "grey")
+  abline(h = .2, lty = 1, col = "blue")
   for (i in 1:20){
     lower<- startlocs[i]
     x<- c(lefts[lower],rights[lower],rights[lower+1],lefts[lower+1])
@@ -1907,8 +1907,8 @@ plotLR_Aperblock<- function(){
   #model<-lm(newdf.lambda_500[1:20]~time[1:20], data = modeld)
   #lines(1:20,predict(model), col = "red", lty = 2)
   
-  model<-lm(lambda_500[1:17]~time[1:17], data = modeld)
-  lines(3:19,predict(model), col = "red", lty = 2)
+  model<-lm(lambda_500[1:18]~time[1:18], data = modeld)
+  lines(2:19,predict(model), col = "red", lty = 2)
   print(summary(model))
   
   
@@ -1923,12 +1923,12 @@ plotLR_Aperblock<- function(){
     polygon(x, y, col = rgb(0,0,1,.2), border = NA)
   }
 
-  model<-lm(lambda_500[18:34]~time[18:34], data = modeld)
-  lines(3:19,predict(model), col = "blue", lty = 2)
+  model<-lm(lambda_500[19:36]~time[19:36], data = modeld)
+  #lines(2:19,predict(model), col = "blue", lty = 2)
   print(summary(model))
   
   
-  legend(3,.2, legend= c("Localizations, r2 = .004", "Reaches, r2 = .30*", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  legend(3,.2, legend= c("Localizations, r2 = .02", "Reaches", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   mtext('B', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
   
   y<-c()
@@ -1945,7 +1945,7 @@ plotLR_Aperblock<- function(){
   axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
   mtext('D', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
    
-  #dev.off()
+  dev.off()
 }
 
 ##looking at variability across blocks This needs to be looking at the variability within subjects not across subjects

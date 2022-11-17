@@ -1821,11 +1821,11 @@ plotLR_Aperblock<- function(){
   newN_25<- (newdf$N0_025/abs(scale))*100
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
-<<<<<<< HEAD
+
   svglite("figs/LR & Asymptotes Across Blocks Together_1117.svg", height = 10, width = 14)
-=======
+
   svglite("figs/LR & Asymptotes Across Blocks Together_0807.svg", height = 10, width = 14)
->>>>>>> a3880201781564af6a611cde7550a90ecdfba4b8
+
   
   
   
@@ -1859,20 +1859,20 @@ plotLR_Aperblock<- function(){
   #lines(1:20,predict(model), col = "red", lty = 2)
   
   time<- c(1:18,1:18)
-<<<<<<< HEAD
+
   newnewN_5<- newN_5[-c(1,14,21,34)]
   lambda_500<- newdf$lambda_500[-c(1,14,21,34)]
   modeld<- data.frame(newnewN_5, lambda_500, time)
   model<-lm(newnewN_5[1:18]~time[1:18], data = modeld)
   lines(2:19,predict(model), col = "red", lty = 2)
-=======
+
   newnewN_5<- newN_5[-c(2,14,22,34)]
   lambda_500<- newdf$lambda_500[-c(2,14,22,34)]
   modeld<- data.frame(newnewN_5, lambda_500, time)
   model<-lm(newnewN_5[1:18]~time[1:18], data = modeld)
   lines(2:19,predict(model), col = "red", lty = 2)
   print(summary(model))
->>>>>>> a3880201781564af6a611cde7550a90ecdfba4b8
+
   
   
   
@@ -1891,12 +1891,12 @@ plotLR_Aperblock<- function(){
   
   model<-lm(newnewN_5[19:36]~time[19:36], data = modeld)
   lines(2:19,predict(model), col = "blue", lty = 2)
-<<<<<<< HEAD
+
   
   legend(3,200, legend= c("Localizations, r2 = .15", "Reaches, r2 = .19", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
-=======
+
   print(summary(model))
->>>>>>> a3880201781564af6a611cde7550a90ecdfba4b8
+
   
   legend(3,200, legend= c("Localizations, r2 = .02", "Reaches, r2 = .09", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
@@ -1926,11 +1926,11 @@ plotLR_Aperblock<- function(){
   
   model<-lm(lambda_500[1:18]~time[1:18], data = modeld)
   lines(2:19,predict(model), col = "red", lty = 2)
-<<<<<<< HEAD
 
-=======
+
+
   print(summary(model))
->>>>>>> a3880201781564af6a611cde7550a90ecdfba4b8
+
   
   
   #plot(df$lambda_500[21:40], type = "l", ylim = c(0,1), col = "Blue", main = "Reach Learning Rates Across Blocks", ylab = "Amount learned per trial", xlab = "Block (12 or 24 trials)", axes = FALSE)
@@ -1945,21 +1945,21 @@ plotLR_Aperblock<- function(){
   }
 
   model<-lm(lambda_500[19:36]~time[19:36], data = modeld)
-<<<<<<< HEAD
+
   lines(2:19,predict(model), col = "blue", lty = 2)
 
   
   
   legend(3,.2, legend= c("Localizations, r2 = .005", "Reaches, r2 = .24*", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   
-=======
+
   #lines(2:19,predict(model), col = "blue", lty = 2)
   print(summary(model))
   
   
   legend(3,.2, legend= c("Localizations, r2 = .02", "Reaches", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
   mtext('B', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
->>>>>>> a3880201781564af6a611cde7550a90ecdfba4b8
+
   
   y<-c()
   for (i in 1:20){

@@ -2102,7 +2102,7 @@ plotLR_Aallblocks<- function(){
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
   
-  svglite("figs/LR & Asymptotes Across All Blocks Together_1205.svg", height = 8, width = 14)
+  svglite("figs/LR & Asymptotes Across All Blocks Together_1205a.svg", height = 8, width = 14)
   
   
   
@@ -2231,7 +2231,7 @@ plotLR_Aallblocks<- function(){
   print(summary(model))
   
   
-  legend(3,150, legend= c("Localizations, r2 = .04", "Reaches, r2 = .03", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.25)
+  legend(3,.75, legend= c("Localizations, r2 = .04", "Reaches, r2 = .03", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.25)
   
   
   #lines(2:19,predict(model), col = "blue", lty = 2)

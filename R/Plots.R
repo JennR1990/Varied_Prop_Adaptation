@@ -2102,7 +2102,7 @@ plotLR_Aallblocks<- function(){
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
   
-  svglite("figs/LR & Asymptotes Across Blocks Together_1127.svg", height = 10, width = 14)
+  svglite("figs/LR & Asymptotes Across All Blocks Together_1205.svg", height = 8, width = 14)
   
   
   
@@ -2110,13 +2110,17 @@ plotLR_Aallblocks<- function(){
   
   
   
-  layout(matrix(c(1,1,2,2,1,1,2,2,3,3,4,4), nrow = 3, ncol = 4, byrow = TRUE))
-  
-  lefts<- sort(c((1:20)-.10,(1:20)-.10))
-  rights<- sort(c((1:20)+.15,(1:20)+.15))
+  layout(matrix(c(1,2), nrow = 1, ncol = 2, byrow = FALSE))
+
   
   data<-c(newN_5[1:2], NA, newN_5[3:4], NA, newN_5[5], NA, newN_5[6], NA, NA, newN_5[7], NA, newN_5[8], NA,NA, newN_5[9:10],NA,newN_5[11], NA,newN_5[12:13], NA,newN_5[14:16], NA, NA, newN_5[17:20], NA, NA) 
-  which(!is.na(data))
+  
+  
+ places<-   which(!is.na(data))
+  
+ 
+ lefts<- sort(c((places)-.10,(places)-.10))
+ rights<- sort(c((places)+.15,(places)+.15))
   
   plot(data, xlim = c(1,35),ylim = c(0,150), col = "Red", main = "Asymptotes Across Blocks", ylab = "Percent Compensation", xlab = "Block (12 or 24 trials)", axes = FALSE, cex.lab = 1.7, cex.main = 1.5)
   #abline(h = 100, lty = 3, col = "red")
@@ -2125,7 +2129,7 @@ plotLR_Aallblocks<- function(){
   indx<- seq(from = 0, to = 36, by = 4)
   indx[1]<- 1
   axis(1, at = indx,cex.axis = 1.5)
-  axis(2, at = c(0,25,50,75,100,125,150,175,200), las = 2,cex.axis = 1.5)
+  axis(2, at = c(0,25,50,75,100,125,150), las = 2,cex.axis = 1.5)
   
   startlocs<- seq(from = 1, to = 40, by = 2)
   for (i in 1:20){
@@ -2135,25 +2139,16 @@ plotLR_Aallblocks<- function(){
     polygon(x, y, col = rgb(1,0,0,.2), border = NA)
   }
   
-  
-  #time<- c(1:20,1:20)
-  #modeld<- data.frame(newN_5, newdf$lambda_500, time)
-  #model<-lm(newN_5[1:20]~time[1:20], data = modeld)
-  #lines(1:20,predict(model), col = "red", lty = 2)
-  
-  # time<- c(1:18,1:18)
-  # 
-  # newnewN_5<- newN_5[-c(1,14,21,34)]
-  # lambda_500<- newdf$lambda_500[-c(1,14,21,34)]
-  # modeld<- data.frame(newnewN_5, lambda_500, time)
-  # model<-lm(newnewN_5[1:18]~time[1:18], data = modeld)
-  # 
+##ccreate data for model
+  data1<-c(newN_5[21:22], NA, newN_5[23:24], NA, newN_5[25], NA, newN_5[26], NA, NA, newN_5[27], NA, newN_5[28], NA,NA, newN_5[29:30],NA,newN_5[31], NA,newN_5[32:33], NA,newN_5[34:36], NA, NA, newN_5[37:40],NA,NA) 
+  data2<-c(df$lambda_500[1:2], NA, df$lambda_500[3:4], NA, df$lambda_500[5], NA, df$lambda_500[6], NA, NA, df$lambda_500[7], NA, df$lambda_500[8], NA,NA, df$lambda_500[9:10],NA,df$lambda_500[11], NA,df$lambda_500[12:13], NA,df$lambda_500[14:16], NA, NA, df$lambda_500[17:20], NA, NA) 
+  data3<-c(df$lambda_500[21:22], NA, df$lambda_500[23:24], NA, df$lambda_500[25], NA, df$lambda_500[26], NA, NA, df$lambda_500[27], NA, df$lambda_500[28], NA,NA, df$lambda_500[29:30],NA,df$lambda_500[31], NA,df$lambda_500[32:33], NA,df$lambda_500[34:36], NA, NA, df$lambda_500[37:40], NA, NA) 
   
   
   time<- c(1:33,1:33)
   
-  asymptotes<- c(data[-c(1,25)], data1[-c(1,25)])
-  learningrates<- c(data2[-c(1,25)], data3[-c(1,25)]) 
+  asymptotes<- c(data[-c(2,25)], data1[-c(2,25)])
+  learningrates<- c(data2[-c(2,25)], data3[-c(2,25)]) 
   modeld<- data.frame(asymptotes, learningrates, time)
   model<-lm(asymptotes[1:33]~time[1:33], data = modeld)
   
@@ -2182,7 +2177,7 @@ plotLR_Aallblocks<- function(){
   print(summary(model))
   
   
-  legend(3,150, legend= c("Localizations, r2 = .16", "Reaches, r2 = .21*", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  legend(3,150, legend= c("Localizations, r2 = .04", "Reaches, r2 = .05", "Regression"), col = c("Red", "Blue", "black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.25)
   
   mtext('A', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
   
@@ -2194,7 +2189,7 @@ plotLR_Aallblocks<- function(){
   data2<-c(df$lambda_500[1:2], NA, df$lambda_500[3:4], NA, df$lambda_500[5], NA, df$lambda_500[6], NA, NA, df$lambda_500[7], NA, df$lambda_500[8], NA,NA, df$lambda_500[9:10],NA,df$lambda_500[11], NA,df$lambda_500[12:13], NA,df$lambda_500[14:16], NA, NA, df$lambda_500[17:20], NA, NA) 
   plot(data2, ylim = c(0,1), col = "Red", main = "Learning Rates Across Blocks", ylab = "Amount changed per trial", xlab = "Block (12 or 24 trials)", axes = FALSE,  cex.lab = 1.7, cex.main = 1.5)
   
-  abline(h = .2, lty = 3, col = "blue")
+  #abline(h = .2, lty = 3, col = "blue")
   for (i in 1:20){
     lower<- startlocs[i]
     x<- c(lefts[lower],rights[lower],rights[lower+1],lefts[lower+1])
@@ -2236,7 +2231,7 @@ plotLR_Aallblocks<- function(){
   print(summary(model))
   
   
-  legend(3,.27, legend= c("Localizations, r2 = -.06", "Reaches, r2 = .06", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.5)
+  legend(3,150, legend= c("Localizations, r2 = .04", "Reaches, r2 = .03", "Regression"), col = c("Red", "Blue", "Black"), lty = c(1,1,2), lwd = 1, bty = "n", cex = 1.25)
   
   
   #lines(2:19,predict(model), col = "blue", lty = 2)
@@ -2247,19 +2242,29 @@ plotLR_Aallblocks<- function(){
   mtext('B', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
   
   
-  y<-c()
-  for (i in 1:20){
-    y<- c(y, rot[i], rot[i])  
-  }
-  x<- c(1,sort(c(2:20,2:20)))
-  plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(1,20), cex.lab = 1.7)
-  axis(1, at = indx,cex.axis = 1.5)
-  axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
-  mtext('C', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
-  plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(1,20), cex.lab = 1.7)
-  axis(1, at = indx,cex.axis = 1.5)
-  axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
-  mtext('D', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
+  
+  
+  
+  
+  
+
+  
+  # 
+  # 
+  # 
+  # y<-c()
+  # for (i in 1:20){
+  #   y<- c(y, rot[i], rot[i])  
+  # }
+  # x<- c(1,sort(c(2:20,2:20)))
+  # plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(1,20), cex.lab = 1.7)
+  # axis(1, at = indx,cex.axis = 1.5)
+  # axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
+  # mtext('C', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
+  # plot(x = x, y = y[-40]*-1, type = 'l', axes = FALSE, ylab = "Rotation Size", xlab = "Block (12 or 24 trials", xlim = c(1,20), cex.lab = 1.7)
+  # axis(1, at = indx,cex.axis = 1.5)
+  # axis(2, at = c(-30,-15,0,15,30),cex.axis = 1.5)
+  # mtext('D', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
   
   dev.off()
 }

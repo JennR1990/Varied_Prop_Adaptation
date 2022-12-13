@@ -208,15 +208,15 @@ plotvariation<- function (){
        ylab = "Hand Location [°]", ylim = c(-30, 30), xlim = c(1,480))
   
   lines(x = z[1:25], y = sizes[1:25], type = 'l')
-  lines(x = z[25:26], y = c(0,0), lty = 2)
+  lines(x = z[25:26], y = c(0,0), lty = 2, col = "Dark Grey")
   lines(x = z[26:33], y = sizes[26:33], type = 'l')
-  lines(x = z[33:36], y = c(0,0,0,0), lty = 2)
+  lines(x = z[33:36], y = c(0,0,0,0), lty = 2, col = "Dark Grey")
   lines(x = z[36:51], y = sizes[36:51], type = 'l')
-  lines(x = z[51:52], y = c(0,0), lty = 2)
+  lines(x = z[51:52], y = c(0,0), lty = 2, col = "Dark Grey")
   lines(x = z[52:61], y = sizes[52:61], type = 'l')
-  lines(x = z[61:62], y = c(0,0), lty = 2)
+  lines(x = z[61:62], y = c(0,0), lty = 2, col = "Dark Grey")
   lines(x = z[62:71], y = sizes[62:71], type = 'l')
-  lines(x = z[71:72], y = c(0,0), lty = 2)
+  lines(x = z[71:72], y = c(0,0), lty = 2, col = "Dark Grey")
   lines(x = z[73:74], y = sizes[73:74], type = 'l')
   
   legend(
@@ -233,6 +233,20 @@ plotvariation<- function (){
     bty = 'n', 
     cex = 1.2
   )
+  
+  # legend(
+  #   -5,
+  #   30,
+  #   legend = c(
+  #     'Participant controls cursor',
+  #     'Clamped cursor'),
+  #   col = c('black', 'dark grey'),
+  #   lty = c(1,2),
+  #   lwd = c(2),
+  #   bty = 'n', 
+  #   cex = 1.2
+  # )
+  # 
   axis(2, at = c(-30, -15, 0, 15, 30), cex.axis = 1.5,
        las = 2)
   g<- c(seq(from = 50, to = 480, by = 48), 480)

@@ -204,12 +204,10 @@ plotvariation<- function (){
     
   }
   plot(NULL, col = 'white', axes = F,cex.lab = 1.5,
-       cex.main = 1.5,    xlab = "Trial",
-       ylab = "Hand Location [°]", ylim = c(-30, 30), xlim = c(1,480))
+       cex.main = 1.5,
+       ylab = "Hand Location [°]", ylim = c(-30, 30), xlim = c(1,480), xlab = "", xaxt = 'n')
   
-  plot(NULL, col = 'white', axes = F,cex.lab = 1.5,
-       cex.main = 1.5, 
-       ylab = "Rotation [°]", ylim = c(-30, 30), xlim = c(1,480), xlab = "", xaxt = 'n')
+  
   
   lines(x = z[1:25], y = sizes[1:25], type = 'l')
   lines(x = z[25:26], y = c(0,0), lty = 2, col = "Dark Grey")
@@ -2111,15 +2109,9 @@ plotLR_Aallblocks<- function(){
   newN_5<- (newdf$N0_5/abs(scale))*100
   #newdf$rotation
   
-  svglite("figs/LR & Asymptotes Across All Blocks Together_1222a.svg", height = 8, width = 14)
+  svglite("figs/LR & Asymptotes Across All Blocks Together_1222c.svg", height = 8, width = 14)
   
-  
-  
-  
-  
-  
-  
-  layout(matrix(c(1,2,3,3), nrow = 2, ncol = 2, byrow = TRUE))
+  layout(matrix(c(1,2), nrow = 1, ncol = 2, byrow = TRUE))
 
   
   data<-c(newN_5[1:2], NA, newN_5[3:4], NA, newN_5[5], NA, newN_5[6], NA, NA, newN_5[7], NA, newN_5[8], NA,NA, newN_5[9:10],NA,newN_5[11], NA,newN_5[12:13], NA,newN_5[14:16], NA, NA, newN_5[17:20], NA, NA) 
@@ -2250,6 +2242,14 @@ plotLR_Aallblocks<- function(){
   
   mtext('B', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
   
+  dev.off()
+  
+  
+  svglite("figs/rotations for LR and asymptotes_1222c.svg", height = 4, width = 14)
+  
+  layout(matrix(c(1,2), nrow = 1, ncol = 2, byrow = TRUE))
+  
+  
   source("R/shared.R")
   variation_localization<- read.csv("data/variation_localization.csv", header = TRUE)
   variation_reaches<- read.csv("data/variation_reaches.csv", header = TRUE) 
@@ -2345,6 +2345,59 @@ plotLR_Aallblocks<- function(){
   
   mtext('C', outer=FALSE, side=3, las=1, line=1, adj=0, padj=1,cex = 2)
   
+  
+  plot(NULL, col = 'white', axes = F,cex.lab = 1.5,
+       cex.main = 1.5, 
+       ylab = "Rotation [°]", ylim = c(-30, 30), xlim = c(1,480), xlab = "", xaxt = 'n')
+  
+  lines(x = z[1:25], y = sizes[1:25], type = 'l')
+  lines(x = z[25:26], y = c(0,0), lty = 2, col = "Dark Grey")
+  lines(x = z[26:33], y = sizes[26:33], type = 'l')
+  lines(x = z[33:36], y = c(0,0,0,0), lty = 2, col = "Dark Grey")
+  lines(x = z[36:51], y = sizes[36:51], type = 'l')
+  lines(x = z[51:52], y = c(0,0), lty = 2, col = "Dark Grey")
+  lines(x = z[52:61], y = sizes[52:61], type = 'l')
+  lines(x = z[61:62], y = c(0,0), lty = 2, col = "Dark Grey")
+  lines(x = z[62:71], y = sizes[62:71], type = 'l')
+  lines(x = z[71:72], y = c(0,0), lty = 2, col = "Dark Grey")
+  lines(x = z[73:74], y = sizes[73:74], type = 'l')
+  
+  # legend(
+  #   -5,
+  #   30,
+  #   legend = c(
+  #     'Reaches',
+  #     'Localizations'),
+  #   col = c('blue', 'red'),
+  #   lty = c(1),
+  #   
+  #   
+  #   lwd = c(2),
+  #   bty = 'n', 
+  #   cex = 1.2
+  # )
+  
+  # legend(
+  #   -5,
+  #   30,
+  #   legend = c(
+  #     'Participant controls cursor',
+  #     'Clamped cursor'),
+  #   col = c('black', 'dark grey'),
+  #   lty = c(1,2),
+  #   lwd = c(2),
+  #   bty = 'n', 
+  #   cex = 1.2
+  # )
+  # 
+  axis(2, at = c(-30, -15, 0, 15, 30), cex.axis = 1.5,
+       las = 2)
+  g<- c(seq(from = 50, to = 480, by = 48), 480)
+  axis(1, at = c(1,g), cex.axis = 1.25)
+  locations<- seq(from = 50, to=470, by=12)
+  locations[]
+  
+  axis(1, at =locations, labels = c(1:36), cex.axis = 1, line = 2.5, las = 2 )
   
 
   
